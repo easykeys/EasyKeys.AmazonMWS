@@ -1,26 +1,25 @@
-/******************************************************************************* 
+/*******************************************************************************
  *  Copyright 2009 Amazon Services.
- *  Licensed under the Apache License, Version 2.0 (the "License"); 
- *  
- *  You may not use this file except in compliance with the License. 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ *  You may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
- *  CONDITIONS OF ANY KIND, either express or implied. See the License for the 
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
  *  specific language governing permissions and limitations under the License.
- * ***************************************************************************** 
- * 
+ * *****************************************************************************
+ *
  *  Marketplace Web Service CSharp Library
  *  API Version: 2009-01-01
- *  Generated: Mon Mar 16 17:31:42 PDT 2009 
- * 
+ *  Generated: Mon Mar 16 17:31:42 PDT 2009
+ *
  */
 
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
@@ -34,17 +33,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "Error")]
         public List<Error> Error
         {
-            get
-            {
-                if (_errorField == null)
-                {
-                    _errorField = new List<Error>();
-                }
-
-                return _errorField;
-            }
-
-            set { _errorField = value; }
+            get => _errorField ?? (_errorField = new List<Error>());
+            set => _errorField = value;
         }
 
         /// <summary>
@@ -54,7 +44,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public ErrorResponse WithError(params Error[] list)
         {
-            foreach (Error item in list)
+            foreach (var item in list)
             {
                 Error.Add(item);
             }
@@ -68,7 +58,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if Error property is set.</returns>
         public bool IsSetError()
         {
-            return (Error.Count > 0);
+            return Error.Count > 0;
         }
 
         /// <summary>
@@ -101,13 +91,12 @@ namespace MarketplaceWebService.Model
         /// XML Representation for this object.
         /// </summary>
         /// <returns>XML String.</returns>
-
         public string ToXML()
         {
-            StringBuilder xml = new StringBuilder();
+            var xml = new StringBuilder();
             xml.Append("<ErrorResponse xmlns=\"http://mws.amazonaws.com/doc/2009-01-01/\">");
-            List<Error> errorList = Error;
-            foreach (Error error in errorList)
+            var errorList = Error;
+            foreach (var error in errorList)
             {
                 xml.Append("<Error>");
                 xml.Append(error.ToXMLFragment());
@@ -126,13 +115,13 @@ namespace MarketplaceWebService.Model
         }
 
         /**
-         * 
+         *
          * Escape XML special characters
          */
         private string EscapeXML(string str)
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
+            var sb = new StringBuilder();
+            foreach (var c in str)
             {
                 switch (c)
                 {

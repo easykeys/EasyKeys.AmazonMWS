@@ -20,15 +20,13 @@ using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
-    [MarketplaceWebService(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
+    [MarketplaceWebServiceAttribute(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
     public class ManageReportScheduleRequest
     {
-        private string _scheduleField;
-
         private DateTime? _scheduleDateField;
 
         /// <summary>
@@ -142,11 +140,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the Schedule property.
         /// </summary>
         [XmlElement(ElementName = "Schedule")]
-        public string Schedule
-        {
-            get { return _scheduleField; }
-            set { _scheduleField = value; }
-        }
+        public string Schedule { get; set; }
 
         /// <summary>
         /// Sets the Schedule property.
@@ -155,7 +149,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public ManageReportScheduleRequest WithSchedule(string schedule)
         {
-            _scheduleField = schedule;
+            Schedule = schedule;
             return this;
         }
 
@@ -165,7 +159,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if Schedule property is set.</returns>
         public bool IsSetSchedule()
         {
-            return _scheduleField != null;
+            return Schedule != null;
         }
 
         /// <summary>
@@ -174,8 +168,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "ScheduleDate")]
         public DateTime ScheduleDate
         {
-            get { return _scheduleDateField.GetValueOrDefault(); }
-            set { _scheduleDateField = value; }
+            get => _scheduleDateField.GetValueOrDefault();
+            set => _scheduleDateField = value;
         }
 
         /// <summary>

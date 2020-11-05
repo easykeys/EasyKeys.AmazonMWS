@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     /// <summary>
     /// Enumeration of valid media types for the ContentType object.  The description attribute

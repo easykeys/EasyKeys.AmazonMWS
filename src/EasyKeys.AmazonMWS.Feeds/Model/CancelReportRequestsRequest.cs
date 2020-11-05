@@ -20,11 +20,11 @@ using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
-    [MarketplaceWebService(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
+    [MarketplaceWebServiceAttribute(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
     public class CancelReportRequestsRequest
     {
         private DateTime? _requestedFromDateField;
@@ -196,8 +196,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "RequestedFromDate")]
         public DateTime RequestedFromDate
         {
-            get { return _requestedFromDateField.GetValueOrDefault(); }
-            set { _requestedFromDateField = value; }
+            get => _requestedFromDateField.GetValueOrDefault();
+            set => _requestedFromDateField = value;
         }
 
         /// <summary>
@@ -226,8 +226,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "RequestedToDate")]
         public DateTime RequestedToDate
         {
-            get { return _requestedToDateField.GetValueOrDefault(); }
-            set { _requestedToDateField = value; }
+            get => _requestedToDateField.GetValueOrDefault();
+            set => _requestedToDateField = value;
         }
 
         /// <summary>

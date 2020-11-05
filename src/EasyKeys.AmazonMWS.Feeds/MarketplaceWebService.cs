@@ -15,7 +15,9 @@
  *
  */
 
-using MarketplaceWebService.Model;
+using System.Threading.Tasks;
+
+using EasyKeys.AmazonMWS.Feeds.Model;
 
 namespace EasyKeys.AmazonMWS.Feeds
 {
@@ -36,7 +38,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// streaming fashion.
         ///
         /// </remarks>
-        GetReportResponse GetReport(GetReportRequest request);
+        Task<GetReportResponse> GetReport(GetReportRequest request);
 
         /// <summary>
         /// Get Report Schedule Count.
@@ -47,7 +49,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns the number of report schedules.
         ///
         /// </remarks>
-        GetReportScheduleCountResponse GetReportScheduleCount(GetReportScheduleCountRequest request);
+        Task<GetReportScheduleCountResponse> GetReportScheduleCount(GetReportScheduleCountRequest request);
 
         /// <summary>
         /// Get Report Request List By Next Token.
@@ -58,7 +60,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        GetReportRequestListByNextTokenResponse GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request);
+        Task<GetReportRequestListByNextTokenResponse> GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request);
 
         /// <summary>
         /// Update Report Acknowledgements.
@@ -69,7 +71,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// The UpdateReportAcknowledgements operation updates the acknowledged status of one or more reports.
         ///
         /// </remarks>
-        UpdateReportAcknowledgementsResponse UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request);
+        Task<UpdateReportAcknowledgementsResponse> UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request);
 
         /// <summary>
         /// Submit Feed.
@@ -84,7 +86,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// caution (the default is false).
         ///
         /// </remarks>
-        SubmitFeedResponse SubmitFeed(SubmitFeedRequest request);
+        Task<SubmitFeedResponse> SubmitFeed(SubmitFeedRequest request);
 
         /// <summary>
         /// Get Report Count.
@@ -97,7 +99,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// regardless of acknowledgement status.
         ///
         /// </remarks>
-        GetReportCountResponse GetReportCount(GetReportCountRequest request);
+        Task<GetReportCountResponse> GetReportCount(GetReportCountRequest request);
 
         /// <summary>
         /// Get Feed Submission List By Next Token.
@@ -108,7 +110,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        GetFeedSubmissionListByNextTokenResponse GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request);
+        Task<GetFeedSubmissionListByNextTokenResponse> GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request);
 
         /// <summary>
         /// Cancel Feed Submissions.
@@ -120,7 +122,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// last 30 days that have not started processing.
         ///
         /// </remarks>
-        CancelFeedSubmissionsResponse CancelFeedSubmissions(CancelFeedSubmissionsRequest request);
+        Task<CancelFeedSubmissionsResponse> CancelFeedSubmissions(CancelFeedSubmissionsRequest request);
 
         /// <summary>
         /// Request Report.
@@ -131,7 +133,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// requests the generation of a report.
         ///
         /// </remarks>
-        RequestReportResponse RequestReport(RequestReportRequest request);
+        Task<RequestReportResponse> RequestReport(RequestReportRequest request);
 
         /// <summary>
         /// Get Feed Submission Count.
@@ -142,7 +144,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns the number of feeds matching all of the specified criteria.
         ///
         /// </remarks>
-        GetFeedSubmissionCountResponse GetFeedSubmissionCount(GetFeedSubmissionCountRequest request);
+        Task<GetFeedSubmissionCountResponse> GetFeedSubmissionCount(GetFeedSubmissionCountRequest request);
 
         /// <summary>
         /// Cancel Report Requests.
@@ -154,7 +156,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// by default all those within the last 90 days.
         ///
         /// </remarks>
-        CancelReportRequestsResponse CancelReportRequests(CancelReportRequestsRequest request);
+        Task<CancelReportRequestsResponse> CancelReportRequests(CancelReportRequestsRequest request);
 
         /// <summary>
         /// Get Report List.
@@ -166,7 +168,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// regardless of their acknowledgement status.
         ///
         /// </remarks>
-        GetReportListResponse GetReportList(GetReportListRequest request);
+        Task<GetReportListResponse> GetReportList(GetReportListRequest request);
 
         /// <summary>
         /// Get Feed Submission Result.
@@ -177,7 +179,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieves the feed processing report.
         ///
         /// </remarks>
-        GetFeedSubmissionResultResponse GetFeedSubmissionResult(GetFeedSubmissionResultRequest request);
+        Task<GetFeedSubmissionResultResponse> GetFeedSubmissionResult(GetFeedSubmissionResultRequest request);
 
         /// <summary>
         /// Get Feed Submission List.
@@ -188,7 +190,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns a list of feed submission identifiers and their associated metadata.
         ///
         /// </remarks>
-        GetFeedSubmissionListResponse GetFeedSubmissionList(GetFeedSubmissionListRequest request);
+        Task<GetFeedSubmissionListResponse> GetFeedSubmissionList(GetFeedSubmissionListRequest request);
 
         /// <summary>
         /// Get Report Request List.
@@ -199,7 +201,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns a list of report requests ids and their associated metadata.
         ///
         /// </remarks>
-        GetReportRequestListResponse GetReportRequestList(GetReportRequestListRequest request);
+        Task<GetReportRequestListResponse> GetReportRequestList(GetReportRequestListRequest request);
 
         /// <summary>
         /// Get Report Schedule List By Next Token.
@@ -210,7 +212,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        GetReportScheduleListByNextTokenResponse GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request);
+        Task<GetReportScheduleListByNextTokenResponse> GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request);
 
         /// <summary>
         /// Get Report List By Next Token.
@@ -221,7 +223,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        GetReportListByNextTokenResponse GetReportListByNextToken(GetReportListByNextTokenRequest request);
+        Task<GetReportListByNextTokenResponse> GetReportListByNextToken(GetReportListByNextTokenRequest request);
 
         /// <summary>
         /// Manage Report Schedule.
@@ -233,7 +235,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// for a given report type, such as order reports in particular.
         ///
         /// </remarks>
-        ManageReportScheduleResponse ManageReportSchedule(ManageReportScheduleRequest request);
+        Task<ManageReportScheduleResponse> ManageReportSchedule(ManageReportScheduleRequest request);
 
         /// <summary>
         /// Get Report Request Count.
@@ -245,7 +247,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// requests in the last 90 days.
         ///
         /// </remarks>
-        GetReportRequestCountResponse GetReportRequestCount(GetReportRequestCountRequest request);
+        Task<GetReportRequestCountResponse> GetReportRequestCount(GetReportRequestCountRequest request);
 
         /// <summary>
         /// Get Report Schedule List.
@@ -256,6 +258,6 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns the list of report schedules.
         ///
         /// </remarks>
-        GetReportScheduleListResponse GetReportScheduleList(GetReportScheduleListRequest request);
+        Task<GetReportScheduleListResponse> GetReportScheduleList(GetReportScheduleListRequest request);
     }
 }

@@ -20,11 +20,11 @@ using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
-    [MarketplaceWebService(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
+    [MarketplaceWebServiceAttribute(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
     public class GetReportListRequest
     {
         private decimal? _maxCountField;
@@ -121,8 +121,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "MaxCount")]
         public decimal MaxCount
         {
-            get { return _maxCountField.GetValueOrDefault(); }
-            set { _maxCountField = value; }
+            get => _maxCountField.GetValueOrDefault();
+            set => _maxCountField = value;
         }
 
         /// <summary>
@@ -177,8 +177,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "Acknowledged")]
         public bool Acknowledged
         {
-            get { return _acknowledgedField.GetValueOrDefault(); }
-            set { _acknowledgedField = value; }
+            get => _acknowledgedField.GetValueOrDefault();
+            set => _acknowledgedField = value;
         }
 
         /// <summary>
@@ -207,8 +207,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "AvailableFromDate")]
         public DateTime AvailableFromDate
         {
-            get { return _availableFromDateField.GetValueOrDefault(); }
-            set { _availableFromDateField = value; }
+            get => _availableFromDateField.GetValueOrDefault();
+            set => _availableFromDateField = value;
         }
 
         /// <summary>
@@ -237,8 +237,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "AvailableToDate")]
         public DateTime AvailableToDate
         {
-            get { return _availableToDateField.GetValueOrDefault(); }
-            set { _availableToDateField = value; }
+            get => _availableToDateField.GetValueOrDefault();
+            set => _availableToDateField = value;
         }
 
         /// <summary>

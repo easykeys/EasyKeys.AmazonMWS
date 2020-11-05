@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MarketplaceWebService.Model
+﻿namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     public interface IContentTypeParameter
     {

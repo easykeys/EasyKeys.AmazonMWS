@@ -27,11 +27,6 @@ namespace EasyKeys.AmazonMWS.Feeds
     /// </summary>
     public class MarketplaceWebServiceConfig
     {
-        private string _serviceVersion = "2009-01-01";
-        private string _userAgent = null;
-        private string _proxyHost = null;
-        private int _maxErrorRetry = 3;
-
         /// <summary>
         /// Gets and sets the request time-out value in milliseconds.
         /// </summary>
@@ -40,10 +35,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <summary>
         /// Gets Service Version.
         /// </summary>
-        public string ServiceVersion
-        {
-            get { return _serviceVersion; }
-        }
+        public string ServiceVersion { get; } = "2009-01-01";
 
         /// <summary>
         /// Gets and sets of the signatureMethod property.
@@ -98,10 +90,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <summary>
         /// Gets and sets of the UserAgent property.
         /// </summary>
-        public string UserAgent
-        {
-            get { return _userAgent; }
-        }
+        public string UserAgent { get; private set; } = null;
 
         /// <summary>
         /// Sets the UserAgent property.
@@ -110,7 +99,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <returns>this instance.</returns>
         public MarketplaceWebServiceConfig WithUserAgent(string userAgent)
         {
-            _userAgent = userAgent;
+            UserAgent = userAgent;
             return this;
         }
 
@@ -120,7 +109,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <returns>true if UserAgent property is set.</returns>
         public bool IsSetUserAgent()
         {
-            return _userAgent != null;
+            return UserAgent != null;
         }
 
         /// <summary>
@@ -151,11 +140,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <summary>
         /// Gets and sets of the ProxyHost property.
         /// </summary>
-        public string ProxyHost
-        {
-            get { return _proxyHost; }
-            set { _proxyHost = value; }
-        }
+        public string ProxyHost { get; set; } = null;
 
         /// <summary>
         /// Sets the ProxyHost property.
@@ -164,7 +149,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <returns>this instance.</returns>
         public MarketplaceWebServiceConfig WithProxyHost(string proxyHost)
         {
-            _proxyHost = proxyHost;
+            ProxyHost = proxyHost;
             return this;
         }
 
@@ -174,7 +159,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <returns>true if ProxyHost property is set.</returns>
         public bool IsSetProxyHost()
         {
-            return _proxyHost != null;
+            return ProxyHost != null;
         }
 
         /// <summary>
@@ -205,11 +190,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <summary>
         /// Gets and sets of the MaxErrorRetry property.
         /// </summary>
-        public int MaxErrorRetry
-        {
-            get { return _maxErrorRetry; }
-            set { _maxErrorRetry = value; }
-        }
+        public int MaxErrorRetry { get; set; } = 3;
 
         /// <summary>
         /// Sets the MaxErrorRetry property.
@@ -218,7 +199,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <returns>this instance.</returns>
         public MarketplaceWebServiceConfig WithMaxErrorRetry(int maxErrorRetry)
         {
-            _maxErrorRetry = maxErrorRetry;
+            MaxErrorRetry = maxErrorRetry;
             return this;
         }
 
@@ -228,7 +209,7 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <returns>true if MaxErrorRetry property is set.</returns>
         public bool IsSetMaxErrorRetry()
         {
-            return _maxErrorRetry != -1;
+            return MaxErrorRetry != -1;
         }
 
         public void SetUserAgentHeader(
@@ -257,7 +238,7 @@ namespace EasyKeys.AmazonMWS.Feeds
                 throw new ArgumentException("Every name must have a corresponding value.");
             }
 
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
 
             sb.Append(QuoteApplicationName(applicationName));
             sb.Append("/");
@@ -266,11 +247,11 @@ namespace EasyKeys.AmazonMWS.Feeds
             sb.Append("Language=");
             sb.Append(QuoteAttributeValue(programmingLanguage));
 
-            int i = 0;
+            var i = 0;
             while (i < additionalNameValuePairs.Length)
             {
-                string name = additionalNameValuePairs[i];
-                string value = additionalNameValuePairs[++i];
+                var name = additionalNameValuePairs[i];
+                var value = additionalNameValuePairs[++i];
                 sb.Append("; ");
                 sb.Append(QuoteAttributeName(name));
                 sb.Append("=");
@@ -281,7 +262,7 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             sb.Append(")");
 
-            _userAgent = sb.ToString();
+            UserAgent = sb.ToString();
         }
 
         /// <summary>

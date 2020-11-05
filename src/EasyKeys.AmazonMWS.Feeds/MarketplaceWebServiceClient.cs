@@ -24,11 +24,12 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-using MarketplaceWebService.Model;
+using EasyKeys.AmazonMWS.Feeds.Model;
 
 namespace EasyKeys.AmazonMWS.Feeds
 {
@@ -117,9 +118,44 @@ namespace EasyKeys.AmazonMWS.Feeds
             BuildUserAgentHeader(applicationName, applicationVersion, config);
         }
 
-        private const string mwsClientVersion = "2014-09-30";
+        private const string mwsClientVersion = "2016-09-21";
+
+        private void BuildUserAgentHeader(
+            string applicationName,
+            string applicationVersion,
+            MarketplaceWebServiceConfig config)
+        {
+            config.SetUserAgentHeader(
+                applicationName,
+                applicationVersion,
+                "C#",
+                "CLI",
+                ".NET Standard 1.5",
+                "Platform",
+                ".NET Standard 1.5",
+                "MWSClientVersion",
+                mwsClientVersion);
+        }
 
         // Public API ------------------------------------------------------------//
+
+        /// <summary>
+        /// Get Report.
+        /// </summary>
+        /// <param name="request">Get Report  request.</param>
+        /// <returns>Get Report  Response from the service.</returns>
+        /// <remarks>
+        /// The GetReport operation returns the contents of a report. Reports can potentially be
+        /// very large (>100MB) which is why we only return one report at a time, and in a
+        /// streaming fashion.
+        ///
+        /// </remarks>
+#pragma warning disable SA1202 // Elements should be ordered by access
+        public async Task<GetReportResponse> GetReport(GetReportRequest request)
+#pragma warning restore SA1202 // Elements should be ordered by access
+        {
+            return await Invoke<GetReportResponse, GetReportRequest>(ConvertGetReport(request), request);
+        }
 
         /// <summary>
         /// Get Report Schedule Count.
@@ -130,9 +166,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns the number of report schedules.
         ///
         /// </remarks>
-        public GetReportScheduleCountResponse GetReportScheduleCount(GetReportScheduleCountRequest request)
+        public async Task<GetReportScheduleCountResponse> GetReportScheduleCount(GetReportScheduleCountRequest request)
         {
-            return Invoke<GetReportScheduleCountResponse>(ConvertGetReportScheduleCount(request));
+            return await Invoke<GetReportScheduleCountResponse>(ConvertGetReportScheduleCount(request));
         }
 
         /// <summary>
@@ -144,9 +180,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        public GetReportRequestListByNextTokenResponse GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
+        public async Task<GetReportRequestListByNextTokenResponse> GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
         {
-            return Invoke<GetReportRequestListByNextTokenResponse>(ConvertGetReportRequestListByNextToken(request));
+            return await Invoke<GetReportRequestListByNextTokenResponse>(ConvertGetReportRequestListByNextToken(request));
         }
 
         /// <summary>
@@ -158,9 +194,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// The UpdateReportAcknowledgements operation updates the acknowledged status of one or more reports.
         ///
         /// </remarks>
-        public UpdateReportAcknowledgementsResponse UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
+        public async Task<UpdateReportAcknowledgementsResponse> UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
         {
-            return Invoke<UpdateReportAcknowledgementsResponse>(ConvertUpdateReportAcknowledgements(request));
+            return await Invoke<UpdateReportAcknowledgementsResponse>(ConvertUpdateReportAcknowledgements(request));
         }
 
         /// <summary>
@@ -176,9 +212,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// caution (the default is false).
         ///
         /// </remarks>
-        public SubmitFeedResponse SubmitFeed(SubmitFeedRequest request)
+        public async Task<SubmitFeedResponse> SubmitFeed(SubmitFeedRequest request)
         {
-            return Invoke<SubmitFeedResponse, SubmitFeedRequest>(ConvertSubmitFeed(request), request);
+            return await Invoke<SubmitFeedResponse, SubmitFeedRequest>(ConvertSubmitFeed(request), request);
         }
 
         /// <summary>
@@ -192,9 +228,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// regardless of acknowledgement status.
         ///
         /// </remarks>
-        public GetReportCountResponse GetReportCount(GetReportCountRequest request)
+        public async Task<GetReportCountResponse> GetReportCount(GetReportCountRequest request)
         {
-            return Invoke<GetReportCountResponse>(ConvertGetReportCount(request));
+            return await Invoke<GetReportCountResponse>(ConvertGetReportCount(request));
         }
 
         /// <summary>
@@ -206,9 +242,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        public GetFeedSubmissionListByNextTokenResponse GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
+        public async Task<GetFeedSubmissionListByNextTokenResponse> GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
         {
-            return Invoke<GetFeedSubmissionListByNextTokenResponse>(ConvertGetFeedSubmissionListByNextToken(request));
+            return await Invoke<GetFeedSubmissionListByNextTokenResponse>(ConvertGetFeedSubmissionListByNextToken(request));
         }
 
         /// <summary>
@@ -221,9 +257,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// last 30 days that have not started processing.
         ///
         /// </remarks>
-        public CancelFeedSubmissionsResponse CancelFeedSubmissions(CancelFeedSubmissionsRequest request)
+        public async Task<CancelFeedSubmissionsResponse> CancelFeedSubmissions(CancelFeedSubmissionsRequest request)
         {
-            return Invoke<CancelFeedSubmissionsResponse>(ConvertCancelFeedSubmissions(request));
+            return await Invoke<CancelFeedSubmissionsResponse>(ConvertCancelFeedSubmissions(request));
         }
 
         /// <summary>
@@ -235,9 +271,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// requests the generation of a report.
         ///
         /// </remarks>
-        public RequestReportResponse RequestReport(RequestReportRequest request)
+        public async Task<RequestReportResponse> RequestReport(RequestReportRequest request)
         {
-            return Invoke<RequestReportResponse>(ConvertRequestReport(request));
+            return await Invoke<RequestReportResponse>(ConvertRequestReport(request));
         }
 
         /// <summary>
@@ -249,9 +285,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns the number of feeds matching all of the specified criteria.
         ///
         /// </remarks>
-        public GetFeedSubmissionCountResponse GetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
+        public async Task<GetFeedSubmissionCountResponse> GetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
         {
-            return Invoke<GetFeedSubmissionCountResponse>(ConvertGetFeedSubmissionCount(request));
+            return await Invoke<GetFeedSubmissionCountResponse>(ConvertGetFeedSubmissionCount(request));
         }
 
         /// <summary>
@@ -264,9 +300,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// by default all those within the last 90 days.
         ///
         /// </remarks>
-        public CancelReportRequestsResponse CancelReportRequests(CancelReportRequestsRequest request)
+        public async Task<CancelReportRequestsResponse> CancelReportRequests(CancelReportRequestsRequest request)
         {
-            return Invoke<CancelReportRequestsResponse>(ConvertCancelReportRequests(request));
+            return await Invoke<CancelReportRequestsResponse>(ConvertCancelReportRequests(request));
         }
 
         /// <summary>
@@ -279,9 +315,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// regardless of their acknowledgement status.
         ///
         /// </remarks>
-        public GetReportListResponse GetReportList(GetReportListRequest request)
+        public async Task<GetReportListResponse> GetReportList(GetReportListRequest request)
         {
-            return Invoke<GetReportListResponse>(ConvertGetReportList(request));
+            return await Invoke<GetReportListResponse>(ConvertGetReportList(request));
         }
 
         /// <summary>
@@ -293,9 +329,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieves the feed processing report.
         ///
         /// </remarks>
-        public GetFeedSubmissionResultResponse GetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
+        public async Task<GetFeedSubmissionResultResponse> GetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
         {
-            return Invoke<GetFeedSubmissionResultResponse, GetFeedSubmissionResultRequest>(ConvertGetFeedSubmissionResult(request), request);
+            return await Invoke<GetFeedSubmissionResultResponse, GetFeedSubmissionResultRequest>(ConvertGetFeedSubmissionResult(request), request);
         }
 
         /// <summary>
@@ -307,9 +343,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns a list of feed submission identifiers and their associated metadata.
         ///
         /// </remarks>
-        public GetFeedSubmissionListResponse GetFeedSubmissionList(GetFeedSubmissionListRequest request)
+        public async Task<GetFeedSubmissionListResponse> GetFeedSubmissionList(GetFeedSubmissionListRequest request)
         {
-            return Invoke<GetFeedSubmissionListResponse>(ConvertGetFeedSubmissionList(request));
+            return await Invoke<GetFeedSubmissionListResponse>(ConvertGetFeedSubmissionList(request));
         }
 
         /// <summary>
@@ -321,9 +357,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns a list of report requests ids and their associated metadata.
         ///
         /// </remarks>
-        public GetReportRequestListResponse GetReportRequestList(GetReportRequestListRequest request)
+        public async Task<GetReportRequestListResponse> GetReportRequestList(GetReportRequestListRequest request)
         {
-            return Invoke<GetReportRequestListResponse>(ConvertGetReportRequestList(request));
+            return await Invoke<GetReportRequestListResponse>(ConvertGetReportRequestList(request));
         }
 
         /// <summary>
@@ -335,9 +371,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        public GetReportScheduleListByNextTokenResponse GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
+        public async Task<GetReportScheduleListByNextTokenResponse> GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
         {
-            return Invoke<GetReportScheduleListByNextTokenResponse>(ConvertGetReportScheduleListByNextToken(request));
+            return await Invoke<GetReportScheduleListByNextTokenResponse>(ConvertGetReportScheduleListByNextToken(request));
         }
 
         /// <summary>
@@ -349,9 +385,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        public GetReportListByNextTokenResponse GetReportListByNextToken(GetReportListByNextTokenRequest request)
+        public async Task<GetReportListByNextTokenResponse> GetReportListByNextToken(GetReportListByNextTokenRequest request)
         {
-            return Invoke<GetReportListByNextTokenResponse>(ConvertGetReportListByNextToken(request));
+            return await Invoke<GetReportListByNextTokenResponse>(ConvertGetReportListByNextToken(request));
         }
 
         /// <summary>
@@ -364,9 +400,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// for a given report type, such as order reports in particular.
         ///
         /// </remarks>
-        public ManageReportScheduleResponse ManageReportSchedule(ManageReportScheduleRequest request)
+        public async Task<ManageReportScheduleResponse> ManageReportSchedule(ManageReportScheduleRequest request)
         {
-            return Invoke<ManageReportScheduleResponse>(ConvertManageReportSchedule(request));
+            return await Invoke<ManageReportScheduleResponse>(ConvertManageReportSchedule(request));
         }
 
         /// <summary>
@@ -379,9 +415,9 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// requests in the last 90 days.
         ///
         /// </remarks>
-        public GetReportRequestCountResponse GetReportRequestCount(GetReportRequestCountRequest request)
+        public async Task<GetReportRequestCountResponse> GetReportRequestCount(GetReportRequestCountRequest request)
         {
-            return Invoke<GetReportRequestCountResponse>(ConvertGetReportRequestCount(request));
+            return await Invoke<GetReportRequestCountResponse>(ConvertGetReportRequestCount(request));
         }
 
         /// <summary>
@@ -393,61 +429,17 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// returns the list of report schedules.
         ///
         /// </remarks>
-        public GetReportScheduleListResponse GetReportScheduleList(GetReportScheduleListRequest request)
+        public async Task<GetReportScheduleListResponse> GetReportScheduleList(GetReportScheduleListRequest request)
         {
-            return Invoke<GetReportScheduleListResponse>(ConvertGetReportScheduleList(request));
-        }
-
-         /**
-         * Calculates the MD5 hash value.
-         */
-        public static string CalculateContentMD5(Stream content)
-        {
-            MD5CryptoServiceProvider provider = new MD5CryptoServiceProvider();
-            byte[] hash = provider.ComputeHash(content);
-            return Convert.ToBase64String(hash);
-        }
-
-        /// <summary>
-        /// Get Report.
-        /// </summary>
-        /// <param name="request">Get Report  request.</param>
-        /// <returns>Get Report  Response from the service.</returns>
-        /// <remarks>
-        /// The GetReport operation returns the contents of a report. Reports can potentially be
-        /// very large (>100MB) which is why we only return one report at a time, and in a
-        /// streaming fashion.
-        ///
-        /// </remarks>
-        public GetReportResponse GetReport(GetReportRequest request)
-        {
-            return Invoke<GetReportResponse, GetReportRequest>(ConvertGetReport(request), request);
+            return await Invoke<GetReportScheduleListResponse>(ConvertGetReportScheduleList(request));
         }
 
         // Private API ------------------------------------------------------------//
-        private void BuildUserAgentHeader(
-            string applicationName,
-            string applicationVersion,
-            MarketplaceWebServiceConfig config)
-        {
-            config.SetUserAgentHeader(
-                applicationName,
-                applicationVersion,
-                "C#",
-                "CLI",
-                Environment.Version.ToString(),
-                "Platform",
-                Environment.OSVersion.Platform + "/" + Environment.OSVersion.Version,
-                "MWSClientVersion",
-                mwsClientVersion);
-        }
-
-
 
         private HttpWebRequest ConfigureWebRequest(string queryParameters, ContentType contentType)
         {
             string serviceUrl;
-            if (_config.ServiceURL.EndsWith("/"))
+            if (_config.ServiceURL.EndsWith("/", StringComparison.Ordinal))
             {
                 serviceUrl = _config.ServiceURL.Substring(0, _config.ServiceURL.Length - 1);
             }
@@ -456,7 +448,7 @@ namespace EasyKeys.AmazonMWS.Feeds
                 serviceUrl = _config.ServiceURL;
             }
 
-            HttpWebRequest request = WebRequest.Create(
+            var request = WebRequest.Create(
                 serviceUrl + "/?" + queryParameters) as HttpWebRequest;
 
             if (_config.IsSetProxyHost())
@@ -472,7 +464,6 @@ namespace EasyKeys.AmazonMWS.Feeds
             request.ContentType = contentType.ToString();
 
             request.SendChunked = true;
-            System.Net.ServicePointManager.Expect100Continue = false;
 
             return request;
         }
@@ -483,7 +474,7 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private HttpWebRequest ConfigureWebRequest(int contentLength)
         {
-            HttpWebRequest request = WebRequest.Create(_config.ServiceURL) as HttpWebRequest;
+            var request = WebRequest.Create(_config.ServiceURL) as HttpWebRequest;
 
             if (_config.IsSetProxyHost())
             {
@@ -499,20 +490,20 @@ namespace EasyKeys.AmazonMWS.Feeds
             return request;
         }
 
-        private T Invoke<T>(IDictionary<string, string> parameters)
+        private async Task<T> Invoke<T>(IDictionary<string, string> parameters)
         {
-            return Invoke<T, object>(parameters, null);
+            return await Invoke<T, object>(parameters, null);
         }
 
         /**
          * Invoke request and return response
          */
-        private T Invoke<T, K>(IDictionary<string, string> parameters, K clazz)
+        private async Task<T> Invoke<T, K>(IDictionary<string, string> parameters, K clazz)
         {
-            string actionName = parameters["Action"];
-            T response = default(T);
+            var actionName = parameters["Action"];
+            var response = default(T);
             string responseBody = null;
-            HttpStatusCode statusCode = default(HttpStatusCode);
+            var statusCode = default(HttpStatusCode);
             ResponseHeaderMetadata rhm = null;
 
             // Verify service URL is set.
@@ -525,27 +516,26 @@ namespace EasyKeys.AmazonMWS.Feeds
             /* Add required request parameters */
             AddRequiredParameters(parameters);
 
-            string queryString = GetParametersAsString(parameters);
-            byte[] requestData = new UTF8Encoding().GetBytes(queryString);
+            var queryString = GetParametersAsString(parameters);
+            var requestData = new UTF8Encoding().GetBytes(queryString);
 
             HttpWebRequest request;
 
-            bool isStreamingResponse = ExpectStreamingResponse(typeof(K));
+            var isStreamingResponse = ExpectStreamingResponse(typeof(K));
 
-            bool shouldRetry = true;
-            int retries = 0;
+            var shouldRetry = true;
+            var retries = 0;
             do
             {
                 /* Submit the request and read response body */
                 try
                 {
-                    RequestType requestType = GetMarketplaceWebServiceRequestType(typeof(K));
+                    var requestType = GetMarketplaceWebServiceRequestType(typeof(K));
                     switch (requestType)
                     {
                         case RequestType.STREAMING:
                             {
-                                SubmitFeedRequest req = clazz as SubmitFeedRequest;
-                                if (req != null)
+                                if (clazz is SubmitFeedRequest req)
                                 {
                                     // SubmitFeedRequests can configure the content type.
                                     request = ConfigureWebRequest(queryString, req.ContentType);
@@ -563,19 +553,14 @@ namespace EasyKeys.AmazonMWS.Feeds
                             break;
                     }
 
-                    WebHeaderCollection headers = request.Headers;
-                    IDictionary<string, string> headerMap = GetHttpHeaderValues(clazz);
-                    foreach (string key in headerMap.Keys)
-                    {
-                        headers.Add(key, headerMap[key]);
-                    }
+                    var headers = request.Headers;
 
-                    using (Stream requestStream = request.GetRequestStream())
+                    using (var requestStream = await request.GetRequestStreamAsync())
                     {
                         switch (requestType)
                         {
                             case RequestType.STREAMING:
-                                Stream inputStream = GetTransferStream(clazz, StreamType.REQUEST_STREAM);
+                                var inputStream = GetTransferStream(clazz, StreamType.REQUEST_STREAM);
                                 inputStream.Position = 0;
                                 CopyStream(inputStream, requestStream);
                                 break;
@@ -583,17 +568,18 @@ namespace EasyKeys.AmazonMWS.Feeds
                                 requestStream.Write(requestData, 0, requestData.Length);
                                 break;
                         }
-
-                        requestStream.Close();
                     }
 
-                    using (HttpWebResponse httpResponse = request.GetResponse() as HttpWebResponse)
+                    using (var httpResponse = await request.GetResponseAsync() as HttpWebResponse)
                     {
                         statusCode = httpResponse.StatusCode;
                         rhm = new ResponseHeaderMetadata(
-                            httpResponse.GetResponseHeader("x-mws-request-id"),
-                            httpResponse.GetResponseHeader("x-mws-response-context"),
-                            httpResponse.GetResponseHeader("x-mws-timestamp"));
+                            httpResponse.Headers["x-mws-request-id"],
+                            httpResponse.Headers["x-mws-response-context"],
+                            httpResponse.Headers["x-mws-timestamp"],
+                            httpResponse.Headers["x-mws-quota-max"],
+                            httpResponse.Headers["x-mws-quota-remaining"],
+                            httpResponse.Headers["x-mws-quota-resetsOn"]);
 
                         if (isStreamingResponse && statusCode == HttpStatusCode.OK)
                         {
@@ -601,13 +587,13 @@ namespace EasyKeys.AmazonMWS.Feeds
                         }
                         else
                         {
-                            StreamReader reader = new StreamReader(httpResponse.GetResponseStream(), Encoding.UTF8);
+                            var reader = new StreamReader(httpResponse.GetResponseStream(), Encoding.UTF8);
                             responseBody = reader.ReadToEnd();
-                            XmlSerializer serlizer = new XmlSerializer(typeof(T));
+                            var serlizer = new XmlSerializer(typeof(T));
                             response = (T)serlizer.Deserialize(new StringReader(responseBody));
                         }
 
-                        PropertyInfo pi = typeof(T).GetProperty("ResponseHeaderMetadata");
+                        var pi = typeof(T).GetProperty("ResponseHeaderMetadata");
                         pi.SetValue(response, rhm, null);
 
                         shouldRetry = false;
@@ -620,7 +606,7 @@ namespace EasyKeys.AmazonMWS.Feeds
                 catch (WebException we)
                 {
                     shouldRetry = false;
-                    using (HttpWebResponse httpErrorResponse = (HttpWebResponse)we.Response as HttpWebResponse)
+                    using (var httpErrorResponse = (HttpWebResponse)we.Response as HttpWebResponse)
                     {
                         if (httpErrorResponse == null)
                         {
@@ -628,18 +614,19 @@ namespace EasyKeys.AmazonMWS.Feeds
                         }
 
                         statusCode = httpErrorResponse.StatusCode;
-                        StreamReader reader = new StreamReader(httpErrorResponse.GetResponseStream(), Encoding.UTF8);
+                        var reader = new StreamReader(httpErrorResponse.GetResponseStream(), Encoding.UTF8);
                         responseBody = reader.ReadToEnd();
                     }
 
                     /* Attempt to deserialize response into ErrorResponse type */
                     try
                     {
-                        XmlSerializer serlizer = new XmlSerializer(typeof(ErrorResponse));
-                        ErrorResponse errorResponse = (ErrorResponse)serlizer.Deserialize(new StringReader(responseBody));
-                        Error error = errorResponse.Error[0];
+                        var serlizer = new XmlSerializer(typeof(ErrorResponse));
+                        var errorResponse = (ErrorResponse)serlizer.Deserialize(new StringReader(responseBody));
+                        var error = errorResponse.Error[0];
 
-                        bool retriableError = (statusCode == HttpStatusCode.InternalServerError || statusCode == HttpStatusCode.ServiceUnavailable);
+                        var retriableError = statusCode == HttpStatusCode.InternalServerError
+                            || statusCode == HttpStatusCode.ServiceUnavailable;
                         retriableError = retriableError && error.Code != "RequestThrottled";
 
                         if (retriableError && retries < _config.MaxErrorRetry)
@@ -673,7 +660,7 @@ namespace EasyKeys.AmazonMWS.Feeds
                         }
                         else
                         {
-                            MarketplaceWebServiceException se = ReportAnyErrors(responseBody, statusCode, e, rhm);
+                            var se = ReportAnyErrors(responseBody, statusCode, e, rhm);
                             throw se;
                         }
                     }
@@ -685,7 +672,8 @@ namespace EasyKeys.AmazonMWS.Feeds
                 {
                     throw new MarketplaceWebServiceException(e);
                 }
-            } while (shouldRetry);
+            }
+            while (shouldRetry);
 
             return response;
         }
@@ -702,7 +690,7 @@ namespace EasyKeys.AmazonMWS.Feeds
                 return false;
             }
 
-            MarketplaceWebServiceAttribute attribute = (MarketplaceWebServiceAttribute)Attribute.GetCustomAttribute(type, typeof(MarketplaceWebServiceAttribute));
+            var attribute = (MarketplaceWebServiceAttribute)type.GetTypeInfo().GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));
 
             if (attribute == null)
             {
@@ -722,53 +710,13 @@ namespace EasyKeys.AmazonMWS.Feeds
         private RequestType GetMarketplaceWebServiceRequestType(Type type)
         {
             if (type == null || type == typeof(object))
+            {
                 return RequestType.DEFAULT;
+            }
 
-            MarketplaceWebServiceAttribute attribute = (MarketplaceWebServiceAttribute)Attribute.GetCustomAttribute(type, typeof(MarketplaceWebServiceAttribute));
+            var attribute = (MarketplaceWebServiceAttribute)type.GetTypeInfo().GetCustomAttribute(typeof(MarketplaceWebServiceAttribute));
 
             return attribute.RequestType;
-        }
-
-        /**
-         * Requests annotated with the MarketplaceWebServiceRequestHeader attribute contain
-         * values to be added to the HTTP request header. This method gets all of these values
-         * and returns them in a map.
-         */
-        private IDictionary<string, string> GetHttpHeaderValues(object request)
-        {
-            IDictionary<string, string> headers = new Dictionary<string, string>();
-
-            if (request == null)
-            {
-                return headers;
-            }
-
-            if (!request.GetType().IsClass)
-            {
-                throw new ArgumentException("request must be a class reference");
-            }
-
-            foreach (MethodInfo mi in request.GetType().GetMethods())
-            {
-                MarketplaceWebServiceRequestHeaderAttribute attribute = (MarketplaceWebServiceRequestHeaderAttribute)Attribute.GetCustomAttribute(mi, typeof(MarketplaceWebServiceRequestHeaderAttribute));
-
-                if (attribute != null)
-                {
-                    headers.Add(attribute.HeaderName, (string)mi.Invoke(request, null));
-                }
-            }
-
-            foreach (PropertyInfo pi in request.GetType().GetProperties())
-            {
-                MarketplaceWebServiceRequestHeaderAttribute attribute = (MarketplaceWebServiceRequestHeaderAttribute)Attribute.GetCustomAttribute(pi, typeof(MarketplaceWebServiceRequestHeaderAttribute));
-
-                if (attribute != null)
-                {
-                    headers.Add(attribute.HeaderName, (string)pi.GetValue(request, null));
-                }
-            }
-
-            return headers;
         }
 
         /**
@@ -776,16 +724,16 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private Stream GetTransferStream(object request, StreamType streamType)
         {
-            if (request == null || !request.GetType().IsClass)
+            if (request == null || !request.GetType().GetTypeInfo().IsClass)
             {
                 throw new ArgumentException("request must be a class reference");
             }
 
             Stream s = null;
 
-            foreach (MethodInfo mi in request.GetType().GetMethods())
+            foreach (var mi in request.GetType().GetMethods())
             {
-                MarketplaceWebServiceStreamAttribute attribute = (MarketplaceWebServiceStreamAttribute)Attribute.GetCustomAttribute(mi, typeof(MarketplaceWebServiceStreamAttribute));
+                var attribute = (MarketplaceWebServiceStreamAttribute)mi.GetCustomAttribute(typeof(MarketplaceWebServiceStreamAttribute));
 
                 if (attribute != null && attribute.StreamType == streamType)
                 {
@@ -793,9 +741,9 @@ namespace EasyKeys.AmazonMWS.Feeds
                 }
             }
 
-            foreach (PropertyInfo pi in request.GetType().GetProperties())
+            foreach (var pi in request.GetType().GetProperties())
             {
-                MarketplaceWebServiceStreamAttribute attribute = (MarketplaceWebServiceStreamAttribute)Attribute.GetCustomAttribute(pi, typeof(MarketplaceWebServiceStreamAttribute));
+                var attribute = (MarketplaceWebServiceStreamAttribute)pi.GetCustomAttribute(typeof(MarketplaceWebServiceStreamAttribute));
 
                 if (attribute != null && attribute.StreamType == streamType)
                 {
@@ -815,14 +763,14 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private T DeserializeStreamingResponse<T>(IDictionary<string, string> responseElements)
         {
-            string responseElementBase = typeof(T).Name;
+            var responseElementBase = typeof(T).Name;
 
             if (responseElementBase.EndsWith("Response"))
             {
                 responseElementBase = responseElementBase.Remove(responseElementBase.Length - "Response".Length);
             }
 
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             sb.Append("  <{0}Response xmlns=\"http://mws.amazonaws.com/doc/2009-01-01/\">\n");
             sb.Append("    <{0}Result>\n");
@@ -833,9 +781,9 @@ namespace EasyKeys.AmazonMWS.Feeds
             sb.Append("  </ResponseMetadata>\n");
             sb.Append("</{0}Response>\n");
 
-            XmlSerializer serlizer = new XmlSerializer(typeof(T));
+            var serlizer = new XmlSerializer(typeof(T));
 
-            T response = default(T);
+            var response = default(T);
             response = (T)serlizer.Deserialize(new StringReader(
               string.Format(
                 sb.ToString(), responseElementBase, responseElements["ContentMD5"], responseElements["RequestId"])));
@@ -855,14 +803,14 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private T HandleStreamingResponse<T>(HttpWebResponse webResponse, object clazz)
         {
-            Stream receiverStream = GetTransferStream(clazz, StreamType.RECEIVE_STREAM);
+            var receiverStream = GetTransferStream(clazz, StreamType.RECEIVE_STREAM);
 
             CopyStream(webResponse.GetResponseStream(), receiverStream);
             receiverStream.Position = 0;
 
-            WebHeaderCollection headers = webResponse.Headers;
-            string receivedContentMD5 = headers.Get("Content-MD5");
-            string expectedContentMD5 = CalculateContentMD5(receiverStream);
+            var headers = webResponse.Headers;
+            var receivedContentMD5 = headers["Content-MD5"];
+            var expectedContentMD5 = CalculateContentMD5(receiverStream);
 
             receiverStream.Position = 0;
 
@@ -873,11 +821,25 @@ namespace EasyKeys.AmazonMWS.Feeds
                     " doesn't match computed value " + expectedContentMD5 + ".");
             }
 
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("RequestId", headers.Get("x-amz-request-id"));
-            parameters.Add("ContentMD5", headers.Get("Content-MD5"));
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "RequestId", headers["x-amz-request-id"] },
+                { "ContentMD5", headers["Content-MD5"] }
+            };
 
             return DeserializeStreamingResponse<T>(parameters);
+        }
+
+        /**
+         * Calculates the MD5 hash value.
+         */
+#pragma warning disable SA1202 // Elements should be ordered by access
+        public static string CalculateContentMD5(Stream content)
+#pragma warning restore SA1202 // Elements should be ordered by access
+        {
+            var md5 = MD5.Create();
+            var hash = md5.ComputeHash(content);
+            return Convert.ToBase64String(hash);
         }
 
         /**
@@ -898,9 +860,9 @@ namespace EasyKeys.AmazonMWS.Feeds
             }
 
             const int SIZE = 1024 * 1024;
-            byte[] buffer = new byte[SIZE];
+            var buffer = new byte[SIZE];
 
-            int read = 0;
+            var read = 0;
             while ((read = from.Read(buffer, 0, buffer.Length)) > 0)
             {
                 to.Write(buffer, 0, read);
@@ -916,22 +878,22 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (responseBody != null && responseBody.StartsWith("<"))
             {
-                Match errorMatcherOne = Regex.Match(responseBody, "<RequestId>(.*)</RequestId>.*<Error>" + "<Code>(.*)</Code><Message>(.*)</Message></Error>.*(<Error>)?", RegexOptions.Multiline);
-                Match errorMatcherTwo = Regex.Match(responseBody, "<Error><Code>(.*)</Code><Message>(.*)" + "</Message></Error>.*(<Error>)?.*<RequestID>(.*)</RequestID>", RegexOptions.Multiline);
+                var errorMatcherOne = Regex.Match(responseBody, "<RequestId>(.*)</RequestId>.*<Error>" + "<Code>(.*)</Code><Message>(.*)</Message></Error>.*(<Error>)?", RegexOptions.Multiline);
+                var errorMatcherTwo = Regex.Match(responseBody, "<Error><Code>(.*)</Code><Message>(.*)" + "</Message></Error>.*(<Error>)?.*<RequestID>(.*)</RequestID>", RegexOptions.Multiline);
 
                 if (errorMatcherOne.Success)
                 {
-                    string requestId = errorMatcherOne.Groups[1].Value;
-                    string code = errorMatcherOne.Groups[2].Value;
-                    string message = errorMatcherOne.Groups[3].Value;
+                    var requestId = errorMatcherOne.Groups[1].Value;
+                    var code = errorMatcherOne.Groups[2].Value;
+                    var message = errorMatcherOne.Groups[3].Value;
 
                     ex = new MarketplaceWebServiceException(message, status, code, "Unknown", requestId, responseBody, rhm);
                 }
                 else if (errorMatcherTwo.Success)
                 {
-                    string code = errorMatcherTwo.Groups[1].Value;
-                    string message = errorMatcherTwo.Groups[2].Value;
-                    string requestId = errorMatcherTwo.Groups[4].Value;
+                    var code = errorMatcherTwo.Groups[1].Value;
+                    var message = errorMatcherTwo.Groups[2].Value;
+                    var requestId = errorMatcherTwo.Groups[4].Value;
 
                     ex = new MarketplaceWebServiceException(message, status, code, "Unknown", requestId, responseBody, rhm);
                 }
@@ -953,7 +915,7 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private void PauseOnRetry(int retries)
         {
-            int delay = (int)Math.Pow(4, retries) * 100;
+            var delay = (int)Math.Pow(4, retries) * 100;
             System.Threading.Thread.Sleep(delay);
         }
 
@@ -974,10 +936,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private string GetParametersAsString(IDictionary<string, string> parameters)
         {
-            StringBuilder data = new StringBuilder();
-            foreach (string key in (IEnumerable<string>)parameters.Keys)
+            var data = new StringBuilder();
+            foreach (var key in (IEnumerable<string>)parameters.Keys)
             {
-                string value = parameters[key];
+                var value = parameters[key];
                 if (value != null)
                 {
                     data.Append(key);
@@ -987,7 +949,7 @@ namespace EasyKeys.AmazonMWS.Feeds
                 }
             }
 
-            string result = data.ToString();
+            var result = data.ToString();
             return result.Remove(result.Length - 1);
         }
 
@@ -1023,15 +985,15 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private string SignParameters(IDictionary<string, string> parameters, string key)
         {
-            string signatureVersion = parameters["SignatureVersion"];
+            var signatureVersion = parameters["SignatureVersion"];
 
             KeyedHashAlgorithm algorithm = new HMACSHA1();
 
             string stringToSign = null;
             if ("2".Equals(signatureVersion))
             {
-                string signatureMethod = _config.SignatureMethod;
-                algorithm = KeyedHashAlgorithm.Create(signatureMethod.ToUpper());
+                var signatureMethod = _config.SignatureMethod;
+                algorithm = new HMACSHA256();
                 parameters.Add("SignatureMethod", signatureMethod);
                 stringToSign = CalculateStringToSignV2(parameters);
             }
@@ -1045,12 +1007,12 @@ namespace EasyKeys.AmazonMWS.Feeds
 
         private string CalculateStringToSignV2(IDictionary<string, string> parameters)
         {
-            StringBuilder data = new StringBuilder();
+            var data = new StringBuilder();
             IDictionary<string, string> sorted =
                   new SortedDictionary<string, string>(parameters, StringComparer.Ordinal);
             data.Append("POST");
             data.Append("\n");
-            Uri endpoint = new Uri(_config.ServiceURL.ToLower());
+            var endpoint = new Uri(_config.ServiceURL.ToLower());
 
             data.Append(endpoint.Host);
             if (endpoint.Port != 443 && endpoint.Port != 80)
@@ -1060,7 +1022,7 @@ namespace EasyKeys.AmazonMWS.Feeds
             }
 
             data.Append("\n");
-            string uri = endpoint.AbsolutePath;
+            var uri = endpoint.AbsolutePath;
             if (uri == null || uri.Length == 0)
             {
                 uri = "/";
@@ -1068,7 +1030,7 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             data.Append(UrlEncode(uri, true));
             data.Append("\n");
-            foreach (KeyValuePair<string, string> pair in sorted)
+            foreach (var pair in sorted)
             {
                 if (pair.Value != null)
                 {
@@ -1079,14 +1041,14 @@ namespace EasyKeys.AmazonMWS.Feeds
                 }
             }
 
-            string result = data.ToString();
+            var result = data.ToString();
             return result.Remove(result.Length - 1);
         }
 
         private string UrlEncode(string data, bool path)
         {
-            StringBuilder encoded = new StringBuilder();
-            string unreservedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~" + (path ? "/" : "");
+            var encoded = new StringBuilder();
+            var unreservedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~" + (path ? "/" : "");
 
             foreach (char symbol in System.Text.Encoding.UTF8.GetBytes(data))
             {
@@ -1146,8 +1108,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReport(GetReportRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReport");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReport" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1176,8 +1140,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportScheduleCount(GetReportScheduleCountRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportScheduleCount");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportScheduleCount" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1195,9 +1161,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportTypeList())
             {
-                TypeList reportTypeList = request.ReportTypeList;
-                List<string> typeList = reportTypeList.Type;
-                foreach (string type in typeList)
+                var reportTypeList = request.ReportTypeList;
+                var typeList = reportTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("ReportTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -1211,8 +1177,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportRequestListByNextToken");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportRequestListByNextToken" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1241,8 +1209,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertUpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "UpdateReportAcknowledgements");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "UpdateReportAcknowledgements" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1260,9 +1230,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportIdList())
             {
-                IdList reportIdList = request.ReportIdList;
-                List<string> idList = reportIdList.Id;
-                foreach (string id in idList)
+                var reportIdList = request.ReportIdList;
+                var idList = reportIdList.Id;
+                foreach (var id in idList)
                 {
                     parameters.Add("ReportIdList" + "." + "Id" + "." + (idList.IndexOf(id) + 1), id);
                 }
@@ -1281,8 +1251,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertSubmitFeed(SubmitFeedRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "SubmitFeed");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "SubmitFeed" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1290,10 +1262,10 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetMarketplaceIdList())
             {
-                IdList marketplaceIdList = request.MarketplaceIdList;
-                List<string> idList = marketplaceIdList.Id;
-                int marketplaceIdListIndex = 1;
-                foreach (string id in idList)
+                var marketplaceIdList = request.MarketplaceIdList;
+                var idList = marketplaceIdList.Id;
+                var marketplaceIdListIndex = 1;
+                foreach (var id in idList)
                 {
                     parameters.Add("MarketplaceIdList.Id." + marketplaceIdListIndex, id);
                     marketplaceIdListIndex++;
@@ -1320,6 +1292,11 @@ namespace EasyKeys.AmazonMWS.Feeds
                 parameters.Add("PurgeAndReplace", request.PurgeAndReplace.ToString().ToLower());
             }
 
+            if (request.IsSetContentMD5())
+            {
+                parameters.Add("ContentMD5Value", request.ContentMD5);
+            }
+
             return parameters;
         }
 
@@ -1328,8 +1305,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportCount(GetReportCountRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportCount");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportCount" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1347,9 +1326,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportTypeList())
             {
-                TypeList reportTypeList = request.ReportTypeList;
-                List<string> typeList = reportTypeList.Type;
-                foreach (string type in typeList)
+                var reportTypeList = request.ReportTypeList;
+                var typeList = reportTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("ReportTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -1378,8 +1357,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetFeedSubmissionListByNextToken");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetFeedSubmissionListByNextToken" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1408,8 +1389,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertCancelFeedSubmissions(CancelFeedSubmissionsRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "CancelFeedSubmissions");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "CancelFeedSubmissions" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1427,9 +1410,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetFeedSubmissionIdList())
             {
-                IdList feedSubmissionIdList = request.FeedSubmissionIdList;
-                List<string> idList = feedSubmissionIdList.Id;
-                foreach (string id in idList)
+                var feedSubmissionIdList = request.FeedSubmissionIdList;
+                var idList = feedSubmissionIdList.Id;
+                foreach (var id in idList)
                 {
                     parameters.Add("FeedSubmissionIdList" + "." + "Id" + "." + (idList.IndexOf(id) + 1), id);
                 }
@@ -1437,9 +1420,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetFeedTypeList())
             {
-                TypeList feedTypeList = request.FeedTypeList;
-                List<string> typeList = feedTypeList.Type;
-                foreach (string type in typeList)
+                var feedTypeList = request.FeedTypeList;
+                var typeList = feedTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("FeedTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -1463,8 +1446,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertRequestReport(RequestReportRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "RequestReport");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "RequestReport" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1472,10 +1457,10 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetMarketplaceIdList())
             {
-                IdList marketplaceIdList = request.MarketplaceIdList;
-                List<string> idList = marketplaceIdList.Id;
-                int marketplaceIdListIndex = 1;
-                foreach (string id in idList)
+                var marketplaceIdList = request.MarketplaceIdList;
+                var idList = marketplaceIdList.Id;
+                var marketplaceIdListIndex = 1;
+                foreach (var id in idList)
                 {
                     parameters.Add("MarketplaceIdList.Id." + marketplaceIdListIndex, id);
                     marketplaceIdListIndex++;
@@ -1520,8 +1505,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetFeedSubmissionCount");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetFeedSubmissionCount" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1539,9 +1526,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetFeedTypeList())
             {
-                TypeList feedTypeList = request.FeedTypeList;
-                List<string> typeList = feedTypeList.Type;
-                foreach (string type in typeList)
+                var feedTypeList = request.FeedTypeList;
+                var typeList = feedTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("FeedTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -1549,9 +1536,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetFeedProcessingStatusList())
             {
-                StatusList feedProcessingStatusList = request.FeedProcessingStatusList;
-                List<string> statusList = feedProcessingStatusList.Status;
-                foreach (string status in statusList)
+                var feedProcessingStatusList = request.FeedProcessingStatusList;
+                var statusList = feedProcessingStatusList.Status;
+                foreach (var status in statusList)
                 {
                     parameters.Add("FeedProcessingStatusList" + "." + "Status" + "." + (statusList.IndexOf(status) + 1), status);
                 }
@@ -1575,8 +1562,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertCancelReportRequests(CancelReportRequestsRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "CancelReportRequests");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "CancelReportRequests" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1594,9 +1583,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportRequestIdList())
             {
-                IdList reportRequestIdList = request.ReportRequestIdList;
-                List<string> idList = reportRequestIdList.Id;
-                foreach (string id in idList)
+                var reportRequestIdList = request.ReportRequestIdList;
+                var idList = reportRequestIdList.Id;
+                foreach (var id in idList)
                 {
                     parameters.Add("ReportRequestIdList" + "." + "Id" + "." + (idList.IndexOf(id) + 1), id);
                 }
@@ -1604,9 +1593,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportTypeList())
             {
-                TypeList reportTypeList = request.ReportTypeList;
-                List<string> typeList = reportTypeList.Type;
-                foreach (string type in typeList)
+                var reportTypeList = request.ReportTypeList;
+                var typeList = reportTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("ReportTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -1614,9 +1603,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportProcessingStatusList())
             {
-                StatusList reportProcessingStatusList = request.ReportProcessingStatusList;
-                List<string> statusList = reportProcessingStatusList.Status;
-                foreach (string status in statusList)
+                var reportProcessingStatusList = request.ReportProcessingStatusList;
+                var statusList = reportProcessingStatusList.Status;
+                foreach (var status in statusList)
                 {
                     parameters.Add("ReportProcessingStatusList" + "." + "Status" + "." + (statusList.IndexOf(status) + 1), status);
                 }
@@ -1640,8 +1629,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportList(GetReportListRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportList");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportList" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1664,9 +1655,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportTypeList())
             {
-                TypeList reportTypeList = request.ReportTypeList;
-                List<string> typeList = reportTypeList.Type;
-                foreach (string type in typeList)
+                var reportTypeList = request.ReportTypeList;
+                var typeList = reportTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("ReportTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -1689,9 +1680,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportRequestIdList())
             {
-                IdList reportRequestIdList = request.ReportRequestIdList;
-                List<string> idList = reportRequestIdList.Id;
-                foreach (string id in idList)
+                var reportRequestIdList = request.ReportRequestIdList;
+                var idList = reportRequestIdList.Id;
+                foreach (var id in idList)
                 {
                     parameters.Add("ReportRequestIdList" + "." + "Id" + "." + (idList.IndexOf(id) + 1), id);
                 }
@@ -1705,8 +1696,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetFeedSubmissionResult");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetFeedSubmissionResult" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1735,8 +1728,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetFeedSubmissionList(GetFeedSubmissionListRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetFeedSubmissionList");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetFeedSubmissionList" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1754,9 +1749,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetFeedSubmissionIdList())
             {
-                IdList feedSubmissionIdList = request.FeedSubmissionIdList;
-                List<string> idList = feedSubmissionIdList.Id;
-                foreach (string id in idList)
+                var feedSubmissionIdList = request.FeedSubmissionIdList;
+                var idList = feedSubmissionIdList.Id;
+                foreach (var id in idList)
                 {
                     parameters.Add("FeedSubmissionIdList" + "." + "Id" + "." + (idList.IndexOf(id) + 1), id);
                 }
@@ -1769,9 +1764,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetFeedTypeList())
             {
-                TypeList feedTypeList = request.FeedTypeList;
-                List<string> typeList = feedTypeList.Type;
-                foreach (string type in typeList)
+                var feedTypeList = request.FeedTypeList;
+                var typeList = feedTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("FeedTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -1779,9 +1774,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetFeedProcessingStatusList())
             {
-                StatusList feedProcessingStatusList = request.FeedProcessingStatusList;
-                List<string> statusList = feedProcessingStatusList.Status;
-                foreach (string status in statusList)
+                var feedProcessingStatusList = request.FeedProcessingStatusList;
+                var statusList = feedProcessingStatusList.Status;
+                foreach (var status in statusList)
                 {
                     parameters.Add("FeedProcessingStatusList" + "." + "Status" + "." + (statusList.IndexOf(status) + 1), status);
                 }
@@ -1805,8 +1800,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportRequestList(GetReportRequestListRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportRequestList");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportRequestList" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1824,9 +1821,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportRequestIdList())
             {
-                IdList reportRequestIdList = request.ReportRequestIdList;
-                List<string> idList = reportRequestIdList.Id;
-                foreach (string id in idList)
+                var reportRequestIdList = request.ReportRequestIdList;
+                var idList = reportRequestIdList.Id;
+                foreach (var id in idList)
                 {
                     parameters.Add("ReportRequestIdList" + "." + "Id" + "." + (idList.IndexOf(id) + 1), id);
                 }
@@ -1834,9 +1831,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportTypeList())
             {
-                TypeList reportTypeList = request.ReportTypeList;
-                List<string> typeList = reportTypeList.Type;
-                foreach (string type in typeList)
+                var reportTypeList = request.ReportTypeList;
+                var typeList = reportTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("ReportTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -1844,9 +1841,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportProcessingStatusList())
             {
-                StatusList reportProcessingStatusList = request.ReportProcessingStatusList;
-                List<string> statusList = reportProcessingStatusList.Status;
-                foreach (string status in statusList)
+                var reportProcessingStatusList = request.ReportProcessingStatusList;
+                var statusList = reportProcessingStatusList.Status;
+                foreach (var status in statusList)
                 {
                     parameters.Add("ReportProcessingStatusList" + "." + "Status" + "." + (statusList.IndexOf(status) + 1), status);
                 }
@@ -1875,8 +1872,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportScheduleListByNextToken");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportScheduleListByNextToken" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1905,8 +1904,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportListByNextToken(GetReportListByNextTokenRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportListByNextToken");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportListByNextToken" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1935,8 +1936,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertManageReportSchedule(ManageReportScheduleRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "ManageReportSchedule");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "ManageReportSchedule" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1975,8 +1978,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportRequestCount(GetReportRequestCountRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportRequestCount");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportRequestCount" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -1994,9 +1999,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportTypeList())
             {
-                TypeList reportTypeList = request.ReportTypeList;
-                List<string> typeList = reportTypeList.Type;
-                foreach (string type in typeList)
+                var reportTypeList = request.ReportTypeList;
+                var typeList = reportTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("ReportTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }
@@ -2004,9 +2009,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportProcessingStatusList())
             {
-                StatusList reportProcessingStatusList = request.ReportProcessingStatusList;
-                List<string> statusList = reportProcessingStatusList.Status;
-                foreach (string status in statusList)
+                var reportProcessingStatusList = request.ReportProcessingStatusList;
+                var statusList = reportProcessingStatusList.Status;
+                foreach (var status in statusList)
                 {
                     parameters.Add("ReportProcessingStatusList" + "." + "Status" + "." + (statusList.IndexOf(status) + 1), status);
                 }
@@ -2030,8 +2035,10 @@ namespace EasyKeys.AmazonMWS.Feeds
          */
         private IDictionary<string, string> ConvertGetReportScheduleList(GetReportScheduleListRequest request)
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("Action", "GetReportScheduleList");
+            IDictionary<string, string> parameters = new Dictionary<string, string>
+            {
+                { "Action", "GetReportScheduleList" }
+            };
             if (request.IsSetMarketplace())
             {
                 parameters.Add("Marketplace", request.Marketplace);
@@ -2049,9 +2056,9 @@ namespace EasyKeys.AmazonMWS.Feeds
 
             if (request.IsSetReportTypeList())
             {
-                TypeList reportTypeList = request.ReportTypeList;
-                List<string> typeList = reportTypeList.Type;
-                foreach (string type in typeList)
+                var reportTypeList = request.ReportTypeList;
+                var typeList = reportTypeList.Type;
+                foreach (var type in typeList)
                 {
                     parameters.Add("ReportTypeList" + "." + "Type" + "." + (typeList.IndexOf(type) + 1), type);
                 }

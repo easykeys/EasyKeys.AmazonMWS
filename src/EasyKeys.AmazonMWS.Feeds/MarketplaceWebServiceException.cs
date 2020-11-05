@@ -18,7 +18,7 @@
 using System;
 using System.Net;
 
-using MarketplaceWebService.Model;
+using EasyKeys.AmazonMWS.Feeds.Model;
 
 namespace EasyKeys.AmazonMWS.Feeds
 {
@@ -29,12 +29,6 @@ namespace EasyKeys.AmazonMWS.Feeds
     public class MarketplaceWebServiceException : Exception
     {
         private string _message = null;
-        private HttpStatusCode _statusCode = default(HttpStatusCode);
-        private string _errorCode = null;
-        private string _errorType = null;
-        private string _requestId = null;
-        private string _xml = null;
-        private ResponseHeaderMetadata _responseHeaderMetadata = null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MarketplaceWebServiceException"/> class.
@@ -55,8 +49,8 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <param name="rhm">Response Header Metadata.</param>
         public MarketplaceWebServiceException(string message, HttpStatusCode statusCode, ResponseHeaderMetadata rhm) : this(message)
         {
-            _statusCode = statusCode;
-            _responseHeaderMetadata = rhm;
+            StatusCode = statusCode;
+            ResponseHeaderMetadata = rhm;
         }
 
         /// <summary>
@@ -77,15 +71,14 @@ namespace EasyKeys.AmazonMWS.Feeds
         public MarketplaceWebServiceException(string message, Exception t) : base(message, t)
         {
             _message = message;
-            if (t is MarketplaceWebServiceException)
+            if (t is MarketplaceWebServiceException ex)
             {
-                MarketplaceWebServiceException ex = (MarketplaceWebServiceException)t;
-                _statusCode = ex.StatusCode;
-                _errorCode = ex.ErrorCode;
-                _errorType = ex.ErrorType;
-                _requestId = ex.RequestId;
-                _xml = ex.XML;
-                _responseHeaderMetadata = ex.ResponseHeaderMetadata;
+                StatusCode = ex.StatusCode;
+                ErrorCode = ex.ErrorCode;
+                ErrorType = ex.ErrorType;
+                RequestId = ex.RequestId;
+                XML = ex.XML;
+                ResponseHeaderMetadata = ex.ResponseHeaderMetadata;
             }
         }
 
@@ -102,66 +95,45 @@ namespace EasyKeys.AmazonMWS.Feeds
         /// <param name="rhm">Response Header Metadata.</param>
         public MarketplaceWebServiceException(string message, HttpStatusCode statusCode, string errorCode, string errorType, string requestId, string xml, ResponseHeaderMetadata rhm) : this(message, statusCode, rhm)
         {
-            _errorCode = errorCode;
-            _errorType = errorType;
-            _requestId = requestId;
-            _xml = xml;
-            _responseHeaderMetadata = rhm;
+            ErrorCode = errorCode;
+            ErrorType = errorType;
+            RequestId = requestId;
+            XML = xml;
+            ResponseHeaderMetadata = rhm;
         }
 
         /// <summary>
         /// Gets and sets of the ErrorCode property.
         /// </summary>
-        public string ErrorCode
-        {
-            get { return _errorCode; }
-        }
+        public string ErrorCode { get; } = null;
 
         /// <summary>
         /// Gets and sets of the ErrorType property.
         /// </summary>
-        public string ErrorType
-        {
-            get { return _errorType; }
-        }
+        public string ErrorType { get; } = null;
 
         /// <summary>
         /// Gets error message.
         /// </summary>
-        public override string Message
-        {
-            get { return _message; }
-        }
+        public override string Message => _message;
 
         /// <summary>
         /// Gets status code returned by the service if available. If status
         /// code is set to -1, it means that status code was unavailable at the
         /// time exception was thrown.
         /// </summary>
-        public HttpStatusCode StatusCode
-        {
-            get { return _statusCode; }
-        }
+        public HttpStatusCode StatusCode { get; } = default;
 
         /// <summary>
         /// Gets XML returned by the service if available.
         /// </summary>
-        public string XML
-        {
-            get { return _xml; }
-        }
+        public string XML { get; } = null;
 
         /// <summary>
         /// Gets Request ID returned by the service if available.
         /// </summary>
-        public string RequestId
-        {
-            get { return _requestId; }
-        }
+        public string RequestId { get; } = null;
 
-        public ResponseHeaderMetadata ResponseHeaderMetadata
-        {
-            get { return _responseHeaderMetadata; }
-        }
+        public ResponseHeaderMetadata ResponseHeaderMetadata { get; } = null;
     }
 }

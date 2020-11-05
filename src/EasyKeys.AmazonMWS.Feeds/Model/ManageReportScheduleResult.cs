@@ -15,12 +15,11 @@
  *
  */
 
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
@@ -36,8 +35,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "Count")]
         public decimal Count
         {
-            get { return _countField.GetValueOrDefault(); }
-            set { _countField = value; }
+            get => _countField.GetValueOrDefault();
+            set => _countField = value;
         }
 
         /// <summary>
@@ -66,17 +65,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "ReportSchedule")]
         public List<ReportSchedule> ReportSchedule
         {
-            get
-            {
-                if (_reportScheduleField == null)
-                {
-                    _reportScheduleField = new List<ReportSchedule>();
-                }
-
-                return _reportScheduleField;
-            }
-
-            set { _reportScheduleField = value; }
+            get => _reportScheduleField ?? (_reportScheduleField = new List<ReportSchedule>());
+            set => _reportScheduleField = value;
         }
 
         /// <summary>
@@ -86,7 +76,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public ManageReportScheduleResult WithReportSchedule(params ReportSchedule[] list)
         {
-            foreach (ReportSchedule item in list)
+            foreach (var item in list)
             {
                 ReportSchedule.Add(item);
             }
@@ -100,7 +90,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if ReportSchedule property is set.</returns>
         public bool IsSetReportSchedule()
         {
-            return (ReportSchedule.Count > 0);
+            return ReportSchedule.Count > 0;
         }
 
         /// <summary>
@@ -111,10 +101,9 @@ namespace MarketplaceWebService.Model
         /// Name for outer tag expected to be set by calling method.
         /// This fragment returns inner properties representation only.
         /// </remarks>
-
         protected internal string ToXMLFragment()
         {
-            StringBuilder xml = new StringBuilder();
+            var xml = new StringBuilder();
             if (IsSetCount())
             {
                 xml.Append("<Count>");
@@ -122,8 +111,8 @@ namespace MarketplaceWebService.Model
                 xml.Append("</Count>");
             }
 
-            List<ReportSchedule> reportScheduleList = ReportSchedule;
-            foreach (ReportSchedule reportSchedule in reportScheduleList)
+            var reportScheduleList = ReportSchedule;
+            foreach (var reportSchedule in reportScheduleList)
             {
                 xml.Append("<ReportSchedule>");
                 xml.Append(reportSchedule.ToXMLFragment());
@@ -131,41 +120,6 @@ namespace MarketplaceWebService.Model
             }
 
             return xml.ToString();
-        }
-
-        /**
-         *
-         * Escape XML special characters
-         */
-        private string EscapeXML(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
-            {
-                switch (c)
-                {
-                    case '&':
-                        sb.Append("&amp;");
-                        break;
-                    case '<':
-                        sb.Append("&lt;");
-                        break;
-                    case '>':
-                        sb.Append("&gt;");
-                        break;
-                    case '\'':
-                        sb.Append("&#039;");
-                        break;
-                    case '"':
-                        sb.Append("&quot;");
-                        break;
-                    default:
-                        sb.Append(c);
-                        break;
-                }
-            }
-
-            return sb.ToString();
         }
     }
 }

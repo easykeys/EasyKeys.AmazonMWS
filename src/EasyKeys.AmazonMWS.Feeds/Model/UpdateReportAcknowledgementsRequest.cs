@@ -15,15 +15,16 @@
  *
  */
 
+using System;
 using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
-    [MarketplaceWebService(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
+    [MarketplaceWebServiceAttribute(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
     public class UpdateReportAcknowledgementsRequest
     {
         private bool? _acknowledgedField;
@@ -32,7 +33,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the Marketplace property.
         /// </summary>
         [XmlElement(ElementName = "Marketplace")]
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
         public string Marketplace { get; set; }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace MarketplaceWebService.Model
         /// </summary>
         /// <param name="marketplace">Marketplace property.</param>
         /// <returns>this instance.</returns>
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
         public UpdateReportAcknowledgementsRequest WithMarketplace(string marketplace)
         {
             Marketplace = marketplace;
@@ -51,7 +52,7 @@ namespace MarketplaceWebService.Model
         /// Checks if Marketplace property is set.
         /// </summary>
         /// <returns>true if Marketplace property is set.</returns>
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
         public bool IsSetMarketplace()
         {
             return Marketplace != null;
@@ -141,8 +142,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "Acknowledged")]
         public bool Acknowledged
         {
-            get { return _acknowledgedField.GetValueOrDefault(); }
-            set { _acknowledgedField = value; }
+            get => _acknowledgedField.GetValueOrDefault();
+            set => _acknowledgedField = value;
         }
 
         /// <summary>

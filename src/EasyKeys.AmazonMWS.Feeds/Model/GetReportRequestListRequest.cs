@@ -20,15 +20,13 @@ using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
-    [MarketplaceWebService(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
+    [MarketplaceWebServiceAttribute(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
     public class GetReportRequestListRequest
     {
-        private decimal? _maxCountField;
-
         private DateTime? _requestedFromDateField;
 
         private DateTime? _requestedToDateField;
@@ -196,11 +194,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the MaxCount property.
         /// </summary>
         [XmlElement(ElementName = "MaxCount")]
-        public decimal? MaxCount
-        {
-            get { return _maxCountField; }
-            set { _maxCountField = value; }
-        }
+        public decimal? MaxCount { get; set; }
 
         /// <summary>
         /// Sets the MaxCount property.
@@ -209,7 +203,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public GetReportRequestListRequest WithMaxCount(int? maxCount)
         {
-            _maxCountField = maxCount;
+            MaxCount = maxCount;
             return this;
         }
 
@@ -219,7 +213,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if MaxCount property is set.</returns>
         public bool IsSetMaxCount()
         {
-            return _maxCountField != null;
+            return MaxCount != null;
         }
 
         /// <summary>
@@ -228,8 +222,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "RequestedFromDate")]
         public DateTime RequestedFromDate
         {
-            get { return _requestedFromDateField.GetValueOrDefault(); }
-            set { _requestedFromDateField = value; }
+            get => _requestedFromDateField.GetValueOrDefault();
+            set => _requestedFromDateField = value;
         }
 
         /// <summary>
@@ -258,8 +252,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "RequestedToDate")]
         public DateTime RequestedToDate
         {
-            get { return _requestedToDateField.GetValueOrDefault(); }
-            set { _requestedToDateField = value; }
+            get => _requestedToDateField.GetValueOrDefault();
+            set => _requestedToDateField = value;
         }
 
         /// <summary>

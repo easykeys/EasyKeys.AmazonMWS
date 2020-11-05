@@ -15,20 +15,19 @@
  *
  */
 
+using System;
 using System.IO;
 using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
-    [MarketplaceWebService(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.STREAMING)]
+    [MarketplaceWebServiceAttribute(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.STREAMING)]
     public class GetReportRequest
     {
-        private string _reportIdField;
-
         [MarketplaceWebServiceStream(StreamType = StreamType.RECEIVE_STREAM)]
         public Stream Report { get; set; }
 
@@ -42,7 +41,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the Marketplace property.
         /// </summary>
         [XmlElement(ElementName = "Marketplace")]
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
         public string Marketplace { get; set; }
 
         /// <summary>
@@ -50,7 +49,7 @@ namespace MarketplaceWebService.Model
         /// </summary>
         /// <param name="marketplace">Marketplace property.</param>
         /// <returns>this instance.</returns>
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
         public GetReportRequest WithMarketplace(string marketplace)
         {
             Marketplace = marketplace;
@@ -61,7 +60,7 @@ namespace MarketplaceWebService.Model
         /// Checks if Marketplace property is set.
         /// </summary>
         /// <returns>true if Marketplace property is set.</returns>
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility.")]
         public bool IsSetMarketplace()
         {
             return Marketplace != null;
@@ -123,11 +122,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the ReportId property.
         /// </summary>
         [XmlElement(ElementName = "ReportId")]
-        public string ReportId
-        {
-            get { return _reportIdField; }
-            set { _reportIdField = value; }
-        }
+        public string ReportId { get; set; }
 
         /// <summary>
         /// Sets the ReportId property.
@@ -136,7 +131,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public GetReportRequest WithReportId(string reportId)
         {
-            _reportIdField = reportId;
+            ReportId = reportId;
             return this;
         }
 
@@ -146,7 +141,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if ReportId property is set.</returns>
         public bool IsSetReportId()
         {
-            return _reportIdField != null;
+            return ReportId != null;
         }
 
         public bool IsSetReport()

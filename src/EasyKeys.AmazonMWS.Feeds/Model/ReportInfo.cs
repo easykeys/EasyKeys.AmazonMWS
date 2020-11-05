@@ -1,33 +1,30 @@
-/******************************************************************************* 
+/*******************************************************************************
  *  Copyright 2009 Amazon Services.
- *  Licensed under the Apache License, Version 2.0 (the "License"); 
- *  
- *  You may not use this file except in compliance with the License. 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ *  You may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
- *  CONDITIONS OF ANY KIND, either express or implied. See the License for the 
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
  *  specific language governing permissions and limitations under the License.
- * ***************************************************************************** 
- * 
+ * *****************************************************************************
+ *
  *  Marketplace Web Service CSharp Library
  *  API Version: 2009-01-01
- *  Generated: Mon Mar 16 17:31:42 PDT 2009 
- * 
+ *  Generated: Mon Mar 16 17:31:42 PDT 2009
+ *
  */
 
 using System;
-using System.Xml.Serialization;
-using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
     public class ReportInfo
     {
-        private string _reportRequestIdField;
-
         private DateTime? _availableDateField;
 
         private bool? _acknowledgedField;
@@ -90,11 +87,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the ReportRequestId property.
         /// </summary>
         [XmlElement(ElementName = "ReportRequestId")]
-        public string ReportRequestId
-        {
-            get { return _reportRequestIdField; }
-            set { _reportRequestIdField = value; }
-        }
+        public string ReportRequestId { get; set; }
 
         /// <summary>
         /// Sets the ReportRequestId property.
@@ -103,7 +96,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public ReportInfo WithReportRequestId(string reportRequestId)
         {
-            _reportRequestIdField = reportRequestId;
+            ReportRequestId = reportRequestId;
             return this;
         }
 
@@ -113,7 +106,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if ReportRequestId property is set.</returns>
         public bool IsSetReportRequestId()
         {
-            return _reportRequestIdField != null;
+            return ReportRequestId != null;
         }
 
         /// <summary>
@@ -122,8 +115,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "AvailableDate")]
         public DateTime AvailableDate
         {
-            get { return _availableDateField.GetValueOrDefault(); }
-            set { _availableDateField = value; }
+            get => _availableDateField.GetValueOrDefault();
+            set => _availableDateField = value;
         }
 
         /// <summary>
@@ -152,8 +145,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "Acknowledged")]
         public bool Acknowledged
         {
-            get { return _acknowledgedField.GetValueOrDefault(); }
-            set { _acknowledgedField = value; }
+            get => _acknowledgedField.GetValueOrDefault();
+            set => _acknowledgedField = value;
         }
 
         /// <summary>
@@ -182,8 +175,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "AcknowledgedDate")]
         public DateTime AcknowledgedDate
         {
-            get { return _acknowledgedDateField.GetValueOrDefault(); }
-            set { _acknowledgedDateField = value; }
+            get => _acknowledgedDateField.GetValueOrDefault();
+            set => _acknowledgedDateField = value;
         }
 
         /// <summary>
@@ -211,13 +204,12 @@ namespace MarketplaceWebService.Model
         /// </summary>
         /// <returns>XML fragment for this object.</returns>
         /// <remarks>
-        /// Name for outer tag expected to be set by calling method. 
+        /// Name for outer tag expected to be set by calling method.
         /// This fragment returns inner properties representation only.
         /// </remarks>
-
         protected internal string ToXMLFragment()
         {
-            StringBuilder xml = new StringBuilder();
+            var xml = new StringBuilder();
             if (IsSetReportId())
             {
                 xml.Append("<ReportId>");
@@ -264,13 +256,13 @@ namespace MarketplaceWebService.Model
         }
 
         /**
-         * 
+         *
          * Escape XML special characters
          */
         private string EscapeXML(string str)
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
+            var sb = new StringBuilder();
+            foreach (var c in str)
             {
                 switch (c)
                 {

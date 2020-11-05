@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30626.31
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyKeys.AmazonMWS.Feeds", "src\EasyKeys.AmazonMWS.Feeds\EasyKeys.AmazonMWS.Feeds.csproj", "{3A1EE5E2-8755-4B0A-85F2-117F25252D8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyKeys.AmazonMWS.Orders", "src\EasyKeys.AmazonMWS.Orders\EasyKeys.AmazonMWS.Orders.csproj", "{86959AB7-D12E-49A3-8FD0-9E32C8D70494}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyKeys.AmazonMWS.Runtime", "src\EasyKeys.AmazonMWS.Runtime\EasyKeys.AmazonMWS.Runtime.csproj", "{6478E19C-DDB4-46F1-8060-92532E87B410}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ED919D43-FFCF-48DD-9396-F13D87668122}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F9112C6C-06F4-4166-8A78-380A07223D93}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyKeys.AmazonMWS.Orders.Test", "test\EasyKeys.AmazonMWS.Orders.Test\EasyKeys.AmazonMWS.Orders.Test.csproj", "{40EDD8A9-8104-4D29-8E21-15237811A7F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{6B38D9A0-5F94-4538-9D38-113BBCEB1C64}"
+	ProjectSection(SolutionItems) = preProject
+		build\dependencies.props = build\dependencies.props
+		build\settings.props = build\settings.props
+		build\sources.props = build\sources.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{73AB3001-5431-44BC-9693-DA414B4EA385}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		clean.sh = clean.sh
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKeys.AmazonMWS.Feeds.Test", "test\EasyKeys.AmazonMWS.Feeds.Test\EasyKeys.AmazonMWS.Feeds.Test.csproj", "{AB84C905-98B3-401D-A33A-14A2E1C6FA88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A1EE5E2-8755-4B0A-85F2-117F25252D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A1EE5E2-8755-4B0A-85F2-117F25252D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A1EE5E2-8755-4B0A-85F2-117F25252D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A1EE5E2-8755-4B0A-85F2-117F25252D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86959AB7-D12E-49A3-8FD0-9E32C8D70494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86959AB7-D12E-49A3-8FD0-9E32C8D70494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86959AB7-D12E-49A3-8FD0-9E32C8D70494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86959AB7-D12E-49A3-8FD0-9E32C8D70494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6478E19C-DDB4-46F1-8060-92532E87B410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6478E19C-DDB4-46F1-8060-92532E87B410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6478E19C-DDB4-46F1-8060-92532E87B410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6478E19C-DDB4-46F1-8060-92532E87B410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40EDD8A9-8104-4D29-8E21-15237811A7F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40EDD8A9-8104-4D29-8E21-15237811A7F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40EDD8A9-8104-4D29-8E21-15237811A7F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40EDD8A9-8104-4D29-8E21-15237811A7F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB84C905-98B3-401D-A33A-14A2E1C6FA88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB84C905-98B3-401D-A33A-14A2E1C6FA88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB84C905-98B3-401D-A33A-14A2E1C6FA88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB84C905-98B3-401D-A33A-14A2E1C6FA88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A1EE5E2-8755-4B0A-85F2-117F25252D8A} = {ED919D43-FFCF-48DD-9396-F13D87668122}
+		{86959AB7-D12E-49A3-8FD0-9E32C8D70494} = {ED919D43-FFCF-48DD-9396-F13D87668122}
+		{6478E19C-DDB4-46F1-8060-92532E87B410} = {ED919D43-FFCF-48DD-9396-F13D87668122}
+		{40EDD8A9-8104-4D29-8E21-15237811A7F2} = {F9112C6C-06F4-4166-8A78-380A07223D93}
+		{AB84C905-98B3-401D-A33A-14A2E1C6FA88} = {F9112C6C-06F4-4166-8A78-380A07223D93}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C86384AE-0477-49BF-8C4B-57A7CC007505}
+	EndGlobalSection
+EndGlobal

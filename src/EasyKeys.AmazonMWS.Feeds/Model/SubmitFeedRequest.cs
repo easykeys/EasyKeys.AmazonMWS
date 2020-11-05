@@ -15,20 +15,19 @@
  *
  */
 
+using System;
 using System.IO;
 using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
     [MarketplaceWebService(RequestType = RequestType.STREAMING, ResponseType = ResponseType.DEFAULT)]
     public class SubmitFeedRequest
     {
-        private string _merchantField;
-
         private bool? _purgeAndReplaceField;
 
         /// <summary>
@@ -37,7 +36,7 @@ namespace MarketplaceWebService.Model
         /// </summary>
         public ContentType ContentType { get; set; } = new ContentType(MediaType.OctetStream);
 
-        [MarketplaceWebServiceRequestHeader("Content-MD5")]
+        [XmlElement(ElementName = "ContentMD5")]
         public string ContentMD5 { get; set; }
 
         public SubmitFeedRequest WithContentMD5(string contentMD5)
@@ -46,11 +45,16 @@ namespace MarketplaceWebService.Model
             return this;
         }
 
+        public bool IsSetContentMD5()
+        {
+            return ContentMD5 != null;
+        }
+
         /// <summary>
         /// Gets and sets the Marketplace property.
         /// </summary>
         [XmlElement(ElementName = "Marketplace")]
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility. See MarketplaceIdList to specify a Marketplace.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility. See MarketplaceIdList to specify a Marketplace.")]
         public string Marketplace { get; set; }
 
         /// <summary>
@@ -64,7 +68,7 @@ namespace MarketplaceWebService.Model
         /// </summary>
         /// <param name="marketplace">Marketplace property.</param>
         /// <returns>this instance.</returns>
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility. See MarketplaceIdList to specify a Marketplace.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility. See MarketplaceIdList to specify a Marketplace.")]
         public SubmitFeedRequest WithMarketplace(string marketplace)
         {
             Marketplace = marketplace;
@@ -86,7 +90,7 @@ namespace MarketplaceWebService.Model
         /// Checks if Marketplace property is set.
         /// </summary>
         /// <returns>true if Marketplace property is set.</returns>
-        [System.Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility. See MarketplaceIdList to specify a Marketplace.")]
+        [Obsolete("Not used anymore. MWS ignores this parameter, but it is left in here for backwards compatibility. See MarketplaceIdList to specify a Marketplace.")]
         public bool IsSetMarketplace()
         {
             return Marketplace != null;
@@ -105,11 +109,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the Merchant property.
         /// </summary>
         [XmlElement(ElementName = "Merchant")]
-        public string Merchant
-        {
-            get { return _merchantField; }
-            set { _merchantField = value; }
-        }
+        public string Merchant { get; set; }
 
         /// <summary>
         /// Sets the Merchant property.
@@ -118,7 +118,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public SubmitFeedRequest WithMerchant(string merchant)
         {
-            _merchantField = merchant;
+            Merchant = merchant;
             return this;
         }
 
@@ -128,7 +128,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if Merchant property is set.</returns>
         public bool IsSetMerchant()
         {
-            return _merchantField != null;
+            return Merchant != null;
         }
 
         /// <summary>
@@ -215,8 +215,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "PurgeAndReplace")]
         public bool PurgeAndReplace
         {
-            get { return _purgeAndReplaceField.GetValueOrDefault(); }
-            set { _purgeAndReplaceField = value; }
+            get => _purgeAndReplaceField.GetValueOrDefault();
+            set => _purgeAndReplaceField = value;
         }
 
         /// <summary>

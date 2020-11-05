@@ -20,15 +20,13 @@ using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
-    [MarketplaceWebService(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
+    [MarketplaceWebServiceAttribute(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
     public class RequestReportRequest
     {
-        private IdList _marketplaceIdListField;
-
         private DateTime? _startDateField;
 
         private DateTime? _endDateField;
@@ -44,11 +42,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the MarketplaceIdList property, an optional parameter for backwards compatibility. Allows you to specify the marketplaces to request a report from.
         /// </summary>
         [XmlElement(ElementName = "MarketplaceIdList")]
-        public IdList MarketplaceIdList
-        {
-            get { return _marketplaceIdListField; }
-            set { _marketplaceIdListField = value; }
-        }
+        public IdList MarketplaceIdList { get; set; }
 
         /// <summary>
         /// Sets the Marketplace property.
@@ -69,7 +63,7 @@ namespace MarketplaceWebService.Model
         /// <returns></returns>
         public RequestReportRequest WithMarketplaceIdList(IdList marketplaceIdList)
         {
-            _marketplaceIdListField = marketplaceIdList;
+            MarketplaceIdList = marketplaceIdList;
             return this;
         }
 
@@ -89,7 +83,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if MarketplaceIdList property is set.</returns>
         public bool IsSetMarketplaceIdList()
         {
-            return _marketplaceIdListField != null;
+            return MarketplaceIdList != null;
         }
 
         /// <summary>
@@ -176,8 +170,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "StartDate")]
         public DateTime StartDate
         {
-            get { return _startDateField.GetValueOrDefault(); }
-            set { _startDateField = value; }
+            get => _startDateField.GetValueOrDefault();
+            set => _startDateField = value;
         }
 
         /// <summary>
@@ -206,8 +200,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "EndDate")]
         public DateTime EndDate
         {
-            get { return _endDateField.GetValueOrDefault(); }
-            set { _endDateField = value; }
+            get => _endDateField.GetValueOrDefault();
+            set => _endDateField = value;
         }
 
         /// <summary>

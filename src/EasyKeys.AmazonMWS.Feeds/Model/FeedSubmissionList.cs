@@ -1,22 +1,22 @@
-/******************************************************************************* 
+/*******************************************************************************
  *  Copyright 2008 Amazon Technologies, Inc.
- *  Licensed under the Apache License, Version 2.0 (the "License"); 
- *  
- *  You may not use this file except in compliance with the License. 
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *
+ *  You may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
- *  CONDITIONS OF ANY KIND, either express or implied. See the License for the 
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
  *  specific language governing permissions and limitations under the License.
- * ***************************************************************************** 
- *    __  _    _  ___ 
+ * *****************************************************************************
+ *    __  _    _  ___
  *   (  )( \/\/ )/ __)
  *   /__\ \    / \__ \
  *  (_)(_) \/\/  (___/
- * 
+ *
  *  Marketplace Web Service CSharp Library
  *  API Version: 2009-01-01
- *  Generated: Fri Feb 13 19:54:50 PST 2009 
- * 
+ *  Generated: Fri Feb 13 19:54:50 PST 2009
+ *
  */
 
 using System;
@@ -24,7 +24,7 @@ using System.Xml.Serialization;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
@@ -38,17 +38,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "FeedSubmissionInfo")]
         public List<FeedSubmissionInfo> FeedSubmissionInfo
         {
-            get
-            {
-                if (_feedSubmissionInfoField == null)
-                {
-                    _feedSubmissionInfoField = new List<FeedSubmissionInfo>();
-                }
-
-                return _feedSubmissionInfoField;
-            }
-
-            set { _feedSubmissionInfoField = value; }
+            get => _feedSubmissionInfoField ?? (_feedSubmissionInfoField = new List<FeedSubmissionInfo>());
+            set => _feedSubmissionInfoField = value;
         }
 
         /// <summary>
@@ -58,7 +49,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public FeedSubmissionList WithFeedSubmissionInfo(params FeedSubmissionInfo[] list)
         {
-            foreach (FeedSubmissionInfo item in list)
+            foreach (var item in list)
             {
                 FeedSubmissionInfo.Add(item);
             }
@@ -72,7 +63,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if FeedSubmissionInfo property is set.</returns>
         public bool IsSetFeedSubmissionInfo()
         {
-            return (FeedSubmissionInfo.Count > 0);
+            return FeedSubmissionInfo.Count > 0;
         }
 
         /// <summary>
@@ -80,15 +71,14 @@ namespace MarketplaceWebService.Model
         /// </summary>
         /// <returns>XML fragment for this object.</returns>
         /// <remarks>
-        /// Name for outer tag expected to be set by calling method. 
+        /// Name for outer tag expected to be set by calling method.
         /// This fragment returns inner properties representation only.
         /// </remarks>
-
         protected internal string ToXMLFragment()
         {
-            StringBuilder xml = new StringBuilder();
-            List<FeedSubmissionInfo> feedSubmissionInfoList = FeedSubmissionInfo;
-            foreach (FeedSubmissionInfo feedSubmissionInfo in feedSubmissionInfoList)
+            var xml = new StringBuilder();
+            var feedSubmissionInfoList = FeedSubmissionInfo;
+            foreach (var feedSubmissionInfo in feedSubmissionInfoList)
             {
                 xml.Append("<FeedSubmissionInfo>");
                 xml.Append(feedSubmissionInfo.ToXMLFragment());
@@ -96,41 +86,6 @@ namespace MarketplaceWebService.Model
             }
 
             return xml.ToString();
-        }
-
-        /**
-         * 
-         * Escape XML special characters
-         */
-        private string EscapeXML(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
-            {
-                switch (c)
-                {
-                    case '&':
-                        sb.Append("&amp;");
-                        break;
-                    case '<':
-                        sb.Append("&lt;");
-                        break;
-                    case '>':
-                        sb.Append("&gt;");
-                        break;
-                    case '\'':
-                        sb.Append("&#039;");
-                        break;
-                    case '"':
-                        sb.Append("&quot;");
-                        break;
-                    default:
-                        sb.Append(c);
-                        break;
-                }
-            }
-
-            return sb.ToString();
         }
     }
 }

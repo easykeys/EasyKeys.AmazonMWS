@@ -18,8 +18,10 @@
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
-using MarketplaceWebService.Model;
+
+using EasyKeys.AmazonMWS.Feeds.Model;
 
 namespace EasyKeys.AmazonMWS.Feeds.Mock
 {
@@ -49,9 +51,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// streaming fashion.
         ///
         /// </remarks>
-        public GetReportResponse GetReport(GetReportRequest request)
+        public async Task<GetReportResponse> GetReport(GetReportRequest request)
         {
-            return Invoke<GetReportResponse>("GetReportResponse.xml");
+            return await Invoke<GetReportResponse>("GetReportResponse.xml");
         }
 
         /// <summary>
@@ -63,9 +65,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// returns the number of report schedules.
         ///
         /// </remarks>
-        public GetReportScheduleCountResponse GetReportScheduleCount(GetReportScheduleCountRequest request)
+        public async Task<GetReportScheduleCountResponse> GetReportScheduleCount(GetReportScheduleCountRequest request)
         {
-            return Invoke<GetReportScheduleCountResponse>("GetReportScheduleCountResponse.xml");
+            return await Invoke<GetReportScheduleCountResponse>("GetReportScheduleCountResponse.xml");
         }
 
         /// <summary>
@@ -77,9 +79,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        public GetReportRequestListByNextTokenResponse GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
+        public async Task<GetReportRequestListByNextTokenResponse> GetReportRequestListByNextToken(GetReportRequestListByNextTokenRequest request)
         {
-            return Invoke<GetReportRequestListByNextTokenResponse>("GetReportRequestListByNextTokenResponse.xml");
+            return await Invoke<GetReportRequestListByNextTokenResponse>("GetReportRequestListByNextTokenResponse.xml");
         }
 
         /// <summary>
@@ -91,9 +93,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// The UpdateReportAcknowledgements operation updates the acknowledged status of one or more reports.
         ///
         /// </remarks>
-        public UpdateReportAcknowledgementsResponse UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
+        public async Task<UpdateReportAcknowledgementsResponse> UpdateReportAcknowledgements(UpdateReportAcknowledgementsRequest request)
         {
-            return Invoke<UpdateReportAcknowledgementsResponse>("UpdateReportAcknowledgementsResponse.xml");
+            return await Invoke<UpdateReportAcknowledgementsResponse>("UpdateReportAcknowledgementsResponse.xml");
         }
 
         /// <summary>
@@ -109,9 +111,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// caution (the default is false).
         ///
         /// </remarks>
-        public SubmitFeedResponse SubmitFeed(SubmitFeedRequest request)
+        public async Task<SubmitFeedResponse> SubmitFeed(SubmitFeedRequest request)
         {
-            return Invoke<SubmitFeedResponse>("SubmitFeedResponse.xml");
+            return await Invoke<SubmitFeedResponse>("SubmitFeedResponse.xml");
         }
 
         /// <summary>
@@ -125,9 +127,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// regardless of acknowledgement status.
         ///
         /// </remarks>
-        public GetReportCountResponse GetReportCount(GetReportCountRequest request)
+        public async Task<GetReportCountResponse> GetReportCount(GetReportCountRequest request)
         {
-            return Invoke<GetReportCountResponse>("GetReportCountResponse.xml");
+            return await Invoke<GetReportCountResponse>("GetReportCountResponse.xml");
         }
 
         /// <summary>
@@ -139,9 +141,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        public GetFeedSubmissionListByNextTokenResponse GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
+        public async Task<GetFeedSubmissionListByNextTokenResponse> GetFeedSubmissionListByNextToken(GetFeedSubmissionListByNextTokenRequest request)
         {
-            return Invoke<GetFeedSubmissionListByNextTokenResponse>("GetFeedSubmissionListByNextTokenResponse.xml");
+            return await Invoke<GetFeedSubmissionListByNextTokenResponse>("GetFeedSubmissionListByNextTokenResponse.xml");
         }
 
         /// <summary>
@@ -154,9 +156,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// last 30 days that have not started processing.
         ///
         /// </remarks>
-        public CancelFeedSubmissionsResponse CancelFeedSubmissions(CancelFeedSubmissionsRequest request)
+        public async Task<CancelFeedSubmissionsResponse> CancelFeedSubmissions(CancelFeedSubmissionsRequest request)
         {
-            return Invoke<CancelFeedSubmissionsResponse>("CancelFeedSubmissionsResponse.xml");
+            return await Invoke<CancelFeedSubmissionsResponse>("CancelFeedSubmissionsResponse.xml");
         }
 
         /// <summary>
@@ -168,9 +170,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// requests the generation of a report.
         ///
         /// </remarks>
-        public RequestReportResponse RequestReport(RequestReportRequest request)
+        public async Task<RequestReportResponse> RequestReport(RequestReportRequest request)
         {
-            return Invoke<RequestReportResponse>("RequestReportResponse.xml");
+            return await Invoke<RequestReportResponse>("RequestReportResponse.xml");
         }
 
         /// <summary>
@@ -182,9 +184,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// returns the number of feeds matching all of the specified criteria.
         ///
         /// </remarks>
-        public GetFeedSubmissionCountResponse GetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
+        public async Task<GetFeedSubmissionCountResponse> GetFeedSubmissionCount(GetFeedSubmissionCountRequest request)
         {
-            return Invoke<GetFeedSubmissionCountResponse>("GetFeedSubmissionCountResponse.xml");
+            return await Invoke<GetFeedSubmissionCountResponse>("GetFeedSubmissionCountResponse.xml");
         }
 
         /// <summary>
@@ -197,9 +199,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// by default all those within the last 90 days.
         ///
         /// </remarks>
-        public CancelReportRequestsResponse CancelReportRequests(CancelReportRequestsRequest request)
+        public async Task<CancelReportRequestsResponse> CancelReportRequests(CancelReportRequestsRequest request)
         {
-            return Invoke<CancelReportRequestsResponse>("CancelReportRequestsResponse.xml");
+            return await Invoke<CancelReportRequestsResponse>("CancelReportRequestsResponse.xml");
         }
 
         /// <summary>
@@ -212,9 +214,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// regardless of their acknowledgement status.
         ///
         /// </remarks>
-        public GetReportListResponse GetReportList(GetReportListRequest request)
+        public async Task<GetReportListResponse> GetReportList(GetReportListRequest request)
         {
-            return Invoke<GetReportListResponse>("GetReportListResponse.xml");
+            return await Invoke<GetReportListResponse>("GetReportListResponse.xml");
         }
 
         /// <summary>
@@ -226,9 +228,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// retrieves the feed processing report.
         ///
         /// </remarks>
-        public GetFeedSubmissionResultResponse GetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
+        public async Task<GetFeedSubmissionResultResponse> GetFeedSubmissionResult(GetFeedSubmissionResultRequest request)
         {
-            return Invoke<GetFeedSubmissionResultResponse>("GetFeedSubmissionResultResponse.xml");
+            return await Invoke<GetFeedSubmissionResultResponse>("GetFeedSubmissionResultResponse.xml");
         }
 
         /// <summary>
@@ -240,9 +242,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// returns a list of feed submission identifiers and their associated metadata.
         ///
         /// </remarks>
-        public GetFeedSubmissionListResponse GetFeedSubmissionList(GetFeedSubmissionListRequest request)
+        public async Task<GetFeedSubmissionListResponse> GetFeedSubmissionList(GetFeedSubmissionListRequest request)
         {
-            return Invoke<GetFeedSubmissionListResponse>("GetFeedSubmissionListResponse.xml");
+            return await Invoke<GetFeedSubmissionListResponse>("GetFeedSubmissionListResponse.xml");
         }
 
         /// <summary>
@@ -254,9 +256,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// returns a list of report requests ids and their associated metadata.
         ///
         /// </remarks>
-        public GetReportRequestListResponse GetReportRequestList(GetReportRequestListRequest request)
+        public async Task<GetReportRequestListResponse> GetReportRequestList(GetReportRequestListRequest request)
         {
-            return Invoke<GetReportRequestListResponse>("GetReportRequestListResponse.xml");
+            return await Invoke<GetReportRequestListResponse>("GetReportRequestListResponse.xml");
         }
 
         /// <summary>
@@ -268,9 +270,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        public GetReportScheduleListByNextTokenResponse GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
+        public async Task<GetReportScheduleListByNextTokenResponse> GetReportScheduleListByNextToken(GetReportScheduleListByNextTokenRequest request)
         {
-            return Invoke<GetReportScheduleListByNextTokenResponse>("GetReportScheduleListByNextTokenResponse.xml");
+            return await Invoke<GetReportScheduleListByNextTokenResponse>("GetReportScheduleListByNextTokenResponse.xml");
         }
 
         /// <summary>
@@ -282,9 +284,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// retrieve the next batch of list items and if there are more items to retrieve.
         ///
         /// </remarks>
-        public GetReportListByNextTokenResponse GetReportListByNextToken(GetReportListByNextTokenRequest request)
+        public async Task<GetReportListByNextTokenResponse> GetReportListByNextToken(GetReportListByNextTokenRequest request)
         {
-            return Invoke<GetReportListByNextTokenResponse>("GetReportListByNextTokenResponse.xml");
+            return await Invoke<GetReportListByNextTokenResponse>("GetReportListByNextTokenResponse.xml");
         }
 
         /// <summary>
@@ -297,9 +299,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// for a given report type, such as order reports in particular.
         ///
         /// </remarks>
-        public ManageReportScheduleResponse ManageReportSchedule(ManageReportScheduleRequest request)
+        public async Task<ManageReportScheduleResponse> ManageReportSchedule(ManageReportScheduleRequest request)
         {
-            return Invoke<ManageReportScheduleResponse>("ManageReportScheduleResponse.xml");
+            return await Invoke<ManageReportScheduleResponse>("ManageReportScheduleResponse.xml");
         }
 
         /// <summary>
@@ -312,9 +314,9 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// requests in the last 90 days.
         ///
         /// </remarks>
-        public GetReportRequestCountResponse GetReportRequestCount(GetReportRequestCountRequest request)
+        public async Task<GetReportRequestCountResponse> GetReportRequestCount(GetReportRequestCountRequest request)
         {
-            return Invoke<GetReportRequestCountResponse>("GetReportRequestCountResponse.xml");
+            return await Invoke<GetReportRequestCountResponse>("GetReportRequestCountResponse.xml");
         }
 
         /// <summary>
@@ -326,19 +328,19 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
         /// returns the list of report schedules.
         ///
         /// </remarks>
-        public GetReportScheduleListResponse GetReportScheduleList(GetReportScheduleListRequest request)
+        public async Task<GetReportScheduleListResponse> GetReportScheduleList(GetReportScheduleListRequest request)
         {
-            return Invoke<GetReportScheduleListResponse>("GetReportScheduleListResponse.xml");
+            return await Invoke<GetReportScheduleListResponse>("GetReportScheduleListResponse.xml");
         }
 
         // Private API ------------------------------------------------------------//
 
-        private T Invoke<T>(string xmlResource)
+        private async Task<T> Invoke<T>(string xmlResource)
         {
-            Type typeObj = typeof(T);
-            XmlSerializer serializer = new XmlSerializer(typeObj);
-            Stream xmlStream = Assembly.GetAssembly(GetType()).GetManifestResourceStream(xmlResource);
-            T response = (T)serializer.Deserialize(xmlStream);
+            var typeObj = typeof(T);
+            var serializer = new XmlSerializer(typeObj);
+            var xmlStream = GetType().GetTypeInfo().Assembly.GetManifestResourceStream(xmlResource);
+            var response = (T)serializer.Deserialize(xmlStream);
             AddResponseHeaderMetadata(typeObj, response);
 
             return response;
@@ -346,11 +348,16 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
 
         private void AddResponseHeaderMetadata(Type type, object obj)
         {
-            object[] parameters = new object[] {new ResponseHeaderMetadata(
+            var parameters = new object[]
+            {
+                new ResponseHeaderMetadata(
                 "5131519d-02d4-416f-8252-fe88a8b9865d",
                 "1jOaKSW7LhzBEETHOVENSmWhIWw7mqbBIRTHDAYublG+zputqh0cgyVg0UmaikD761KvWxaGxNmTOT6Te4dUa8a1hBRe,qDPCFI2XSb60iVhQw+173wAVHZ2kJMfrAXxQDWNRguHZnFHHyWN1ZvDeeIxpUUkLNo3B+H9pUho=",
-                "2013-12-16T14:31:45.446Z")};
-            type.InvokeMember("ResponseHeaderMetadata", BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetProperty, Type.DefaultBinder, obj, parameters);
+                "2013-12-16T14:31:45.446Z")
+            };
+
+            var property = type.GetTypeInfo().GetDeclaredProperty("ResponseHeaderMetadata");
+            property.SetValue(obj, parameters);
         }
     }
 }

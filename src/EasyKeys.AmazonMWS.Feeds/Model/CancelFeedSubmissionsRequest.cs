@@ -20,14 +20,13 @@ using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Attributes;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     [XmlType(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/")]
     [XmlRoot(Namespace = "http://mws.amazonaws.com/doc/2009-01-01/", IsNullable = false)]
-    [MarketplaceWebService(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
+    [MarketplaceWebServiceAttribute(RequestType = RequestType.DEFAULT, ResponseType = ResponseType.DEFAULT)]
     public class CancelFeedSubmissionsRequest
     {
-        private string _mwsAuthTokenField;
         private DateTime? _submittedFromDateField;
 
         private DateTime? _submittedToDateField;
@@ -91,11 +90,7 @@ namespace MarketplaceWebService.Model
         /// Gets and sets the MWSAuthToken property.
         /// </summary>
         [XmlElement(ElementName = "MWSAuthToken")]
-        public string MWSAuthToken
-        {
-            get { return _mwsAuthTokenField; }
-            set { _mwsAuthTokenField = value; }
-        }
+        public string MWSAuthToken { get; set; }
 
         /// <summary>
         /// Sets the MWSAuthToken property.
@@ -104,7 +99,7 @@ namespace MarketplaceWebService.Model
         /// <returns>this instance.</returns>
         public CancelFeedSubmissionsRequest WithMWSAuthToken(string mwsAuthToken)
         {
-            _mwsAuthTokenField = mwsAuthToken;
+            MWSAuthToken = mwsAuthToken;
             return this;
         }
 
@@ -114,7 +109,7 @@ namespace MarketplaceWebService.Model
         /// <returns>true if MWSAuthToken property is set.</returns>
         public bool IsSetMWSAuthToken()
         {
-            return _mwsAuthTokenField != null;
+            return MWSAuthToken != null;
         }
 
         /// <summary>
@@ -175,8 +170,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "SubmittedFromDate")]
         public DateTime SubmittedFromDate
         {
-            get { return _submittedFromDateField.GetValueOrDefault(); }
-            set { _submittedFromDateField = value; }
+            get => _submittedFromDateField.GetValueOrDefault();
+            set => _submittedFromDateField = value;
         }
 
         /// <summary>
@@ -205,8 +200,8 @@ namespace MarketplaceWebService.Model
         [XmlElement(ElementName = "SubmittedToDate")]
         public DateTime SubmittedToDate
         {
-            get { return _submittedToDateField.GetValueOrDefault(); }
-            set { _submittedToDateField = value; }
+            get => _submittedToDateField.GetValueOrDefault();
+            set => _submittedToDateField = value;
         }
 
         /// <summary>

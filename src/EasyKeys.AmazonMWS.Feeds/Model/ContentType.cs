@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Text;
 
-namespace MarketplaceWebService.Model
+namespace EasyKeys.AmazonMWS.Feeds.Model
 {
     /// <summary>
     /// Defines the content type, encoding, and character set used to
@@ -10,43 +10,43 @@ namespace MarketplaceWebService.Model
     /// </summary>
     public class ContentType
     {
-        private MediaType _contentType = MediaType.OctetStream;
         private List<IContentTypeParameter> _parameters = new List<IContentTypeParameter>();
-
-                /// <summary>
-        /// Initializes a new instance of the <see cref="ContentType"/> class.
-        /// Creates a new instance of the ContentType object with the specified values.
-        /// </summary>
-        /// <param name="contentType"></param>
-        public ContentType(MediaType contentType)
-        {
-            _contentType = contentType;
-        }
-
-        public override string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            // Pick the "Description" attribute off the specified enum value.  This will throw an exception
-            // if the attribute is not present or the enum value is not valid.
-            System.ComponentModel.DescriptionAttribute descAttribute = (System.ComponentModel.DescriptionAttribute)typeof(MediaType).GetField(_contentType.ToString(), BindingFlags.Static | BindingFlags.GetField | BindingFlags.Public)
-                .GetCustomAttributes(typeof(System.ComponentModel.DescriptionAttribute), false)[0];
-            sb.Append(descAttribute.Description);
-            foreach (IContentTypeParameter param in _parameters)
-            {
-                sb.Append(";" + param.ToString());
-            }
-
-            return sb.ToString();
-        }
 
         /// <summary>
         /// Gets or sets the type of content.  This value defaults
         /// to "FeedContentType.OctetStream".
         /// </summary>
-        public MediaType Type
+        public MediaType Type { get; } = MediaType.OctetStream;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContentType"/> class.
+        /// Creates a new instance of the ContentType object with the specified values.
+        /// </summary>
+        public ContentType(MediaType contentType)
         {
-            get { return _contentType; }
+            Type = contentType;
+        }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            // Pick the "Description" attribute off the specified enum value.  This will throw an exception
+            // if the attribute is not present or the enum value is not valid.
+            var descAttributes = typeof(MediaType).GetField(Type.ToString(), BindingFlags.Static | BindingFlags.GetField | BindingFlags.Public)
+                .GetCustomAttributes(typeof(System.ComponentModel.DescriptionAttribute), false);
+            foreach (System.ComponentModel.DescriptionAttribute descAttribute in descAttributes)
+            {
+                sb.Append(descAttribute.Description);
+                foreach (var param in _parameters)
+                {
+                    sb.Append(";" + param.ToString());
+                }
+
+                return sb.ToString();
+            }
+
+            return string.Empty;
         }
 
         /// <summary>
