@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mock\GetReportResponse.xml">
+      <LogicalName>GetReportResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportScheduleCountResponse.xml">
+      <LogicalName>GetReportScheduleCountResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportRequestListByNextTokenResponse.xml">
+      <LogicalName>GetReportRequestListByNextTokenResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\UpdateReportAcknowledgementsResponse.xml">
+      <LogicalName>UpdateReportAcknowledgementsResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\SubmitFeedResponse.xml">
+      <LogicalName>SubmitFeedResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportCountResponse.xml">
+      <LogicalName>GetReportCountResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetFeedSubmissionListByNextTokenResponse.xml">
+      <LogicalName>GetFeedSubmissionListByNextTokenResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\CancelFeedSubmissionsResponse.xml">
+      <LogicalName>CancelFeedSubmissionsResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\RequestReportResponse.xml">
+      <LogicalName>RequestReportResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetFeedSubmissionCountResponse.xml">
+      <LogicalName>GetFeedSubmissionCountResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\CancelReportRequestsResponse.xml">
+      <LogicalName>CancelReportRequestsResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportListResponse.xml">
+      <LogicalName>GetReportListResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetFeedSubmissionResultResponse.xml">
+      <LogicalName>GetFeedSubmissionResultResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetFeedSubmissionListResponse.xml">
+      <LogicalName>GetFeedSubmissionListResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportRequestListResponse.xml">
+      <LogicalName>GetReportRequestListResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportScheduleListByNextTokenResponse.xml">
+      <LogicalName>GetReportScheduleListByNextTokenResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportListByNextTokenResponse.xml">
+      <LogicalName>GetReportListByNextTokenResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\ManageReportScheduleResponse.xml">
+      <LogicalName>ManageReportScheduleResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportRequestCountResponse.xml">
+      <LogicalName>GetReportRequestCountResponse.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mock\GetReportScheduleListResponse.xml">
+      <LogicalName>GetReportScheduleListResponse.xml</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
