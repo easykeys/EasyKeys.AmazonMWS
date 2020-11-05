@@ -39,7 +39,7 @@ namespace EasyKeys.AmazonMWS.Feeds
      * MarketplaceWebServiceClient is an implementation of MarketplaceWebService
      *
      */
-    public class MarketplaceWebServiceClient : MarketplaceWebService
+    public class MarketplaceWebServiceClient : IMarketplaceWebService
     {
         private string _awsAccessKeyId = null;
         private string _awsSecretAccessKey = null;

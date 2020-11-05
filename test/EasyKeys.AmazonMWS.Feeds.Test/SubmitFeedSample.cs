@@ -37,7 +37,7 @@ namespace EasyKeys.AmazonMWS.Feeds.Test
         /// </summary>
         /// <param name="service">Instance of MarketplaceWebService service.</param>
         /// <param name="request">SubmitFeedRequest request.</param>
-        public static async Task InvokeSubmitFeed(MarketplaceWebService service, SubmitFeedRequest request)
+        public static async Task InvokeSubmitFeed(IMarketplaceWebService service, SubmitFeedRequest request)
         {
             try
             {

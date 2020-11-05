@@ -36,7 +36,7 @@ namespace EasyKeys.AmazonMWS.Feeds.Mock
     ///
     /// Note, current Mock Service implementation does not valiadate requests.
     /// </remarks>
-    public class MarketplaceWebServiceMock : MarketplaceWebService
+    public class MarketplaceWebServiceMock : IMarketplaceWebService
     {
         // Public API ------------------------------------------------------------//
 
