@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKeys.AmazonMWS.Feeds.Test", "test\EasyKeys.AmazonMWS.Feeds.Test\EasyKeys.AmazonMWS.Feeds.Test.csproj", "{AB84C905-98B3-401D-A33A-14A2E1C6FA88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyKeys.AmazonMWS.Feeds.Schemas", "src\EasyKeys.AmazonMWS.Feeds.Schemas\EasyKeys.AmazonMWS.Feeds.Schemas.csproj", "{285B4985-5E3A-4C3E-A588-32721713AE20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{AB84C905-98B3-401D-A33A-14A2E1C6FA88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB84C905-98B3-401D-A33A-14A2E1C6FA88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB84C905-98B3-401D-A33A-14A2E1C6FA88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{285B4985-5E3A-4C3E-A588-32721713AE20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{285B4985-5E3A-4C3E-A588-32721713AE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{285B4985-5E3A-4C3E-A588-32721713AE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{285B4985-5E3A-4C3E-A588-32721713AE20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{6478E19C-DDB4-46F1-8060-92532E87B410} = {ED919D43-FFCF-48DD-9396-F13D87668122}
 		{40EDD8A9-8104-4D29-8E21-15237811A7F2} = {F9112C6C-06F4-4166-8A78-380A07223D93}
 		{AB84C905-98B3-401D-A33A-14A2E1C6FA88} = {F9112C6C-06F4-4166-8A78-380A07223D93}
+		{285B4985-5E3A-4C3E-A588-32721713AE20} = {ED919D43-FFCF-48DD-9396-F13D87668122}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C86384AE-0477-49BF-8C4B-57A7CC007505}
