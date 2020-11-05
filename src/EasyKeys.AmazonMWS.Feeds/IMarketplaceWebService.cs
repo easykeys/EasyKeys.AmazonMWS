@@ -25,7 +25,7 @@ namespace EasyKeys.AmazonMWS.Feeds
     /// The Amazon Marketplace Web Service contain APIs for inventory and order management.
     ///
     /// </summary>
-    public interface MarketplaceWebService
+    public interface IMarketplaceWebService
     {
         /// <summary>
         /// Get Report.

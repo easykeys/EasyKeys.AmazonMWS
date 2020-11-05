@@ -34,7 +34,7 @@ namespace EasyKeys.AmazonMWS.Feeds.Test
         /// </summary>
         /// <param name="service">Instance of MarketplaceWebService service.</param>
         /// <param name="request">GetFeedSubmissionCountRequest request.</param>
-        public static async Task InvokeCancelReportRequests(MarketplaceWebService service, CancelReportRequestsRequest request)
+        public static async Task InvokeCancelReportRequests(IMarketplaceWebService service, CancelReportRequestsRequest request)
         {
             try
             {

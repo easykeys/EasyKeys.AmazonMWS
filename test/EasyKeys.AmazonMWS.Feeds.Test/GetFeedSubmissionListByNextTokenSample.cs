@@ -34,7 +34,7 @@ namespace EasyKeys.AmazonMWS.Feeds.Test
         /// </summary>
         /// <param name="service">Instance of MarketplaceWebService service.</param>
         /// <param name="request">GetFeedSubmissionListByNextTokenRequest request.</param>
-        public static async Task InvokeGetFeedSubmissionListByNextToken(MarketplaceWebService service, GetFeedSubmissionListByNextTokenRequest request)
+        public static async Task InvokeGetFeedSubmissionListByNextToken(IMarketplaceWebService service, GetFeedSubmissionListByNextTokenRequest request)
         {
             try
             {

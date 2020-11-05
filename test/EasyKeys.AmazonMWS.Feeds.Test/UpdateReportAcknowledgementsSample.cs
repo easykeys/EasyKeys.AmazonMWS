@@ -35,7 +35,7 @@ namespace EasyKeys.AmazonMWS.Feeds.Test
         /// </summary>
         /// <param name="service">Instance of MarketplaceWebService service.</param>
         /// <param name="request">UpdateReportAcknowledgementsRequest request.</param>
-        public static async Task InvokeUpdateReportAcknowledgements(MarketplaceWebService service, UpdateReportAcknowledgementsRequest request)
+        public static async Task InvokeUpdateReportAcknowledgements(IMarketplaceWebService service, UpdateReportAcknowledgementsRequest request)
         {
             try
             {

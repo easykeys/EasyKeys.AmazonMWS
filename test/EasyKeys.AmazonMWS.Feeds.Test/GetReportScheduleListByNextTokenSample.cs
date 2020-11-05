@@ -34,7 +34,7 @@ namespace EasyKeys.AmazonMWS.Feeds.Test
         /// </summary>
         /// <param name="service">Instance of MarketplaceWebService service.</param>
         /// <param name="request">GetReportScheduleListByNextTokenRequest request.</param>
-        public static async Task InvokeGetReportScheduleListByNextToken(MarketplaceWebService service, GetReportScheduleListByNextTokenRequest request)
+        public static async Task InvokeGetReportScheduleListByNextToken(IMarketplaceWebService service, GetReportScheduleListByNextTokenRequest request)
         {
             try
             {

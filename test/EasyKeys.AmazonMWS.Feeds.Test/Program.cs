@@ -76,7 +76,7 @@ namespace EasyKeys.AmazonMWS.Feeds.Test
             const string applicationName = "EasyKeys.AmazonMWS.Feeds.Test.Test";
             const string applicationVersion = "0.1.0";
 
-            MarketplaceWebService service =
+            IMarketplaceWebService service =
                 new MarketplaceWebServiceClient(
                     accessKeyId,
                     secretAccessKey,
