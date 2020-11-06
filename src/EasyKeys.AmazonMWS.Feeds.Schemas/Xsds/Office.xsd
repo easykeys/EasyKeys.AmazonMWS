@@ -32,7 +32,6 @@
 							<xsd:element ref="OfficePrinter"/>
 							<xsd:element ref="OfficeScanner"/>
 							<xsd:element ref="VoiceRecorder"/>
-							<xsd:element ref="PrinterConsumable"/>
 						</xsd:choice>
 					</xsd:complexType>
 				</xsd:element>
@@ -69,7 +68,6 @@
 				<xsd:element name="Size" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="SizeMap" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Warnings" type="LongStringNotNull" minOccurs="0"/>
-				<xsd:element name="WarrantyDescription" type="SuperLongStringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -125,7 +123,7 @@
 				<xsd:element name="UnitCount" minOccurs="0">
 					<xsd:complexType>
 						<xsd:simpleContent>
-							<xsd:extension base="xsd:decimal">
+							<xsd:extension base="xsd:positiveInteger">
 								<xsd:attribute name="unitOfMeasure" type="StringNotNull"
 									use="required"/>
 							</xsd:extension>
@@ -159,7 +157,7 @@
 				<xsd:element name="CoatingDescription" type="TwoFiftyStringNotNull" minOccurs="0"/>
 				<xsd:element name="PaperCornerType" type="String" minOccurs="0"/>
 				<xsd:element name="PaperFinish" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PaperSize" type="StringLengthOptionalDimension" minOccurs="0"/>
+				<xsd:element name="PaperSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="BrightnessRating" type="IntegerPercentageType" minOccurs="0"/>
 				<xsd:element name="MediaStorageCapacity" type="String" minOccurs="0"/>
 				<xsd:element name="SpecialFeatures" type="StringNotNull" minOccurs="0"/>
@@ -185,8 +183,6 @@
 				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Occasion" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="OccasionType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -242,7 +238,7 @@
 				<xsd:element name="UnitCount" minOccurs="0">
 					<xsd:complexType>
 						<xsd:simpleContent>
-							<xsd:extension base="xsd:decimal">
+							<xsd:extension base="xsd:positiveInteger">
 								<xsd:attribute name="unitOfMeasure" type="StringNotNull"
 									use="required"/>
 							</xsd:extension>
@@ -274,7 +270,7 @@
 				<xsd:element name="CoatingDescription" type="TwoFiftyStringNotNull" minOccurs="0"/>
 				<xsd:element name="PaperCornerType" type="String" minOccurs="0"/>
 				<xsd:element name="PaperFinish" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PaperSize" type="StringLengthOptionalDimension" minOccurs="0"/>
+				<xsd:element name="PaperSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="BrightnessRating" type="IntegerPercentageType" minOccurs="0"/>
 				<xsd:element name="MediaStorageCapacity" type="String" minOccurs="0"/>
 				<xsd:element name="SpecialFeatures" type="StringNotNull" minOccurs="0"/>
@@ -301,7 +297,6 @@
 				<xsd:element name="SubjectCharacter" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Occasion" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -357,7 +352,7 @@
 				<xsd:element name="UnitCount" minOccurs="0">
 					<xsd:complexType>
 						<xsd:simpleContent>
-							<xsd:extension base="xsd:decimal">
+							<xsd:extension base="xsd:positiveInteger">
 								<xsd:attribute name="unitOfMeasure" type="StringNotNull"
 									use="required"/>
 							</xsd:extension>
@@ -390,7 +385,7 @@
 				<xsd:element name="CoatingDescription" type="TwoFiftyStringNotNull" minOccurs="0"/>
 				<xsd:element name="PaperCornerType" type="String" minOccurs="0"/>
 				<xsd:element name="PaperFinish" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PaperSize" type="StringLengthOptionalDimension" minOccurs="0"/>
+				<xsd:element name="PaperSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="BrightnessRating" type="IntegerPercentageType" minOccurs="0"/>
 				<xsd:element name="MediaStorageCapacity" type="String" minOccurs="0"/>
 				<xsd:element name="SpecialFeatures" type="StringNotNull" minOccurs="0"/>
@@ -416,15 +411,6 @@
 				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemDensity" type="DensityDimension" minOccurs="0"/>
 				<xsd:element name="Occasion" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="DrawerType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="FurnitureFinish" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="NumberOfHooks" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -479,7 +465,7 @@
 				<xsd:element name="UnitCount" minOccurs="0">
 					<xsd:complexType>
 						<xsd:simpleContent>
-							<xsd:extension base="xsd:decimal">
+							<xsd:extension base="xsd:positiveInteger">
 								<xsd:attribute name="unitOfMeasure" type="StringNotNull"
 									use="required"/>
 							</xsd:extension>
@@ -505,7 +491,7 @@
 				<xsd:element name="CoatingDescription" type="TwoFiftyStringNotNull" minOccurs="0"/>
 				<xsd:element name="PaperCornerType" type="String" minOccurs="0"/>
 				<xsd:element name="PaperFinish" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PaperSize" type="StringLengthOptionalDimension" minOccurs="0"/>
+				<xsd:element name="PaperSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="BrightnessRating" type="IntegerPercentageType" minOccurs="0"/>
 				<xsd:element name="SpecialFeatures" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="RulingType" type="String" minOccurs="0"/>
@@ -530,8 +516,6 @@
 				<xsd:element name="OccasionType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Occasion" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -585,7 +569,7 @@
 				<xsd:element name="UnitCount" minOccurs="0">
 					<xsd:complexType>
 						<xsd:simpleContent>
-							<xsd:extension base="xsd:decimal">
+							<xsd:extension base="xsd:positiveInteger">
 								<xsd:attribute name="unitOfMeasure" type="StringNotNull"
 									use="required"/>
 							</xsd:extension>
@@ -669,7 +653,6 @@
 				<xsd:element name="ScanElementType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ScanRate" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>	
@@ -706,7 +689,6 @@
 				</xsd:element>
 				<xsd:element name="IncludesRechargableBattery" type="xsd:boolean" minOccurs="0"/>
 				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>	
@@ -768,8 +750,6 @@
 				<xsd:element name="CompatibilityOptions" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Occasion" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>	
@@ -808,8 +788,6 @@
 				<xsd:element name="IncludedFeatures" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ProductTypeSubcategory" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>	
@@ -848,9 +826,6 @@
 				<xsd:element name="DisplayType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="DisplayTechnology" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>	
@@ -927,48 +902,6 @@
 				<xsd:element name="PrinterOutput" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="PrinterTechnology" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-	<!--
-	###############################################################
-	# PrinterConsumable Classification Data
-	###############################################################
-	-->	
-	<xsd:element name="PrinterConsumable">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="ConnectivityTechnology" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MaxPrintspeedBlackWhite" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element name="MaxPrintspeedColor" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element name="PrinterOutput" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PrinterTechnology" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>	
@@ -1011,7 +944,7 @@
 	</xsd:element>
 	<!--
 	###############################################################
-	# VoiceRecorder Classification Data
+	# Calculator Classification Data
 	###############################################################
 	-->	
 	<xsd:element name="VoiceRecorder">
@@ -1039,8 +972,6 @@
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>	

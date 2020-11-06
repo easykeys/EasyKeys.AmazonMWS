@@ -51,7 +51,7 @@
 				<xsd:element name="UnitCount" minOccurs="0">
 					<xsd:complexType>
 						<xsd:simpleContent>
-							<xsd:extension base="xsd:decimal">
+							<xsd:extension base="xsd:positiveInteger">
 								<xsd:attribute name="unitOfMeasure" type="StringNotNull"
 									use="required"/>
 							</xsd:extension>
@@ -101,8 +101,7 @@
 				<xsd:element name="LithiumBatteryWeight" type="WeightDimension" minOccurs="0"/>
 				<xsd:element name="NumberOfLithiumIonCells" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfLithiumMetalCells" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="AwardsWon" type="StringNotNull" minOccurs="0" maxOccurs="10"/>
-				<xsd:element name="SizeMap" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="AwardsWon" type="StringNotNull" minOccurs="0" maxOccurs="10"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

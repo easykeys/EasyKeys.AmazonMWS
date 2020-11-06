@@ -55,7 +55,7 @@
 				<xsd:element name="WhatsInTheBox" type="HundredString" minOccurs="0"/>
 				<xsd:element name="Year" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="MakeAnOfferMinimumPercentage" type="BinaryInteger" minOccurs="0"/>
-				<xsd:element name="UnitCount" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="UnitCount" type="PositiveInteger" minOccurs="0"/>
 				<xsd:element name="UnitCountType" type="HundredString" minOccurs="0"/>
 				<xsd:element name="CardNumber" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ParallelType" type="StringNotNull" minOccurs="0"/>

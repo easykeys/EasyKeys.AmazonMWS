@@ -226,7 +226,7 @@
 				<xsd:element name="UnitCount" minOccurs="0">
 					<xsd:complexType>
 						<xsd:simpleContent>
-							<xsd:extension base="xsd:decimal">
+							<xsd:extension base="xsd:positiveInteger">
 								<xsd:attribute name="unitOfMeasure" type="TwentyStringNotNull"
 									use="required"/>
 							</xsd:extension>

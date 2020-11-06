@@ -42,14 +42,9 @@
 										<xsd:enumeration value="CarrierCoverageFailure"/>
 										<xsd:enumeration value="CustomerReturn"/>
 										<xsd:enumeration value="MerchandiseNotReceived"/>
-										<xsd:enumeration value="CannotVerifyInformation"/>
-										<xsd:enumeration value="PricingError"/>
-										<xsd:enumeration value="RejectOrder"/>
-										<xsd:enumeration value="WeatherDelay"/>
 									</xsd:restriction>
 								</xsd:simpleType>
 							</xsd:element>
-							 <xsd:element name="Quantity" type="xsd:positiveInteger" minOccurs="0"/>
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>

@@ -158,11 +158,6 @@
 				<xsd:element ref="SoftwarePlatform" minOccurs="0" maxOccurs="4"/> 				
 				<xsd:element name="ApplicationVersion" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="NumberOfLicenses" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="SoftwareMediaFormat" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SubscriptionTermName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SubjectKeywords" type="StringNotNull" minOccurs="0" maxOccurs="6"/>
-				<xsd:element name="NumberOfDiscs" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="ArchType" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -208,10 +203,7 @@
 				<xsd:element name="MFGSuggestedAgeMax" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="MaxNumberOfPlayers" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element ref="SoftwarePlatform" minOccurs="0" maxOccurs="4"/>    
-				<xsd:element name="ComputerPlatform" type="ComputerPlatformValues" minOccurs="0"/>
 				<xsd:element name="OnlinePlay" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="AgeRangeDescription" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ContentRatingValue" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -231,14 +223,11 @@
 					<xsd:element name="USKRating" type="USKRatingType"/>
 				</xsd:choice>
 				<xsd:element name="HardwarePlatform" type="MediumStringNotNull" maxOccurs="5"/>	
-				<xsd:element name="ComputerPlatform" type="ComputerPlatformValues" minOccurs="0"/>
 				<xsd:element name="Bundles" type="ThirtyStringNotNull" minOccurs="0"/>
 				<xsd:element name="ESRBDescriptors" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
 				<xsd:element name="PEGIDetails" type="PEGIDetailsType" minOccurs="0"/>
 				<xsd:element name="MaxNumberOfPlayers" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="NumberOfLicenses" type="xsd:positiveInteger" minOccurs="0"/>	
-				<xsd:element name="AgeRangeDescription" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ContentRatingValue" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="NumberOfLicenses" type="xsd:positiveInteger" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -251,13 +240,12 @@
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="HardwarePlatform" type="MediumStringNotNull" maxOccurs="5"/>
-				<xsd:element name="ComputerPlatform" type="ComputerPlatformValues" minOccurs="0"/>
 				<xsd:element name="Bundles" type="ThirtyStringNotNull" minOccurs="0"/>
 				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ColorMap" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="AdditionalFeatures" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemPackageQuantity" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="MaxNumberOfPlayers" type="xsd:positiveInteger" minOccurs="0"/>
+				<xsd:element name="MaxNumberOfPlayers" type="xsd:positiveInteger" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -270,13 +258,12 @@
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="HardwarePlatform" type="MediumStringNotNull" maxOccurs="5"/>	
-				<xsd:element name="ComputerPlatform" type="ComputerPlatformValues" minOccurs="0"/>
 				<xsd:element name="Bundles" type="ThirtyStringNotNull" minOccurs="0"/>
 				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ColorMap" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="AdditionalFeatures" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemPackageQuantity" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="MaxNumberOfPlayers" type="xsd:positiveInteger" minOccurs="0"/>
+				<xsd:element name="MaxNumberOfPlayers" type="xsd:positiveInteger" minOccurs="0"/>			
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -322,6 +309,16 @@
 			<xsd:enumeration value="universal"/>
 		</xsd:restriction>
 	</xsd:simpleType>
+	<xsd:simpleType name="PEGIRatingType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ages_3_and_over"/>
+			<xsd:enumeration value="ages_7_and_over"/>
+			<xsd:enumeration value="ages_12_and_over"/>
+			<xsd:enumeration value="ages_16_and_over"/>
+			<xsd:enumeration value="ages_18_and_over"/>
+			<xsd:enumeration value="unknown"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 	<xsd:complexType name="PEGIDetailsType">
 		<xsd:sequence>
 			<xsd:element name="BadLanguage" type="xsd:boolean" minOccurs="0"/>
@@ -332,4 +329,17 @@
 			<xsd:element name="SexualContent" type="xsd:boolean" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
+	<xsd:simpleType name="USKRatingType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ages_6_and_over"/>
+			<xsd:enumeration value="ages_12_and_over"/>
+			<xsd:enumeration value="ages_16_and_over"/>
+			<xsd:enumeration value="ages_18_and_over"/>
+			<xsd:enumeration value="cannot_publicize"/>
+			<xsd:enumeration value="checked_by_legal_department"/>
+			<xsd:enumeration value="not_checked"/>
+			<xsd:enumeration value="without_age_limitation"/>
+			<xsd:enumeration value="unknown"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 </xsd:schema>

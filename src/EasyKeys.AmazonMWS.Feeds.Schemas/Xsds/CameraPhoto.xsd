@@ -859,7 +859,6 @@ with Amazon.com.
 				<xsd:element name="VideoResolution" type="LongString" minOccurs="0"/>
 				<xsd:element name="WirelessTechnology" type="LongString" minOccurs="0" maxOccurs="3"/>
 				<xsd:element name="ZoomRatio" type="LongString" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

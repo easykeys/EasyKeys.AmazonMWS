@@ -59,8 +59,6 @@
 				<xsd:element name="PowerSource" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TargetGender" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Warnings" type="LongStringNotNull" minOccurs="0"/>
-				<xsd:element name="WarrantyDescription" type="SuperLongStringNotNull" minOccurs="0"/>				
-				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -175,7 +173,6 @@
 				<xsd:element name="RecorderTrackCount" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="StringGauge" type="HundredString" minOccurs="0"/>
 				<xsd:element name="StringMaterial" type="HundredString" minOccurs="0"/>
-				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -290,7 +287,6 @@
 					</xsd:simpleType>
 				</xsd:element>
 				<xsd:element name="RecorderTrackCount" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -408,7 +404,6 @@
 					</xsd:simpleType>
 				</xsd:element>
 				<xsd:element name="RecorderTrackCount" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -523,7 +518,6 @@
 						</xsd:restriction>
 					</xsd:simpleType>
 				</xsd:element>
-				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -754,7 +748,6 @@
 				<xsd:element name="RecorderTrackCount" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="StringGauge" type="HundredString" minOccurs="0"/>
 				<xsd:element name="StringMaterial" type="HundredString" minOccurs="0"/>
-				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -870,7 +863,6 @@
 				</xsd:element>
 				<xsd:element name="StringGauge" type="HundredString" minOccurs="0"/>
 				<xsd:element name="StringMaterial" type="HundredString" minOccurs="0"/>
-				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -963,7 +955,6 @@
 				<xsd:element name="SupportedSoftware" type="HundredString" minOccurs="0"/>
 				<xsd:element name="SellerWarrantyDescription" type="SuperLongStringNotNull"
 					minOccurs="0"/>
-				<xsd:element name="ItemTypeName" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

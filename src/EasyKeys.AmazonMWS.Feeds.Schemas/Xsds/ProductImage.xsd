@@ -30,6 +30,7 @@
 							<xsd:enumeration value="PT7"/>
 							<xsd:enumeration value="PT8"/>
 							<xsd:enumeration value="Search"/>
+							<xsd:enumeration value="PM01"/>
 							<xsd:enumeration value="MainOfferImage"/>
 							<xsd:enumeration value="OfferImage1"/>
 							<xsd:enumeration value="OfferImage2"/>
@@ -46,7 +47,6 @@
 							<xsd:enumeration value="PT98"/>							
 							<xsd:enumeration value="PT99"/>							
 							<xsd:enumeration value="ELFL"/>
-							<xsd:enumeration value="EGUS"/>
 						</xsd:restriction>
 					</xsd:simpleType>
 				</xsd:element>

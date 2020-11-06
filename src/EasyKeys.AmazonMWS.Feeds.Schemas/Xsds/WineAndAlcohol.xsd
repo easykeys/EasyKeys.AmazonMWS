@@ -46,7 +46,7 @@
 										<xsd:element name="RegionalWineClassification" type="StringNotNull" minOccurs="0"/>
 										<xsd:element name="SoilType" type="StringNotNull" minOccurs="0"/>
 										<xsd:element name="ViticultureMethod" type="StringNotNull" minOccurs="0"/>
-										<xsd:element name="Vintage" type="StringNotNull" minOccurs="0"/>
+										<xsd:element name="Vintage" type="xsd:positiveInteger" minOccurs="0"/>
 										<xsd:element name="FiningMaterial" type="StringNotNull" minOccurs="0"/>
 										<xsd:element name="VinificationMethod" type="StringNotNull" minOccurs="0"/>
 										<xsd:element name="CoverArt" type="StringNotNull" minOccurs="0"/>
@@ -75,7 +75,6 @@
 										<xsd:element name="JamesHallidayRating" type="String" minOccurs="0"/>
 										<xsd:element name="AntonioGalloniRating" type="String" minOccurs="0"/>
 										<xsd:element name="SuggestedFoodPairing" type="LongStringNotNull" minOccurs="0"/>
-										<xsd:element name="Language" type="LanguageStringType" minOccurs="0"/>
 									</xsd:sequence>
 								</xsd:complexType>
 							</xsd:element>
@@ -117,9 +116,7 @@
 										<xsd:enumeration value="Size-Color"/>
 										<xsd:enumeration value="Size-ItemDisplayWeight"/>
 										<xsd:enumeration value="Size-PatternName"/>
-										<xsd:enumeration value="Vintage"/>
-										<xsd:enumeration value="Vintage-NumberofItems"/>
-                                                                  </xsd:restriction>
+									</xsd:restriction>
 								</xsd:simpleType>
 							</xsd:element>
 							<xsd:element name="Size" type="StringNotNull" minOccurs="0"/>
@@ -186,49 +183,6 @@
 				<xsd:element name="Specialty" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="LiquidPackagingSeal" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="OneClickAvailable" type="xsd:boolean" minOccurs="0"/>
-				<!-- V2 VW attributes applicable for PrimeNow sellers -->
-				<xsd:element name="AverageSizePerMerchantUom" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MerchantUnitOfMeasureUnit" type="GenericUnit" minOccurs="0"/>
-				<xsd:element name="MerchantUnitOfMeasureValue" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="ContainsLiquidContents" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="FcShelfLife" type="DateIntegerDimension" minOccurs="0"/>
-				<!-- V3 VW attributes applicable for PrimeNow sellers -->
-				<xsd:element name="AverageSizevalue" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="AverageSizeUnit" minOccurs="0" >
-				<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="units"/>
-							<xsd:enumeration value="ounces"/>
-							<xsd:enumeration value="pounds"/>
-							<xsd:enumeration value="grams"/>
-							<xsd:enumeration value="kilograms"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-				<xsd:element name="MerchantUOMValue" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="MerchantUOMUnit" minOccurs="0" >
-				<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="units"/>
-							<xsd:enumeration value="ounces"/>
-							<xsd:enumeration value="pounds"/>
-							<xsd:enumeration value="grams"/>
-							<xsd:enumeration value="kilograms"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-				<xsd:element name="InventoryUnitofMeasure" minOccurs="0" >
-				<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="units"/>
-							<xsd:enumeration value="ounces"/>
-							<xsd:enumeration value="pounds"/>
-							<xsd:enumeration value="grams"/>
-							<xsd:enumeration value="kilograms"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>				
-				<xsd:element name="PricingStrategy" type="PricingStrategyValues" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

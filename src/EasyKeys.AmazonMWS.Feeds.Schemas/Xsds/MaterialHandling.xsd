@@ -66,46 +66,6 @@
             <xsd:element name="TensionRating" type="LengthDimension" minOccurs="0"/>
             <xsd:element name="Voltage" type="PositiveDimension" minOccurs="0"/>
             <xsd:element name="WheelTreadWidth" type="LengthDimension" minOccurs="0"/>
-			<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="ExteriorFinish" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="FinishTypes" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="GritMaterialType" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="GritType" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="ItemShape" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="LowerTemperatureRating" type="TemperatureDimension" minOccurs="0"/>
-			<xsd:element name="ManufacturerGrade" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="StyleName" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="ThreadType" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="UpperTemperatureRating" type="TemperatureDimension" minOccurs="0"/>
-			<xsd:element name="WheelDiameter" type="LengthDimension" minOccurs="0"/>
-			<xsd:element name="ExtensionLength" type="LengthDimension" minOccurs="0"/>
-			<xsd:element name="FuelType" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="GraduationInterval" type="GraduationInterval" minOccurs="0"/>
-			<xsd:element name="LiquidPackagingType" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="IsExpirationDatedProduct" type="xsd:boolean" minOccurs="0"/>
-			<xsd:element name="FlyLineNumber" type="xsd:positiveInteger" minOccurs="0"/>
-			<xsd:element name="FcShelfLife" type="DateIntegerDimension" minOccurs="0"/>
-			<xsd:element name="FulfillReadinessCond" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="IncludedComponents" type="StringNotNull" minOccurs="0" maxOccurs="10"/>
-			<xsd:element name="Racks" type="xsd:integer" minOccurs="0"/>
-			<xsd:element name="Shelves" type="xsd:integer" minOccurs="0"/>
-			<xsd:element name="PlatformHeight" type="Dimension" minOccurs="0"/>
-			<xsd:element name="UnitCount" minOccurs="0">
-				<xsd:complexType>
-					<xsd:simpleContent>
-						<xsd:extension base="xsd:decimal">
-							<xsd:attribute name="unitOfMeasure" type="StringNotNull"
-									use="required"/>
-						</xsd:extension>
-					</xsd:simpleContent>
-				</xsd:complexType>
-			</xsd:element>
-			<xsd:element name="TemperatureRange" type="TemperatureRangeType" minOccurs="0"/>
-			<xsd:element name="CompatibleMaterial" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="FlashPoint" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="IsHeatSensitive" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="ItemPackIsConveyable" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="ProductExpirationDate" type="StringNotNull" minOccurs="0"/>
          </xsd:sequence>
       </xsd:complexType>
    </xsd:element>

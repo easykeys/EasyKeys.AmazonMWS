@@ -55,9 +55,6 @@
 				<xsd:element name="NumberOfLithiumIonCells" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfLithiumMetalCells" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="Warnings" minOccurs="0"/>
-				<xsd:element name="FabricType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ImportDesignation" type="String" minOccurs="0"/>
-				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -183,11 +180,7 @@
 				<xsd:element name="StartUpTimeDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Strands" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TubingOutsideDiameter" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="CustomerRestrictionType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
-				</xsd:sequence>
+			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="Hardware">
@@ -311,12 +304,7 @@
 				<xsd:element name="StartUpTimeDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Strands" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TubingOutsideDiameter" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="CustomerRestrictionType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
-				</xsd:sequence>
+			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="Electrical">
@@ -440,11 +428,7 @@
 				<xsd:element name="StartUpTimeDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Strands" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TubingOutsideDiameter" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-                <xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
-				</xsd:sequence>
+			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
 	<xsd:element name="PlumbingFixtures">
@@ -568,21 +552,6 @@
 				<xsd:element name="StartUpTimeDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Strands" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TubingOutsideDiameter" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="CustomerRestrictionType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="BaseWidth" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="Capacity" type="CapacityUnit" minOccurs="0"/>
-				<xsd:element name="ControlType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="DrainType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="FormFactor" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="GaugeString" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="HandleType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="InputPower" type="WattageDimension" minOccurs="0"/>
-				<xsd:element name="MountingType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="NumberOfSettings" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="RollQuantity" type="xsd:positiveInteger" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -711,10 +680,6 @@
 			<xsd:element name="StartUpTimeDescription" type="StringNotNull" minOccurs="0"/>
 			<xsd:element name="Strands" type="StringNotNull" minOccurs="0"/>
 			<xsd:element name="TubingOutsideDiameter" type="LengthDimension" minOccurs="0"/>
-			<xsd:element name="CustomerRestrictionType" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-			<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:element name="MajorHomeAppliances">
@@ -760,14 +725,10 @@
 				<xsd:element name="PowerSource" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Voltage" type="Dimension" minOccurs="0"/>
 				<xsd:element name="Wattage" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="BatteryCapacity" type="BatteryPowerDimension" minOccurs="0"/>
+				<xsd:element name="BatteryCapacity" type="Dimension" minOccurs="0"/>
 				<xsd:element name="ManufacturerWarrantyDescription" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="SellerWarrantyDescription" type="SuperLongStringNotNull" minOccurs="0"/>
 				<xsd:element name="CustomerPackageType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -892,9 +853,6 @@
 				<xsd:element name="StartUpTimeDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Strands" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TubingOutsideDiameter" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1016,10 +974,6 @@
 				<xsd:element name="StartUpTimeDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Strands" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TubingOutsideDiameter" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1080,7 +1034,7 @@
 				<xsd:element name="NumberOfLithiumIonCells" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfLithiumMetalCells" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="Pattern" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PPUCount" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="PPUCount" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="PPUCountType" type="TwentyStringNotNull" minOccurs="0"/>
 				<xsd:element name="Shape" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="SizeMap" type="StringNotNull" minOccurs="0"/>
@@ -1135,6 +1089,13 @@
 			<xsd:enumeration value="Lumens"/>
 		</xsd:restriction>
 	</xsd:simpleType>
+	<xsd:complexType name="MaximumPowerType">
+		<xsd:simpleContent>
+			<xsd:extension base="Dimension">
+				<xsd:attribute name="unitOfMeasure" type="MaximumPowerUnitOfMeasure" use="required"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
 	<xsd:simpleType name="RValueType">
 		<xsd:restriction base="xsd:positiveInteger">
 			<xsd:minInclusive value="1"/>
@@ -1145,6 +1106,12 @@
 		<xsd:restriction base="xsd:positiveInteger">
 			<xsd:minInclusive value="1"/>
 			<xsd:maxInclusive value="16"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MaximumPowerUnitOfMeasure">
+		<xsd:restriction base="StringNotNull">
+			<xsd:enumeration value="W"/>
+			<xsd:enumeration value="KW"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:complexType name="SoundLevelType">

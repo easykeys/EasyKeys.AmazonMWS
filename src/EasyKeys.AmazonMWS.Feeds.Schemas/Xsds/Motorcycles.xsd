@@ -30,14 +30,12 @@
 				<xsd:element name="Amperage" type="AmperageDimension" minOccurs="0"/>
 				<xsd:element name="CareInstructions" type="StringNotNull" minOccurs="0"/>
 				<xsd:element ref="ColorSpecification" minOccurs="0"/>
-				<xsd:element name="Department" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Diameter" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="DisplayLength" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="DisplayVolume" type="VolumeDimension" minOccurs="0"/>
 				<xsd:element name="DisplayWeight" type="WeightDimension" minOccurs="0"/>
 				<xsd:element name="Lifestyle" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ManufacturerWarrantyDescription" minOccurs="0"/>
-				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfPieces" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="RecallDescription" type="SuperLongStringNotNull" minOccurs="0"/>
@@ -46,7 +44,6 @@
 				<xsd:element name="SpecialFeatures" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
 				<xsd:element name="SpecificationMet" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="StyleName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Model" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="VariationData" minOccurs="0">
 					<xsd:complexType>
 						<xsd:sequence>

@@ -17,7 +17,7 @@
 	<xsd:element name="BooksMisc">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="Author" type="MediumStringNotNull" minOccurs="0"/>
+				<xsd:element name="Author" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Binding" type="BindingTypes" minOccurs="1"/>
 				<xsd:element name="DustJacket" type="DustJacketTypes" minOccurs="0"/>
 				<xsd:element name="Edition" type="StringNotNull" minOccurs="0"/>
@@ -36,13 +36,6 @@
 				<xsd:element name="Subject" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Translator" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Volume" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="NumberOfPages" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element name="BisacSubjectDescriptionCode" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="CollectionName" type="LongStringNotNull" minOccurs="0"/>
-				<xsd:element name="SeriesNumber" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element name="Format" type="BooksVideoFormatType" minOccurs="0" maxOccurs="3"/>
-				<xsd:element name="BookdataBicSubjectCode" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ThemaClassificationCode" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -112,29 +105,6 @@
 			<xsd:enumeration value= "Vinylbound"/>
 			<xsd:enumeration value= "Wallchart"/>
 			<xsd:enumeration value= "Workbook"/>
-			<xsd:enumeration value= "Addressbook"/>
-			<xsd:enumeration value= "Bargainbook"/>
-			<xsd:enumeration value= "Consumerelectronics"/>
-			<xsd:enumeration value= "Consumermagazine"/>
-			<xsd:enumeration value= "Diskette"/>
-			<xsd:enumeration value= "Dvdr"/>
-			<xsd:enumeration value= "Gift"/>
-			<xsd:enumeration value= "Jpoversizedbook"/>
-			<xsd:enumeration value= "Kitchen"/>
-			<xsd:enumeration value= "Librarymp3Cd"/>
-			<xsd:enumeration value= "Miscellaneous"/>
-			<xsd:enumeration value= "Notebook"/>
-			<xsd:enumeration value= "Pocketbook"/>
-			<xsd:enumeration value= "Podgeneric"/>
-			<xsd:enumeration value= "Podhardback"/>
-			<xsd:enumeration value= "Podpaperback"/>
-			<xsd:enumeration value= "Pop-Up"/>
-			<xsd:enumeration value= "Poster"/>
-			<xsd:enumeration value= "Printedaccesscode"/>
-			<xsd:enumeration value= "Saddlestitch"/>
-			<xsd:enumeration value= "Threadbound"/>
-			<xsd:enumeration value= "Unknownbinding"/>
-
 		</xsd:restriction>
 	</xsd:simpleType>
 	
@@ -166,45 +136,6 @@
 			<xsd:enumeration value="DE"/>
 			<xsd:enumeration value="Unknown"/>
 		</xsd:restriction>
-	</xsd:simpleType>
-
-    <xsd:simpleType name="BooksVideoFormatType">
-		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="engagement_calendar"/>
-            <xsd:enumeration value="student_calendar"/>
-            <xsd:enumeration value="sticker_book"/>
-            <xsd:enumeration value="audiobook"/>
-            <xsd:enumeration value="box_set"/>
-            <xsd:enumeration value="almanac_calendar"/>
-            <xsd:enumeration value="desk_calendar"/>
-            <xsd:enumeration value="wall_calendar"/>
-            <xsd:enumeration value="poster_calendar"/>
-            <xsd:enumeration value="advent_calendar"/>
-            <xsd:enumeration value="box_calendar"/>
-            <xsd:enumeration value="perpetual_calendar"/>
-            <xsd:enumeration value="day_to_day_calendar"/>
-            <xsd:enumeration value="project_calendar"/>
-            <xsd:enumeration value="collectors_edition"/>
-            <xsd:enumeration value="deluxe_edition"/>
-            <xsd:enumeration value="special_edition"/>
-            <xsd:enumeration value="special_extended_version"/>
-            <xsd:enumeration value="special_limited_edition"/>
-            <xsd:enumeration value="international_edition"/>
-            <xsd:enumeration value="standard_edition"/>
-            <xsd:enumeration value="large_print"/>
-            <xsd:enumeration value="coloring_book"/>
-            <xsd:enumeration value="picture_book"/>
-            <xsd:enumeration value="teachers_edition"/>
-            <xsd:enumeration value="pop_up"/>
-            <xsd:enumeration value="antique_books"/>
-            <xsd:enumeration value="wall_map"/>
-            <xsd:enumeration value="folded_map"/>
-            <xsd:enumeration value="bookmark_calendar"/>
-            <xsd:enumeration value="mini_calendar"/>
-            <xsd:enumeration value="other_calendar"/>
-            <xsd:enumeration value="roughcut"/>
-            <xsd:enumeration value="unabridged"/>
-            <xsd:enumeration value="abridged"/>
-		</xsd:restriction>
-	</xsd:simpleType>
+	</xsd:simpleType>	
+	
 </xsd:schema>

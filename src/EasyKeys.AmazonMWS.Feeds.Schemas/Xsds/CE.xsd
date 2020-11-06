@@ -77,12 +77,6 @@ with Amazon.com.
 							<xsd:element ref="VCR"/>
 							<xsd:element ref="CEVideoProjector"/>
 							<xsd:element ref="VideoProjectorsAndAccessories"/>
-							<xsd:element ref="NetworkAdapter"/>
-							<xsd:element ref="CellularPhoneCase"/>
-							<xsd:element ref="ScreenProtector"/>
-							<xsd:element ref="ChargingAdapter"/>
-							<xsd:element ref="CellularPhone"/>	
-							<xsd:element ref="PowerBank"/>							
 						</xsd:choice>
 					</xsd:complexType>
 				</xsd:element>
@@ -157,11 +151,6 @@ with Amazon.com.
 							<xsd:enumeration value="VideoProjector"/>
 							<xsd:enumeration value="VideoProjectorsAndAccessories"/>
 							<xsd:enumeration value="Webcam"/>
-							<xsd:enumeration value="CellularPhoneCase"/>
-							<xsd:enumeration value="ScreenProtector"/>
-							<xsd:enumeration value="ChargingAdapter"/>
-							<xsd:enumeration value="CellularPhone"/>	
-							<xsd:enumeration value="PowerBank"/>								
 						</xsd:restriction>
 					</xsd:simpleType>
 				</xsd:element>
@@ -742,7 +731,6 @@ with Amazon.com.
 				<xsd:element name="ScreenSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="AdditionalFeatures" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="PDABaseModel" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -752,292 +740,6 @@ with Amazon.com.
 ###############################################################
 -->
 	<xsd:element name="ConsumerElectronics">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="Size"/>
-										<xsd:enumeration value="Size-Color"/>
-										<xsd:enumeration value="Scent"/>
-										<xsd:enumeration value="Size-Scent"/>
-										<xsd:enumeration value="CustomerPackageType"/>
-										<xsd:enumeration value="ColorName-CustomerPackageType"/>
-										<xsd:enumeration value="SizeName-CustomerPackageType"/>
-										<xsd:enumeration
-											value="SizeName-ColorName-CustomerPackageType"/>
-										<xsd:enumeration value="StyleName-CustomerPackageType"/>
-										<xsd:enumeration
-											value="SizeName-StyleName-CustomerPackageType"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="AudibleNoise" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ColorMap" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="CustomerPackageType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="CanShipInOriginalContainer" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element ref="EnclosureFinish" minOccurs="0"/>
-				<xsd:element ref="EuEnergyLabelEfficiencyClass" minOccurs="0"/>						
-				<xsd:element name="IdentityPackageType" minOccurs="0">
-					<xsd:simpleType>
-						<xsd:restriction base="StringNotNull">
-							<xsd:enumeration value="bulk"/>
-							<xsd:enumeration value="frustration_free"/>
-							<xsd:enumeration value="traditional"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
-				<xsd:element name="Wattage" type="WattageIntegerDimension" minOccurs="0"/>
-				<xsd:element name="PowerSource" type="FortyStringNotNull" minOccurs="0"/>
-				<xsd:element name="AdditionalFeatures" type="LongStringNotNull" minOccurs="0"/>
-				<xsd:element name="VehicleSpeakerSize" type="TwentyStringNotNull" minOccurs="0"/>
-				<xsd:element name="SpeakerDiameter" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="TelephoneType" type="FortyStringNotNull" minOccurs="0"
-					maxOccurs="4"/>
-				<xsd:element name="PDABaseModel" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
-				<xsd:element name="DigitalMediaFormat" minOccurs="0">
-					<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="diskette35"/>
-							<xsd:enumeration value="3480_tape_cartridge"/>
-							<xsd:enumeration value="4_mm_tape"/>
-							<xsd:enumeration value="diskette525"/>
-							<xsd:enumeration value="6250_magstar_tape"/>
-							<xsd:enumeration value="cd"/>
-							<xsd:enumeration value="compact_flash"/>
-							<xsd:enumeration value="dat_tape"/>
-							<xsd:enumeration value="digital_8"/>
-							<xsd:enumeration value="dlt"/>
-							<xsd:enumeration value="dvd_ram"/>
-							<xsd:enumeration value="dvd_rom"/>
-							<xsd:enumeration value="dvd_video"/>
-							<xsd:enumeration value="electronic_software_download"/>
-							<xsd:enumeration value="hi_8"/>
-							<xsd:enumeration value="memory_stick"/>
-							<xsd:enumeration value="minidisc"/>
-							<xsd:enumeration value="minidv"/>
-							<xsd:enumeration value="smart_media"/>
-							<xsd:enumeration value="vhs"/>
-							<xsd:enumeration value="xd_card"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-				<xsd:element name="HomeAutomationCommunicationDevice" type="ThirtyStringNotNull"
-					minOccurs="0"/>
-				<xsd:element name="DigitalAudioCapacity" type="TwentyStringNotNull" minOccurs="0"/>
-				<xsd:element name="VideoProcessor" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="HolderCapacity" type="TwentyStringNotNull" minOccurs="0"/>
-				<xsd:element name="MemorySlotsAvailable" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ProcessorBrand" type="FortyStringNotNull" minOccurs="0"/>
-				<xsd:element name="ProcessorCount" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="ProcessorType" type="ProcessorTypeValues" minOccurs="0"/>
-				<xsd:element name="ProcessorSpeed" type="FrequencyDimension" minOccurs="0"/>
-				<xsd:element name="RAMSize" type="MemorySizeDimension" minOccurs="0"/>
-				<xsd:element name="ScreenResolution" type="FortyStringNotNull" minOccurs="0"/>
-				<xsd:element name="SoftwareIncluded" type="LongStringNotNull" minOccurs="0"/>
-				<xsd:element name="ColorScreen" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="ScreenSize" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="WirelessType" type="WirelessTypeValues" minOccurs="0"
-					maxOccurs="3"/>
-				<xsd:element name="HardDriveSize" type="MemorySizeDimension" minOccurs="0"
-					maxOccurs="8"/>
-				<xsd:element name="HardDriveInterface" type="HardDriveInterfaceTypeValues"
-					minOccurs="0" maxOccurs="4"/>
-				<xsd:element name="OperatingSystem" type="MediumStringNotNull" minOccurs="0"
-					maxOccurs="5"/>
-				<xsd:element name="HardwarePlatform" type="MediumStringNotNull" minOccurs="0"/>
-				<xsd:element name="ComputerMemoryType" type="GraphicsRAMTypeValues" minOccurs="0"
-					maxOccurs="10"/>
-				<xsd:element name="ItemPackageQuantity" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="PurchasingFeeRefSKU" type="SKUType" minOccurs="0"/>
-				<xsd:element ref="ThreeDTechnology" minOccurs="0"/>
-				<xsd:element ref="BiAmpable" minOccurs="0"/>
-				<xsd:element ref="AntennaDescription" minOccurs="0"/>
-				<xsd:element ref="AudioEncoding" minOccurs="0" maxOccurs="3"/>
-				<xsd:element ref="Language" minOccurs="0" maxOccurs="3"/>
-				<xsd:element name="LoadCapacity" type="WeightDimension" minOccurs="0"/>
-				<xsd:element ref="BaseLength" minOccurs="0"/>
-				<xsd:element ref="BaseWidth" minOccurs="0"/>
-				<xsd:element name="BatteryChargeCycles" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element ref="BatteryCellType" minOccurs="0"/>
-				<xsd:element name="CableLength" type="LengthDimension" minOccurs="0"/>
-				<xsd:element ref="CalibrationTechnology" minOccurs="0"/>
-				<xsd:element ref="CameraDescription" minOccurs="0" maxOccurs="3"/>
-				<xsd:element name="CameraLens" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="ConnectorGender" minOccurs="0" maxOccurs="5"/>
-				<xsd:element ref="ConnectorTypeUsedOnCable" minOccurs="0"/>
-				<xsd:element ref="ControlType" minOccurs="0"/>
-				<xsd:element ref="ControllerType" minOccurs="0"/>
-				<xsd:element name="CoolingType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="ScreenDimensions" minOccurs="0"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>
-				<xsd:element name="NumberOfFans" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element ref="FinishType" minOccurs="0"/>
-				<xsd:element ref="FitType" minOccurs="0"/>
-				<xsd:element ref="FrontPanelInputs" minOccurs="0" maxOccurs="3"/>
-				<xsd:element ref="HorizontalKeystoneCorrection" minOccurs="0"/>
-				<xsd:element ref="BuiltInMedia" minOccurs="0" maxOccurs="3"/>
-				<xsd:element name="ImageSensor" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="IncludedFeatures" minOccurs="0"/>
-				<xsd:element ref="Shape" minOccurs="0"/>
-				<xsd:element name="Lens" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LampWattage" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element ref="MaximumSupportedScreenSize" minOccurs="0"/>
-				<xsd:element ref="ThrowRatio" minOccurs="0"/>
-				<xsd:element name="MaximumHorizontalRefreshRate" type="FrequencyDimension"
-					minOccurs="0"/>
-				<xsd:element ref="SurgeProtectionRating" minOccurs="0"/>
-				<xsd:element name="MaximumThrowDistance" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="MaximumVerticalRefreshRate" type="FrequencyDimension"
-					minOccurs="0"/>
-				<xsd:element ref="MaxWeightRecommendation" minOccurs="0"/>
-				<xsd:element ref="MediaLayers" minOccurs="0"/>
-				<xsd:element ref="MidRangeSpeakerMaterial" minOccurs="0"/>
-				<xsd:element ref="MidRangeSpeakerDiameter" minOccurs="0"/>
-				<xsd:element ref="MinFocalLength" minOccurs="0"/>
-				<xsd:element ref="MinimumSupportedScreenSize" minOccurs="0"/>
-				<xsd:element name="MinimumHorizontalRefreshRate" type="FrequencyDimension"
-					minOccurs="0"/>
-				<xsd:element name="MinimumThrowDistance" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="MinimumVerticalRefreshRate" type="FrequencyDimension"
-					minOccurs="0"/>
-				<xsd:element ref="MountingPattern" minOccurs="0"/>
-				<xsd:element ref="MountingType" minOccurs="0"/>
-				<xsd:element ref="HeadphoneEarcupMotion" minOccurs="0"/>
-				<xsd:element ref="MountMotion" minOccurs="0"/>
-				<xsd:element ref="NoiseReductionLevel" minOccurs="0"/>
-				<xsd:element ref="NumberOfDrivers" minOccurs="0"/>
-				<xsd:element ref="SignalPassthroughTechnology" minOccurs="0"/>
-				<xsd:element name="LampLife" type="TimeIntegerDimension" minOccurs="0"/>
-				<xsd:element name="ImageDiagonalSize" type="LengthDimension" minOccurs="0"/>
-				<xsd:element ref="ParentalControlTechnology" minOccurs="0"/>
-				<xsd:element ref="MountBoltPattern" minOccurs="0"/>
-				<xsd:element ref="ProjectionMethod" minOccurs="0"/>
-				<xsd:element name="PhotoSensorSize" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PhotoSensorTechnology" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="AntennaLocation" minOccurs="0"/>
-				<xsd:element ref="Resolution" minOccurs="0"/>
-				<xsd:element ref="SVideoInputType" minOccurs="0"/>
-				<xsd:element ref="ScreenFinish" minOccurs="0"/>
-				<xsd:element ref="VideoShielded" minOccurs="0"/>
-				<xsd:element ref="VideoUpconversionTechnologies" minOccurs="0"/>
-				<xsd:element ref="NumberOfSpeakers" minOccurs="0"/>
-				<xsd:element ref="GrilleRemoveability" minOccurs="0"/>
-				<xsd:element ref="SpeakerGrilleMaterial" minOccurs="0"/>
-				<xsd:element ref="MaximumWattage" minOccurs="0"/>
-				<xsd:element ref="SubscriptionTermName" minOccurs="0"/>
-				<xsd:element ref="SubwooferWattage" minOccurs="0"/>
-				<xsd:element ref="SubwooferSpeakerMaterial" minOccurs="0"/>
-				<xsd:element ref="SubwooferSpeakerDiameter" minOccurs="0"/>
-				<xsd:element ref="SubwooferPowerTechnology" minOccurs="0"/>
-				<xsd:element ref="InternetApplications" minOccurs="0" maxOccurs="5"/>
-				<xsd:element ref="TotalCoaxialInputs" minOccurs="0"/>
-				<xsd:element ref="TotalComponentInPorts" minOccurs="0"/>
-				<xsd:element name="TotalCompositePorts" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element ref="TotalEthernetPorts" minOccurs="0"/>
-				<xsd:element ref="TotalHdmiPorts" minOccurs="0"/>
-				<xsd:element ref="TotalPowerOutlets" minOccurs="0"/>
-				<xsd:element ref="TotalPreampOutputs" minOccurs="0"/>
-				<xsd:element ref="TotalSVideoInPorts" minOccurs="0"/>
-				<xsd:element ref="TotalSubwooferOutputs" minOccurs="0"/>
-				<xsd:element ref="TotalVgaInPorts" minOccurs="0"/>
-				<xsd:element ref="TotalVideoOutPorts" minOccurs="0"/>
-				<xsd:element ref="TrafficFeatures" minOccurs="0" maxOccurs="5"/>
-				<xsd:element name="ScreenTrigger" type="VoltageDecimalDimension" minOccurs="0"/>
-				<xsd:element ref="TweeterSpeakerMaterial" minOccurs="0"/>
-				<xsd:element ref="TweeterSpeakerDiameter" minOccurs="0"/>
-				<xsd:element ref="TweeterSpeakerTechnology" minOccurs="0"/>
-				<xsd:element ref="UniversalRemoteCode" minOccurs="0"/>
-				<xsd:element ref="VerticalKeystoneCorrection" minOccurs="0"/>
-				<xsd:element ref="VideoEncoding" minOccurs="0"/>
-				<xsd:element name="VideoResolution" type="PixelDimension" minOccurs="0"/>
-				<xsd:element ref="WaterResistantDepth" minOccurs="0"/>
-				<xsd:element ref="WaterResistantLevel" minOccurs="0"/>
-				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
-					maxOccurs="5"/>
-				<xsd:element ref="WooferSpeakerMaterial" minOccurs="0"/>
-				<xsd:element ref="WooferSpeakerDiameter" minOccurs="0"/>
-				<xsd:element name="ZoomRatio" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="ZoomType" minOccurs="0"/>
-				<xsd:element ref="AmplifierType" minOccurs="0"/>
-				<xsd:element ref="AnalogRGBInput" minOccurs="0" maxOccurs="5"/>
-				<xsd:element ref="BatteryPower" minOccurs="0"/>
-				<xsd:element ref="BluRayRegion" minOccurs="0"/>
-				<xsd:element ref="BoxContents" minOccurs="0"/>
-				<xsd:element ref="CameraFilmSpeed" minOccurs="0"/>
-				<xsd:element ref="CameraFlash" minOccurs="0"/>
-				<xsd:element ref="CoatingDescription" minOccurs="0"/>
-				<xsd:element ref="CompatibleMountings" minOccurs="0"/>
-				<xsd:element name="Conductor" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="ContinuousShootingSpeed" minOccurs="0"/>
-				<xsd:element ref="DigitalZoom" minOccurs="0"/>
-				<xsd:element ref="DVDRegion" minOccurs="0"/>
-				<xsd:element ref="EffectiveStillResolution" minOccurs="0"/>
-				<xsd:element ref="FixedFocalLength" minOccurs="0"/>
-				<xsd:element ref="FlashDedication" minOccurs="0"/>
-				<xsd:element ref="FlashModesDescription" minOccurs="0"/>
-				<xsd:element ref="FocusType" minOccurs="0"/>
-				<xsd:element ref="GuideNumber" minOccurs="0"/>
-				<xsd:element ref="ImageStabilization" minOccurs="0"/>
-				<xsd:element ref="IsHotShoeIncluded" minOccurs="0"/>
-				<xsd:element ref="MaxAperture" minOccurs="0"/>
-				<xsd:element ref="MaxFocalLength" minOccurs="0"/>
-				<xsd:element ref="MaxShutterSpeed" minOccurs="0"/>
-				<xsd:element ref="MaxWeightCapacity" minOccurs="0"/>
-				<xsd:element ref="MinAperture" minOccurs="0"/>
-				<xsd:element ref="MinShutterSpeed" minOccurs="0"/>
-				<xsd:element ref="NumberOfHandsets" minOccurs="0"/>
-				<xsd:element ref="NumberOfRadioBandsSupported" minOccurs="0"/>
-				<xsd:element ref="NumberOfRecordingLoops" minOccurs="0"/>
-				<xsd:element ref="OpticalZoom" minOccurs="0"/>
-				<xsd:element ref="PhotoFilterBayonetSize" minOccurs="0"/>
-				<xsd:element ref="PhotoFilterDropInSize" minOccurs="0"/>
-				<xsd:element ref="PhotoFilterEffectSize" minOccurs="0"/>
-				<xsd:element ref="PhotoFilterLensSize" minOccurs="0"/>
-				<xsd:element ref="PhotoFilterMountType" minOccurs="0"/>
-				<xsd:element ref="PhotoFilterThreadSize" minOccurs="0"/>
-				<xsd:element ref="PowerConsumption" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
-				<xsd:element ref="RefreshRate" minOccurs="0"/>
-				<xsd:element name="RemoteControlDescription" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="RemovableMemory" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="SpeakerMaximumInputPower" minOccurs="0"/>
-				<xsd:element name="TotalDVIPorts" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element ref="TotalFirewirePorts" minOccurs="0"/>
-				<xsd:element ref="TotalMicrophonePorts" minOccurs="0"/>
-				<xsd:element name="TotalSVideoOutPorts" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element ref="TotalUSBPorts" minOccurs="0"/>
-				<xsd:element ref="TweeterConeMaterialType" minOccurs="0"/>
-				<xsd:element ref="TweeterDriverDiameter" minOccurs="0"/>
-				<xsd:element ref="ViewFinderType" minOccurs="0"/>
-				<xsd:element ref="WaypointsType" minOccurs="0"/>	
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-	<!--
-
-###############################################################
-#  Network Adapter Classification Data
-###############################################################
--->
-	<xsd:element name="NetworkAdapter">
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="VariationData" minOccurs="0">
@@ -1682,7 +1384,6 @@ with Amazon.com.
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="HolderCapacity" type="TwentyStringNotNull" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1692,8 +1393,6 @@ with Amazon.com.
 			<xsd:sequence>
 				<xsd:element ref="AntennaDescription" minOccurs="0"/>
 				<xsd:element ref="AntennaLocation" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1798,7 +1497,6 @@ with Amazon.com.
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="PowerSource" type="FortyStringNotNull" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1872,8 +1570,7 @@ with Amazon.com.
 				<xsd:element ref="VideoEncoding" minOccurs="0"/>
 				<xsd:element ref="ViewFinderType" minOccurs="0"/>
 				<xsd:element ref="WaterResistantLevel" minOccurs="0"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>
-				<xsd:element name="GdprRisk" type="GdprRiskType" minOccurs="0"/>
+				<xsd:element ref="Efficiency" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1997,8 +1694,7 @@ with Amazon.com.
 				<xsd:element ref="PhotoFilterLensSize" minOccurs="0"/>
 				<xsd:element ref="PhotoFilterThreadSize" minOccurs="0"/>
 				<xsd:element ref="WaterResistantLevel" minOccurs="0"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>
-				<xsd:element name="GdprRisk" type="GdprRiskType" minOccurs="0"/>
+				<xsd:element ref="Efficiency" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2020,8 +1716,6 @@ with Amazon.com.
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element ref="MediaLayers" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2078,8 +1772,7 @@ with Amazon.com.
 				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
 					maxOccurs="5"/>
 				<xsd:element ref="PowerPlugType" minOccurs="0"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>
-				<xsd:element name="GdprRisk" type="GdprRiskType" minOccurs="0"/>
+				<xsd:element ref="Efficiency" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2099,10 +1792,7 @@ with Amazon.com.
 				<xsd:element name="VideoResolution" type="PixelDimension" minOccurs="0"/>
 				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
 					maxOccurs="5"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>	
-				<xsd:element name="GdprRisk" type="GdprRiskType" minOccurs="0"/>
-				<xsd:element name="FrameMaterialType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ScannerResolution" type="StringNotNull" minOccurs="0"/>
+				<xsd:element ref="Efficiency" minOccurs="0"/>					
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2144,8 +1834,8 @@ with Amazon.com.
 			<xsd:sequence>
 				<xsd:element ref="NumberOfSpeakers" minOccurs="0"/>
 				<xsd:element ref="MaximumWattage" minOccurs="0"/>
-				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
+				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
+					maxOccurs="5"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2154,7 +1844,6 @@ with Amazon.com.
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element ref="NumberOfSpeakers" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2165,7 +1854,6 @@ with Amazon.com.
 				<xsd:element ref="NumberOfSpeakers" minOccurs="0"/>
 				<xsd:element name="ScreenSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="VehicleSpeakerSize" type="TwentyStringNotNull" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2222,10 +1910,7 @@ with Amazon.com.
 				<xsd:element name="Wattage" type="WattageIntegerDimension" minOccurs="0"/>
 				<xsd:element ref="WooferSpeakerDiameter" minOccurs="0"/>
 				<xsd:element ref="WooferSpeakerMaterial" minOccurs="0"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>
-				<xsd:element name="Material" type="LongString" minOccurs="0" maxOccurs="3"/>
-				<xsd:element name="LensType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="TweeterSpeakerMaterial" minOccurs="0"/>				
+				<xsd:element ref="Efficiency" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2259,8 +1944,8 @@ with Amazon.com.
 				<xsd:element ref="MountMotion" minOccurs="0"/>
 				<xsd:element ref="MountBoltPattern" minOccurs="0"/>
 				<xsd:element name="PowerSource" type="FortyStringNotNull" minOccurs="0"/>
-				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
+				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
+					maxOccurs="5"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2304,7 +1989,6 @@ with Amazon.com.
 				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
 					maxOccurs="5"/>
 				<xsd:element name="WirelessType" type="WirelessTypeValues" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2324,8 +2008,6 @@ with Amazon.com.
 				<xsd:element ref="TotalHdmiPorts" minOccurs="0"/>
 				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
 					maxOccurs="5"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2337,9 +2019,8 @@ with Amazon.com.
 				<xsd:element ref="NumberOfSpeakers" minOccurs="0"/>
 				<xsd:element ref="TotalCoaxialInputs" minOccurs="0"/>
 				<xsd:element ref="TotalHdmiPorts" minOccurs="0"/>
-				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
+				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
+					maxOccurs="5"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2354,7 +2035,6 @@ with Amazon.com.
 				<xsd:element name="ScreenSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element ref="TotalEthernetPorts" minOccurs="0"/>
 				<xsd:element name="WirelessType" type="WirelessTypeValues" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2413,8 +2093,8 @@ with Amazon.com.
 				<xsd:element name="ScreenSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="ScreenResolution" type="FortyStringNotNull" minOccurs="0"/>
 				<xsd:element name="SoftwareIncluded" type="LongStringNotNull" minOccurs="0"/>
-				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
+				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
+					maxOccurs="5"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2471,7 +2151,6 @@ with Amazon.com.
 				<xsd:element name="WirelessType" type="WirelessTypeValues" minOccurs="0"/>
 				<xsd:element ref="WooferSpeakerMaterial" minOccurs="0"/>
 				<xsd:element ref="WooferSpeakerDiameter" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2492,7 +2171,6 @@ with Amazon.com.
 				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
 					maxOccurs="5"/>
 				<xsd:element name="WirelessType" type="WirelessTypeValues" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2526,10 +2204,7 @@ with Amazon.com.
 				<xsd:element ref="TotalEthernetPorts" minOccurs="0"/>
 				<xsd:element ref="TotalMicrophonePorts" minOccurs="0"/>
 				<xsd:element ref="VideoEncoding" minOccurs="0"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>
-				<xsd:element name="MfgWarrantyDescriptionLabor" type="SuperLongStringNotNull"
-					minOccurs="0"/>
-				<xsd:element name="GdprRisk" type="GdprRiskType" minOccurs="0"/>
+				<xsd:element ref="Efficiency" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2641,7 +2316,7 @@ with Amazon.com.
 				<xsd:element ref="VideoEncoding" minOccurs="0"/>
 				<xsd:element name="VideoResolution" type="PixelDimension" minOccurs="0"/>
 				<xsd:element name="Wattage" type="WattageIntegerDimension" minOccurs="0"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>
+				<xsd:element ref="Efficiency" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2697,8 +2372,6 @@ with Amazon.com.
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="PowerSource" type="FortyStringNotNull" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2737,7 +2410,6 @@ with Amazon.com.
 				<xsd:element ref="WooferSpeakerDiameter" minOccurs="0"/>
 				<xsd:element ref="WooferSpeakerMaterial" minOccurs="0"/>
 				<xsd:element ref="Efficiency" minOccurs="0"/>
-				<xsd:element name="Frequency" type="xsd:decimal" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2760,9 +2432,9 @@ with Amazon.com.
 				<xsd:element ref="TotalEthernetPorts" minOccurs="0"/>
 				<xsd:element ref="TotalPreampOutputs" minOccurs="0"/>
 				<xsd:element ref="TotalSubwooferOutputs" minOccurs="0"/>
-				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
+				<xsd:element name="WirelessTechnology" type="StringNotNull" minOccurs="0"
+					maxOccurs="5"/>
 				<xsd:element name="WirelessType" type="WirelessTypeValues" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2810,8 +2482,7 @@ with Amazon.com.
 				<xsd:element ref="TweeterSpeakerTechnology" minOccurs="0"/>
 				<xsd:element ref="WooferSpeakerMaterial" minOccurs="0"/>
 				<xsd:element ref="WooferSpeakerDiameter" minOccurs="0"/>
-				<xsd:element ref="Efficiency" minOccurs="0"/>
-				<xsd:element name="GdprRisk" type="GdprRiskType" minOccurs="0"/>
+				<xsd:element ref="Efficiency" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2891,14 +2562,7 @@ with Amazon.com.
 					maxOccurs="5"/>
 				<xsd:element name="WirelessType" type="WirelessTypeValues" minOccurs="0"/>
 				<xsd:element ref="WooferSpeakerDiameter" minOccurs="0"/>
-				<xsd:element ref="WooferSpeakerMaterial" minOccurs="0"/>
-				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
-				<xsd:element name="SupportedApplication" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SupportsBluetoothTechnology" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="OperatingSystem" type="MediumStringNotNull" minOccurs="0" maxOccurs="5"/>
-				<xsd:element name="Format" minOccurs="0" maxOccurs="10"/>
-				<xsd:element name="ApplicationProtocol" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="GdprRisk" type="GdprRiskType" minOccurs="0"/>
+				<xsd:element ref="WooferSpeakerMaterial" minOccurs="0"/>		
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2911,7 +2575,6 @@ with Amazon.com.
 				<xsd:element name="TotalCompositePorts" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element ref="TotalEthernetPorts" minOccurs="0"/>
 				<xsd:element ref="TotalHdmiPorts" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -2920,8 +2583,6 @@ with Amazon.com.
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="PowerSource" type="FortyStringNotNull" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -3030,7 +2691,6 @@ with Amazon.com.
 			<xsd:sequence>
 				<xsd:element ref="BuiltInMedia" minOccurs="0" maxOccurs="3"/>
 				<xsd:element ref="TotalCoaxialInputs" minOccurs="0"/>
-				<xsd:element ref="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -3069,227 +2729,7 @@ with Amazon.com.
 		</xsd:complexType>
 	</xsd:element>
 
-		<xsd:element name="CellularPhoneCase">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="Size"/>
-										<xsd:enumeration value="Size-Color"/>
-										<xsd:enumeration value="itempackagequantity"/>
-										<xsd:enumeration value="color-itempackagequantity"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="Importer" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ManufacturerContactInformation" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SizeMap" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MaterialType" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="FormFactor" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="CompatibleDevices" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="PackageContentType" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="Theme" type="StringNotNull" minOccurs="0"/>	
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-	
-		<xsd:element name="ScreenProtector">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="Size"/>
-										<xsd:enumeration value="Size-Color"/>
-										<xsd:enumeration value="itempackagequantity"/>
-										<xsd:enumeration value="color-itempackagequantity"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="Importer" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ManufacturerContactInformation" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SizeMap" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MaterialType" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="FormFactor" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="CompatibleDevices" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="PackageContentType" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="Coverage" type="StringNotNull" minOccurs="0"/>				
-				<xsd:element name="ItemHardness" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="DisplaySize" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="BoxContents" type="StringNotNull" minOccurs="0" maxOccurs="5"/>				
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
 
-	<!--
-###############################################################
-#  Charging Adapter Classification Data
-###############################################################
--->
-		<xsd:element name="ChargingAdapter">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="Size"/>
-										<xsd:enumeration value="Size-Color"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="Importer" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ManufacturerContactInformation" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MaterialType" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="CompatibleDevices" type="StringNotNull" minOccurs="0"/>	
-				<xsd:element name="CableLength" type="LengthDimension" minOccurs="0"/>	
-				<xsd:element name="InputVoltage" type="VoltageDecimalDimension" minOccurs="0"/>
-				<xsd:element name="OutputVoltage" type="VoltageDecimalDimension" minOccurs="0"/>
-				<xsd:element name="OutputCurrent" type="AmperageDimension" minOccurs="0"/>
-				<xsd:element name="SeriesId" type="StringNotNull" minOccurs="0"/>				
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-<!--
-###############################################################
-#  PowerBank Classification Data
-###############################################################
--->
-	
-	<xsd:element name="PowerBank">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="Size"/>
-										<xsd:enumeration value="Size-Color"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="Wattage" type="WattageIntegerDimension" minOccurs="0"/>	
-				<xsd:element name="Importer" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ManufacturerContactInformation" type="String" minOccurs="0"/>
-				<xsd:element name="BatteryCapacity" type="BatteryPowerDimension" minOccurs="0"/>				
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-<!--
-###############################################################
-#  Cellular Phone Classification Data
-###############################################################
--->	
-	
-	<xsd:element name="CellularPhone">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="Size"/>
-										<xsd:enumeration value="Size-Color"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="Importer" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ManufacturerContactInformation" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
-				<xsd:element name="BoxContents" type="StringNotNull" minOccurs="0"/>
-				<xsd:element ref="EffectiveStillResolution" minOccurs="0"/>
-				<xsd:element name="OperatingSystem" type="String" minOccurs="0"/>
-				<xsd:element name="DisplaySize" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="SlotCount" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="RAMSize" type="MemorySizeDimension" minOccurs="0"/>
-				<xsd:element name="ProcessorBrand" type="FortyStringNotNull" minOccurs="0"/>
-				<xsd:element name="ProcessorSpeed" type="FrequencyDimension" minOccurs="0"/>
-				<xsd:element name="FrontWebcamResolution" type="ResolutionFiveDigitDimension"/>
-				<xsd:element name="StandbyTime" type="TimeDimension" minOccurs="0"/>
-				<xsd:element name="GdprRisk" type="GdprRiskType" minOccurs="0"/>
-				<xsd:element name="VersionForCountry" type="CountryOfOriginType" minOccurs="0"/>
-				<xsd:element name="TargetRegion" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SimCardSlotCount" type="SimCardSlotCountType" minOccurs="0"/>
-				<xsd:element name="MemoryStorageCapacity" type="MemorySizeDimension" minOccurs="0"/>
-				<xsd:element name="OpticalSensorInterpolatedResolution" type="PixelDimension" minOccurs="0"/>
-				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-	
 	<!--
 ###############################################################
 #  Attributes Common Across PTDs 
@@ -3443,7 +2883,6 @@ with Amazon.com.
 	<xsd:element name="WooferSpeakerMaterial" type="StringNotNull"/>
 	<xsd:element name="WooferSpeakerDiameter" type="LengthDimension"/>
 	<xsd:element name="ZoomType" type="StringNotNull"/>
-	
 	<!--
 ########################################################################################
 # Graphics Card Definitions
@@ -3467,4 +2906,3 @@ with Amazon.com.
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:schema>
-
