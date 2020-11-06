@@ -91,11 +91,7 @@
 				<xsd:element name="MaximumSupportedScreenSize" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="StorageType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="SinkMaterial" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="BaseMaterial" type="StringNotNull" minOccurs="0"/>
-                <xsd:element name="Size" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SizeMap" type="StringNotNull" minOccurs="0"/>
-			    <xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
-                <xsd:element name="ColorMap" type="StringNotNull" minOccurs="0"/>				
+				<xsd:element name="BaseMaterial" type="StringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

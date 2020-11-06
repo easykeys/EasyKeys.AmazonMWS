@@ -127,7 +127,7 @@
 				<xsd:element name="NumberOfLithiumMetalCells" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="PlugType" type="HundredString" minOccurs="0"/>
 				<xsd:element name="PowerSource" type="HundredString" minOccurs="0"/>
-				<xsd:element name="PPUCount" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="PPUCount" type="Dimension" minOccurs="0"/>
 				<xsd:element name="PPUCountType" type="String" minOccurs="0"/>
 				<xsd:element name="ShadeColor" type="String" minOccurs="0"/>
 				<xsd:element name="ShadeDiameter" type="LengthDimension" minOccurs="0"/>
@@ -141,11 +141,7 @@
 				<xsd:element name="Wattage" type="Dimension" minOccurs="0"/>
 				<xsd:element name="WeightedAnnualEnergyConsumption"	type="EnergyConsumptionDimension" minOccurs="0"/>
 				<xsd:element name="FixtureType" type="String" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
-				<xsd:element name="Model" type="StringNotNull" minOccurs="0"/>
-
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>					
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -179,10 +175,7 @@
 				<xsd:element name="Voltage" type="VoltageIntegerDimensionOptionalUnit" minOccurs="0"/>
 				<xsd:element name="Volume" type="VolumeDimension" minOccurs="0"/>
 				<xsd:element name="Wattage" type="Dimension" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="BaseWidth" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
-				<xsd:element name="IncludedAdditionalItemDescription" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -242,7 +235,7 @@
 				<xsd:element name="LumenMaintenanceFactor" type="xsd:decimal" minOccurs="0"/>
 				<xsd:element name="LuminousIntensity" type="LuminiousIntensityDimension" minOccurs="0"/>
 				<xsd:element name="MercuryContent" type="WeightDimension" minOccurs="0"/>
-				<xsd:element name="PPUCount" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="PPUCount" type="Dimension" minOccurs="0"/>
 				<xsd:element name="PPUCountType" type="String" minOccurs="0"/>
 				<xsd:element name="SpecificUses" type="String" minOccurs="0" maxOccurs="2"/>
 				<xsd:element name="Voltage" type="VoltageIntegerDimensionOptionalUnit" minOccurs="0"/>
@@ -271,9 +264,7 @@
 				<xsd:element name="Strands" type="String" minOccurs="0"/>
 				<xsd:element name="StrandDiameter" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="LightSourceDiameter" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ExternalTestingCertification" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>					
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

@@ -16,9 +16,13 @@
  */
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 using EasyKeys.AmazonMWS.Feeds.Model;
+using EasyKeys.AmazonMWS.Feeds.Schemas;
 
 namespace EasyKeys.AmazonMWS.Feeds.Test
 {
@@ -32,6 +36,49 @@ namespace EasyKeys.AmazonMWS.Feeds.Test
          */
         public static async Task Main(string[] args)
         {
+            var itemList = new List<OrderAcknowledgementItem>();
+            var item = new OrderAcknowledgementItem
+            {
+                AmazonOrderItemCode = "abc-134",
+                MerchantOrderItemID = "abc"
+            };
+            itemList.Add(item);
+
+            var list = new List<AmazonEnvelopeMessage>();
+            list.Add(new AmazonEnvelopeMessage
+            {
+                MessageID = "1",
+                Item = new OrderAcknowledgement
+                {
+                    AmazonOrderID = "111-111-111",
+                    MerchantOrderID = "12",
+                    StatusCode = OrderAcknowledgementStatusCode.Success,
+                    Item = itemList.ToArray()
+                }
+            });
+
+            var envelope = new AmazonEnvelope
+            {
+                Header = new Header
+                {
+                    DocumentVersion = "1.02",
+                    MerchantIdentifier = "id"
+                },
+                MessageType = AmazonEnvelopeMessageType.OrderAcknowledgement,
+                Message = list.ToArray()
+            };
+
+            var writer = new XmlSerializer(typeof(AmazonEnvelope));
+            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory))
+            {
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory);
+            }
+
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{Guid.NewGuid()}.xml");
+            var file = File.Create(path);
+            writer.Serialize(file, envelope);
+            file.Close();
+
             Console.WriteLine("===========================================");
             Console.WriteLine("Welcome to Marketplace Web Service Samples!");
             Console.WriteLine("===========================================");

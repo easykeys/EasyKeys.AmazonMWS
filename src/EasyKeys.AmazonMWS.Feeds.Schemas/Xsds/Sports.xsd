@@ -28,7 +28,6 @@
 							<xsd:enumeration value="GolfClubWedge"/>
 							<xsd:enumeration value="GolfClubWood"/>
 							<xsd:enumeration value="GolfClubs"/>
-							<xsd:enumeration value="SportGloves"/>
 						</xsd:restriction>
 					</xsd:simpleType>
 				</xsd:element>
@@ -57,7 +56,6 @@
 										<xsd:enumeration value="CaliberRounds"/>
 										<xsd:enumeration value="Capacity"/>
 										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="ColorName"/>
 										<xsd:enumeration value="ColorDesign"/>
 										<xsd:enumeration value="ColorFlavor"/>
 										<xsd:enumeration value="ColorItemThickness"/>
@@ -537,7 +535,7 @@
 				<xsd:element name="PocketDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="PositionAccuracy" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="PowerSource" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PPUCount" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="PPUCount" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="PPUCountType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ProportionalFrameSize" type="Dimension" minOccurs="0"/>
 				<xsd:element name="PullType" type="StringNotNull" minOccurs="0"/>
@@ -646,12 +644,6 @@
 				<xsd:element name="BatteryCellComposition" type="BatteryCellTypeValues" minOccurs="0"/>
 				<xsd:element name="BatteryDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="BatteryFormFactor" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="DistributionDesignation" type="DistributionDesignationValues" minOccurs="0"/>
-				<xsd:element name="CustomerRestrictionType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationMetadata" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationDateOfIssue" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="LegalComplianceCertificationExpirationDate" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Voltage" type="VoltageDecimalDimension" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

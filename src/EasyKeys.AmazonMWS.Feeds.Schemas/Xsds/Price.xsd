@@ -16,7 +16,7 @@
 			<xsd:sequence>
 				<xsd:element ref="SKU"/>
 				<xsd:element name="StandardPrice" type="OverrideCurrencyAmount" minOccurs="0"/>
-				<xsd:element name="StandardPricePoints" type="xsd:integer" minOccurs="0"/>
+				<xsd:element name="StandardPricePoints" type="PositiveInteger" minOccurs="0"/>
 				<xsd:element name="BusinessPrice" type="BasePriceCurrencyAmount" minOccurs="0"/>
 				<xsd:element name="QuantityPriceType" type="QuantityPriceTypes" minOccurs="0"/>
 				<xsd:element name="QuantityPrice" minOccurs="0">
@@ -45,7 +45,7 @@
 							<xsd:element name="StartDate" type="xsd:dateTime"/>
 							<xsd:element name="EndDate" type="xsd:dateTime"/>
 							<xsd:element name="SalePrice" type="OverrideCurrencyAmount"/>
-							<xsd:element name="SalePricePoints" type="xsd:integer" minOccurs="0"/>
+							<xsd:element name="SalePricePoints" type="PositiveInteger" minOccurs="0"/>
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
@@ -142,23 +142,10 @@
 					</xsd:complexType>
 				</xsd:element>
 				<xsd:element name="CostPerClickBidPrice" type="OverrideCurrencyAmount" minOccurs="0"/>
-                <xsd:element name="PricingAction" type="PricingActionValues" minOccurs="0"/>
-				<xsd:element name="MetalStandardPrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="DiamondStandardPrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="GemstoneStandardPrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MakingChargesStandardPrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="TaxStandardPrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MetalSalePrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="DiamondSalePrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="GemstoneSalePrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MakingChargesSalePrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="TaxSalePrice" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MaximumRetailPrice" type="OverrideCurrencyAmount" minOccurs="0"/>
-				<xsd:element name="IsSourcingOnDemand" type="IsSourcingOnDemandValues" minOccurs="0"/>
-				<xsd:element name="PricingStrategy" type="PricingStrategyValues" minOccurs="0"/>
-				<xsd:element name="MinimumOrderAmount" type="xsd:decimal" minOccurs="0"/>
-				<xsd:element name="MaximumOrderAmount" type="xsd:decimal" minOccurs="0"/>
-				<xsd:element name="OrderIncrement" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="MakeAnOfferEligibility" type="xsd:boolean" minOccurs="0"/>
+				<xsd:element name="MinimumAcceptPercentage" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="MaximumRejectPercentage" type="xsd:decimal" minOccurs="0"/>
+				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -174,14 +161,7 @@
 			<xsd:enumeration value="AUD"/>
 			<xsd:enumeration value="BRL"/>
 			<xsd:enumeration value="MXN"/>
-			<xsd:enumeration value="TRY"/>
 			<xsd:enumeration value="DEFAULT"/>
-			<xsd:enumeration value="AED"/>
-			<xsd:enumeration value="SAR"/>
-			<xsd:enumeration value="SGD"/>
-			<xsd:enumeration value="SEK"/>
-			<xsd:enumeration value="PLN"/>
-			<xsd:enumeration value="EGP"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:complexType name="CurrencyAmountWithDefault">
@@ -224,11 +204,6 @@
 		<xsd:restriction base="xsd:string">
 			<xsd:enumeration value="fixed"/>
 			<xsd:enumeration value="percent"/>
-		</xsd:restriction>
-	</xsd:simpleType>
-	<xsd:simpleType name="PricingActionValues">
-		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="delete business_price"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 </xsd:schema>

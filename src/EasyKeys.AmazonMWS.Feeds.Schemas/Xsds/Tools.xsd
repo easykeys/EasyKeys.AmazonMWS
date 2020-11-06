@@ -58,10 +58,8 @@
 		<xsd:element name="LithiumBatteryWeight" type="xsd:decimal" minOccurs="0"/>
 		<xsd:element name="NumberOfLithiumIonCells" type="xsd:positiveInteger" minOccurs="0"/>
 		<xsd:element name="NumberOfLithiumMetalCells" type="xsd:positiveInteger" minOccurs="0"/>
-		<xsd:element name="CustomerRestrictionType" type="StringNotNull" minOccurs="0"/>
-		<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
-       </xsd:sequence>
-      </xsd:complexType>
+            </xsd:sequence>
+        </xsd:complexType>
     </xsd:element>
 
 

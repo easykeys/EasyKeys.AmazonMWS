@@ -33,8 +33,7 @@
 							<xsd:element ref="Ridingboots"/>
 							<xsd:element ref="Autooil"/>
 							<xsd:element ref="Autobattery"/>
-							<xsd:element ref="Autochemical"/>
-							<xsd:element ref="CleaningOrRepairKit"/>							
+							<xsd:element ref="Autochemical"/>							
 						</xsd:choice>
 					</xsd:complexType>
 				</xsd:element>
@@ -197,7 +196,7 @@
 				<xsd:element name="AutoPartPosition" type="PositionType" minOccurs="0"/>		
 				<xsd:element name="DimmingControl" type="StringNotNull" minOccurs="0"/>		
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="WaterResistanceLevel" type="WaterResistantType" minOccurs="0"/>
 				<xsd:element name="ShaftDiameter" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ShellType" type="StringNotNull" minOccurs="0"/>
@@ -218,30 +217,13 @@
 				<xsd:element name="IsStainResistant" type="xsd:boolean" minOccurs="0"/>
 				<xsd:element name="IsAssemblyRequired" type="xsd:boolean" minOccurs="0"/>
 				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentCode" type="TwoThousandString" minOccurs="0"/>
+				<xsd:element name="VehicleFitmentCode" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentNote" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentStandard" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TransmissionType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="IgnitionSystemType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="BatteryWeight" type="xsd:decimal" minOccurs="0"/>
-				<xsd:element name="BatteryCapacity" type="BatteryPowerDimension" minOccurs="0"/>
-                <xsd:element name="LegalComplianceCertificationRegulatoryOrganizationName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationCertifyingAuthorityName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationGeographicJurisdiction" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationStatus" minOccurs="0" maxOccurs="1">
-					<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="compliant"/>
-							<xsd:enumeration value="noncompliant"/>
-							<xsd:enumeration value="exempt"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-                <xsd:element name="LegalComplianceCertificationMetadata" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationExpirationDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationDateOfIssue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="FitType" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="BatteryCapacity" type="BatteryPowerDimension" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -338,7 +320,7 @@
 				</xsd:element>
 				<xsd:element name="Viscosity" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="SizeMap" type="SizeMapType" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentCode" type="TwoThousandString" minOccurs="0"/>
+				<xsd:element name="VehicleFitmentCode" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentNote" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentStandard" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TransmissionType" type="StringNotNull" minOccurs="0"/>
@@ -361,7 +343,7 @@
 				<xsd:element name="AutoPartPosition" type="PositionType" minOccurs="0"/>		
 				<xsd:element name="DimmingControl" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="WaterResistanceLevel" type="WaterResistantType" minOccurs="0"/>
 				<xsd:element name="ShaftDiameter" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ShellType" type="StringNotNull" minOccurs="0"/>
@@ -381,26 +363,7 @@
 				<xsd:element name="BeamAngle" type="DegreeDimension" minOccurs="0"/>
 				<xsd:element name="IsStainResistant" type="xsd:boolean" minOccurs="0"/>
 				<xsd:element name="IsAssemblyRequired" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Coating" type="StringNotNull" minOccurs="0"/>				
-				<xsd:element name="HardwareInterface" type="HardwareInterfaceValues" minOccurs="0" maxOccurs="10"/>
-                <xsd:element name="LegalComplianceCertificationRegulatoryOrganizationName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationCertifyingAuthorityName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationGeographicJurisdiction" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationStatus" minOccurs="0" maxOccurs="1">
-					<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="compliant"/>
-							<xsd:enumeration value="noncompliant"/>
-							<xsd:enumeration value="exempt"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-                <xsd:element name="LegalComplianceCertificationMetadata" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationExpirationDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationDateOfIssue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="FitType" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>					
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -447,7 +410,6 @@
 				<xsd:element name="ItemPackageQuantity" type="xsd:positiveInteger" default="1" minOccurs="0"/>
 				<xsd:element name="Material" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Size" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SizeMap" type="SizeMapType" minOccurs="0"/>				
 				<xsd:element name="Voltage" type="xsd:positiveInteger" minOccurs="0">
 					<!-- Default unit of measure for Voltage is volts -->
 				</xsd:element>
@@ -455,14 +417,6 @@
 					<!-- Default unit of measure for Wattage is watts -->
 				</xsd:element>
 				<xsd:element name="CompatibleWithVehicleType" type="StringNotNull" minOccurs="0" maxOccurs="9"/>
-				<xsd:element name="AccessLocation" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="HardwareInterface" type="HardwareInterfaceValues" minOccurs="0"
-					maxOccurs="10"/>
-				<xsd:element name="Coating" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="FabricType" type="StringNotNull" minOccurs="0" maxOccurs="10"/>
-				<xsd:element name="MaximumHeightRecommended" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="MinimumHeightRecommended" type="LengthDimension" minOccurs="0"/>
-				<xsd:element name="LoadCapacity" type="WeightDimension" minOccurs="0"/>				
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ManufacturerWarrantyDescription" minOccurs="0">
 					<xsd:simpleType>
@@ -505,23 +459,6 @@
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
-                <xsd:element name="LegalComplianceCertificationRegulatoryOrganizationName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationCertifyingAuthorityName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationGeographicJurisdiction" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationStatus" minOccurs="0" maxOccurs="1">
-					<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="compliant"/>
-							<xsd:enumeration value="noncompliant"/>
-							<xsd:enumeration value="exempt"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-                <xsd:element name="LegalComplianceCertificationMetadata" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationExpirationDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationDateOfIssue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="FitType" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -695,7 +632,7 @@
 				<xsd:element name="CompatibleWithVehicleType" type="StringNotNull" minOccurs="0" maxOccurs="9"/>
 				<xsd:element name="AutoPartPosition" type="PositionType" minOccurs="0"/>
 				<xsd:element name="DimmingControl" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="WaterResistanceLevel" type="WaterResistantType" minOccurs="0"/>
 				<xsd:element name="ShaftDiameter" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ShellType" type="StringNotNull" minOccurs="0"/>
@@ -712,24 +649,7 @@
 				<xsd:element name="OperatingLife" type="TimeDimension" minOccurs="0"/>
 				<xsd:element name="IsStainResistant" type="xsd:boolean" minOccurs="0"/>
 				<xsd:element name="IsAssemblyRequired" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-                <xsd:element name="LegalComplianceCertificationRegulatoryOrganizationName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationCertifyingAuthorityName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationGeographicJurisdiction" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationStatus" minOccurs="0" maxOccurs="1">
-					<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="compliant"/>
-							<xsd:enumeration value="noncompliant"/>
-							<xsd:enumeration value="exempt"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-                <xsd:element name="LegalComplianceCertificationMetadata" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationExpirationDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationDateOfIssue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="FitType" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -828,7 +748,7 @@
 				<xsd:element name="CompatibleWithVehicleType" type="StringNotNull" minOccurs="0" maxOccurs="9"/>
 				<xsd:element name="AutoPartPosition" type="PositionType" minOccurs="0"/>
 				<xsd:element name="DimmingControl" type="StringNotNull" minOccurs="0"/>		
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="WaterResistanceLevel" type="WaterResistantType" minOccurs="0"/>
 				<xsd:element name="ShaftDiameter" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ShellType" type="StringNotNull" minOccurs="0"/>
@@ -846,24 +766,7 @@
 				<xsd:element name="IsExpirationDatedProduct" type="xsd:boolean"	minOccurs="0"/>					
 				<xsd:element name="IsStainResistant" type="xsd:boolean"	minOccurs="0"/>
 				<xsd:element name="IsAssemblyRequired" type="xsd:boolean"	minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-                <xsd:element name="LegalComplianceCertificationRegulatoryOrganizationName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationCertifyingAuthorityName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationGeographicJurisdiction" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationStatus" minOccurs="0" maxOccurs="1">
-					<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="compliant"/>
-							<xsd:enumeration value="noncompliant"/>
-							<xsd:enumeration value="exempt"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-                <xsd:element name="LegalComplianceCertificationMetadata" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationExpirationDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationDateOfIssue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="FitType" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>					
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -910,7 +813,6 @@
 				<xsd:element name="StyleKeywords" type="LongStringNotNull" maxOccurs="10"/>
 				<xsd:element name="ModelName" type="StringNotNull"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Season" type="HundredString" minOccurs="0"/>
 				<xsd:element name="ColorSpecification" minOccurs="0">
 					<xsd:complexType>
@@ -980,23 +882,6 @@
 						</xsd:restriction>
 					</xsd:simpleType>
 				</xsd:element>
-                <xsd:element name="LegalComplianceCertificationRegulatoryOrganizationName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationCertifyingAuthorityName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationGeographicJurisdiction" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationStatus" minOccurs="0" maxOccurs="1">
-					<xsd:simpleType>
-						<xsd:restriction base="xsd:string">
-							<xsd:enumeration value="compliant"/>
-							<xsd:enumeration value="noncompliant"/>
-							<xsd:enumeration value="exempt"/>
-						</xsd:restriction>
-					</xsd:simpleType>
-				</xsd:element>
-                <xsd:element name="LegalComplianceCertificationMetadata" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationExpirationDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationDateOfIssue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-                <xsd:element name="LegalComplianceCertificationValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
-				<xsd:element name="FitType" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1049,7 +934,7 @@
 				<xsd:element name="MaximumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="MinimumCircumference" type="LengthDimension" minOccurs="0"/>				
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
@@ -1088,9 +973,7 @@
 				<xsd:element name="OperatingLife" type="TimeDimension" minOccurs="0"/>
 				<xsd:element name="IsStainResistant" type="xsd:boolean" minOccurs="0"/>
 				<xsd:element name="IsAssemblyRequired" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SpecialSizeType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="NumberOfSpokes" type="xsd:positiveInteger" minOccurs="0"/>				
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1143,7 +1026,7 @@
 				<xsd:element name="MaximumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="MinimumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
@@ -1235,7 +1118,7 @@
 				<xsd:element name="MaximumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="MinimumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
@@ -1259,9 +1142,6 @@
 				<xsd:element name="SoleMaterial" type="LongString" minOccurs="0"/>
 				<xsd:element name="TreadDepth" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="UniformTireQualityGradeRating" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentCode" type="TwoThousandString" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentNote" type="String" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentStandard" type="StringNotNull" minOccurs="0"/>				
 				<xsd:element name="Viscosity" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Voltage" type="xsd:positiveInteger" minOccurs="0">
 					<!-- Default unit of measure for Voltage is volts -->
@@ -1326,7 +1206,7 @@
 				<xsd:element name="MaximumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="MinimumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
@@ -1408,7 +1288,7 @@
 				<xsd:element name="CompatibleWithVehicleType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="DimmingControl" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="InnerMaterial" type="LongString" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentCode" type="TwoThousandString" minOccurs="0"/>
+				<xsd:element name="VehicleFitmentCode" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentNote" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentStandard" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TransmissionType" type="StringNotNull" minOccurs="0"/>
@@ -1421,7 +1301,7 @@
 				<xsd:element name="MaximumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="MinimumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
@@ -1519,7 +1399,7 @@
 				<xsd:element name="MaximumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="MinimumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>				
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
@@ -1584,7 +1464,7 @@
 				<xsd:element name="IsStainResistant" type="xsd:boolean"	minOccurs="0"/>
 				<xsd:element name="IsAssemblyRequired" type="xsd:boolean"	minOccurs="0"/>
 				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentCode" type="TwoThousandString" minOccurs="0"/>
+				<xsd:element name="VehicleFitmentCode" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentNote" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentStandard" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="TransmissionType" type="StringNotNull" minOccurs="0"/>
@@ -1643,7 +1523,7 @@
 				<xsd:element name="MaximumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="MinimumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
@@ -1731,7 +1611,7 @@
 				<xsd:element name="MaximumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="MinimumCircumference" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="ModelName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelNumber" type="StringNotNull" minOccurs="0"/>
+				<xsd:element name="ModelNumber" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
 				<xsd:element name="NumberOfGrooves" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="NumberOfHoles" type="xsd:positiveInteger" minOccurs="0"/>
@@ -1772,7 +1652,7 @@
 				<xsd:element name="OperatingLife" type="TimeDimension" minOccurs="0"/>
 				<xsd:element name="IsStainResistant" type="xsd:boolean" minOccurs="0"/>
 				<xsd:element name="IsAssemblyRequired" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>			
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1786,44 +1666,9 @@
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
-				<xsd:element name="VehicleFitmentCode" type="TwoThousandString" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentNote" type="String" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentStandard" type="StringNotNull" minOccurs="0"/>				
 				<xsd:element name="Viscosity" type="StringNotNull" minOccurs="0"/>				
 				<xsd:element name="WarrantyDescription" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Material" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>						
-				</xsd:element>
-				<xsd:element name="ColorSpecification" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Color" type="StringNotNull"/>
-							<xsd:element name="ColorMap" type="StringNotNull"/>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="Size" type="String" minOccurs="0"/>
-				<xsd:element name="SizeMap" type="SizeMapType" minOccurs="0"/>				
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>					
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1837,49 +1682,9 @@
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
-				<xsd:element name="VehicleFitmentCode" type="TwoThousandString" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentNote" type="String" minOccurs="0"/>
-				<xsd:element name="VehicleFitmentStandard" type="StringNotNull" minOccurs="0"/>				
 				<xsd:element name="Viscosity" type="StringNotNull" minOccurs="0"/>				
 				<xsd:element name="WarrantyDescription" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>					
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-	<xsd:element name="CleaningOrRepairKit">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>						
-				</xsd:element>
-				<xsd:element name="ColorSpecification" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Color" type="StringNotNull"/>
-							<xsd:element name="ColorMap" type="StringNotNull"/>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>
-				<xsd:element name="Size" type="String" minOccurs="0"/>
-				<xsd:element name="SizeMap" type="SizeMapType" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>	
@@ -1922,7 +1727,7 @@
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
-				<xsd:element name="VehicleFitmentCode" type="TwoThousandString" minOccurs="0"/>
+				<xsd:element name="VehicleFitmentCode" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentNote" type="String" minOccurs="0"/>
 				<xsd:element name="VehicleFitmentStandard" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="BatteryWeight" type="xsd:decimal" minOccurs="0"/>

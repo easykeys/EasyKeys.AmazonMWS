@@ -22,7 +22,6 @@
 						<xsd:choice>
 							<xsd:element ref="WirelessAccessories"/>
 							<xsd:element ref="WirelessDownloads"/>
-							<xsd:element ref="WirelessLockedPhone"/>
 						</xsd:choice>
 					</xsd:complexType>
 				</xsd:element>
@@ -94,57 +93,6 @@
 				<xsd:element name="ItemPackageQuantity" type="xsd:positiveInteger" minOccurs="0"/>
 				<xsd:element name="HeadsetType" type="HeadsetTypeValue" minOccurs="0"/>
 				<xsd:element name="HeadsetStyle" type="HeadsetStyleValue" minOccurs="0"/>
-				<xsd:element name="PrepaidFeatures" type="StringNotNull" minOccurs="0" maxOccurs="2"/>
-				<xsd:element name="PhoneType" type="StringNotNull" minOccurs="0" />
-				<xsd:element name="PhoneStyle" type="StringNotNull" minOccurs="0" />
-				<xsd:element name="OperatingSystem" type="StringNotNull" minOccurs="0" />
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
-			</xsd:sequence>
-		</xsd:complexType>
-	</xsd:element>
-	
-		<!--
-	###############################################################
-	# WIRELESS_LOCKED_PHONE Classification Data
-	###############################################################
-	-->
-		<xsd:element name="WirelessLockedPhone">
-		<xsd:complexType>
-			<xsd:sequence>
-				<xsd:element name="VariationData" minOccurs="0">
-					<xsd:complexType>
-						<xsd:sequence>
-							<xsd:element name="Parentage">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="parent"/>
-										<xsd:enumeration value="child"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-							<xsd:element name="VariationTheme" minOccurs="0">
-								<xsd:simpleType>
-									<xsd:restriction base="xsd:string">
-										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="Size"/>
-										<xsd:enumeration value="Size-Color"/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:element>
-						</xsd:sequence>
-					</xsd:complexType>
-				</xsd:element>			
-				<xsd:element name="LanguageValue" type="LanguageStringType" minOccurs="0"/>
-				<xsd:element name="ShaftStyleType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="FabricType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ImportDesignation" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="CompatiblePhoneModels" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="SubjectKeywords" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="OperatingSystem" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ModelYear" type="FourDigitYear" minOccurs="0"/>
-				<xsd:element name="WirelessProvider" type="WirelessProviderTypes" minOccurs="0"/>
-				<xsd:element name="SizeName" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ColorName" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -161,7 +109,6 @@
 				<xsd:element name="AdditionalFeatures" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="Keywords" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
 				<xsd:element name="ApplicationVersion" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -176,41 +123,6 @@
 			<xsd:enumeration value="over-the-ear"/>
 			<xsd:enumeration value="behind-the-ear"/>
 			<xsd:enumeration value="in-the-ear"/>
-		</xsd:restriction>
-	</xsd:simpleType>
-	<xsd:simpleType name="WirelessProviderTypes">
-		<xsd:restriction base="xsd:string">
-		<xsd:enumeration value="unknown_wireless_provider_type"/>
-		<xsd:enumeration value="everything_everywhere"/>
-		<xsd:enumeration value="algar_telecom"/>
-		<xsd:enumeration value="att"/>
-		<xsd:enumeration value="base"/>
-		<xsd:enumeration value="blue"/>
-		<xsd:enumeration value="cabo_telecom"/>
-		<xsd:enumeration value="cingular"/>
-		<xsd:enumeration value="claro"/>
-		<xsd:enumeration value="congstar"/>
-		<xsd:enumeration value="correios"/>
-		<xsd:enumeration value="earthlink"/>
-		<xsd:enumeration value="embratel"/>
-		<xsd:enumeration value="go"/>
-		<xsd:enumeration value="ig_internet_group"/>
-		<xsd:enumeration value="intelig_telecom"/>
-		<xsd:enumeration value="mobilcom"/>
-		<xsd:enumeration value="net"/>
-		<xsd:enumeration value="nextel"/>
-		<xsd:enumeration value="o2"/>
-		<xsd:enumeration value="oi"/>
-		<xsd:enumeration value="orange"/>
-		<xsd:enumeration value="t_mobile"/>
-		<xsd:enumeration value="telefonica"/>
-		<xsd:enumeration value="tesco"/>
-		<xsd:enumeration value="tim"/>
-		<xsd:enumeration value="uol_universo_online"/>
-		<xsd:enumeration value="verizon"/>
-		<xsd:enumeration value="virgin_mobile"/>
-		<xsd:enumeration value="vodafone"/>
-		<xsd:enumeration value="whatsapp_sim"/>
 		</xsd:restriction>
 	</xsd:simpleType>	
 </xsd:schema>

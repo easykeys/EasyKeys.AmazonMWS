@@ -48,34 +48,20 @@
 										<xsd:enumeration value="Color"/>
 										<xsd:enumeration value="Flavor"/>
 										<xsd:enumeration value="Flavor-Size"/>
-										<xsd:enumeration value="CustomerPackageType"/>
-										<xsd:enumeration value="ColorName-CustomerPackageType"/>
-										<xsd:enumeration value="SizeName-CustomerPackageType"/>
-										<xsd:enumeration
-											value="SizeName-ColorName-CustomerPackageType"/>
-										<xsd:enumeration value="StyleName-CustomerPackageType"/>
-										<xsd:enumeration
-											value="SizeName-StyleName-CustomerPackageType"/>
 									</xsd:restriction>
 								</xsd:simpleType>
 							</xsd:element>
 							<xsd:element name="Size" type="StringNotNull" minOccurs="0"/>
 							<xsd:element name="Color" type="StringNotNull" minOccurs="0"/>
 							<xsd:element name="Flavor" type="StringNotNull" minOccurs="0"/>
-							<xsd:element name="StyleName" type="StringNotNull" minOccurs="0"/>
 						</xsd:sequence>
 					</xsd:complexType>
 				</xsd:element>
-				<xsd:element name="CanShipInOriginalContainer" type="xsd:boolean" minOccurs="0"/>
-				<xsd:element name="CustomerPackageType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="IdentityPackageType" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="CountryProducedIn" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="Ingredients" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="NutritionalFacts" type="LongStringNotNull" minOccurs="0"/>
-				<xsd:element name="KosherCertification" type="HundredString" minOccurs="0"
-					maxOccurs="5"/>
-				<xsd:element name="OrganicCertification" type="StringNotNull" minOccurs="0"
-					maxOccurs="5"/>
+				<xsd:element name="KosherCertification" type="HundredString" minOccurs="0" maxOccurs="5"/>
+				<xsd:element name="OrganicCertification" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
 				<xsd:element name="ItemSpecialty" type="StringNotNull" minOccurs="0" maxOccurs="5"/>
 				<xsd:element name="Warnings" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="Directions" type="LongStringNotNull" minOccurs="0"/>
@@ -87,9 +73,8 @@
 				<xsd:element name="UnitCount" minOccurs="0">
 					<xsd:complexType>
 						<xsd:simpleContent>
-							<xsd:extension base="xsd:decimal">
-								<xsd:attribute name="unitOfMeasure" type="StringNotNull"
-									use="required"/>
+							<xsd:extension base="xsd:positiveInteger">
+								<xsd:attribute name="unitOfMeasure" type="StringNotNull" use="required"/>
 							</xsd:extension>
 						</xsd:simpleContent>
 					</xsd:complexType>

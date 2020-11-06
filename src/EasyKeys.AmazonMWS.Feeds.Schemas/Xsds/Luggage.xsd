@@ -38,9 +38,6 @@
 									<xsd:restriction base="xsd:string">
 										<xsd:enumeration value="SizeName"/>
 										<xsd:enumeration value="ColorName"/>
-										<xsd:enumeration value="Size"/>
-										<xsd:enumeration value="Color"/>
-										<xsd:enumeration value="ColorSize"/>
 										<xsd:enumeration value="SizeName-ColorName"/>
 									</xsd:restriction>
 								</xsd:simpleType>

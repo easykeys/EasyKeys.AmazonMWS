@@ -52,13 +52,12 @@
 				<xsd:element name="Designer" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ArtistID" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="EstatePeriod" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="UnitCoint" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="UnitCoint" type="PositiveInteger" minOccurs="0"/>
 				<xsd:element name="MaterialType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemDiameter" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="TotalMetalWeight" type="WeightDimension" minOccurs="0"/>
 				<xsd:element name="MetalStamp" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="CountryOfOrigin" type="CountryOfOriginType" minOccurs="0"/>
-				<xsd:element name="LabelDescription" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -83,14 +82,12 @@
 				<xsd:element name="Designer" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ArtistID" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="EstatePeriod" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="UnitCoint" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="UnitCoint" type="PositiveInteger" minOccurs="0"/>
 				<xsd:element name="MaterialType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemDiameter" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="TotalMetalWeight" type="WeightDimension" minOccurs="0"/>
 				<xsd:element name="MetalStamp" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="CountryOfOrigin" type="CountryOfOriginType" minOccurs="0"/>
-				<xsd:element name="LabelDescription" type="StringNotNull" minOccurs="0"/>
-
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -115,22 +112,12 @@
 				<xsd:element name="Designer" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ArtistID" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="EstatePeriod" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="UnitCoint" type="xsd:decimal" minOccurs="0"/>
+				<xsd:element name="UnitCoint" type="PositiveInteger" minOccurs="0"/>
 				<xsd:element name="MaterialType" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="ItemDiameter" type="LengthDimension" minOccurs="0"/>
 				<xsd:element name="TotalMetalWeight" type="WeightDimension" minOccurs="0"/>
 				<xsd:element name="MetalStamp" type="StringNotNull" minOccurs="0"/>
 				<xsd:element name="CountryOfOrigin" type="CountryOfOriginType" minOccurs="0"/>
-				<xsd:element name="LabelDescription" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="BackLabelImageUrl" type="xsd:anyURI" minOccurs="0"/>
-				<xsd:element name="FabricType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ItemShape" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MetalType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ContactPlatingMaterialType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Model" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="CertificateType" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Importer" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ManufacturerContactInformation" type="StringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>

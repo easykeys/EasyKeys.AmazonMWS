@@ -95,7 +95,6 @@
 					minOccurs="0"/>
 				<xsd:element name="Warnings" type="LongStringNotNull" minOccurs="0"/>
 				<xsd:element name="DeliveryScheduleGroupId" type="LongStringNotNull" minOccurs="0"/>
-				<xsd:element name="WarrantyDescription" type="SuperLongStringNotNull" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -156,11 +155,7 @@
 				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
 				<xsd:element name="Wattage" type="PositiveInteger" minOccurs="0"/>
 				<xsd:element name="WriteSpeed" type="FiveStringNotNull" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="ProcessorSocket" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="RAID" type="String" minOccurs="0"/>
-				<xsd:element name="WirelessStandard" type="WirelessStandardTypeValues" minOccurs="0"/>
-				<xsd:element ref="ComputerMemoryType" minOccurs="0" maxOccurs="10"/>				
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -209,8 +204,7 @@
 				<xsd:element ref="TotalUSB1.1Connectors" minOccurs="0"/>
 				<xsd:element ref="TotalUSB2.0Connectors" minOccurs="0"/>
 				<xsd:element ref="TotalUSB3.0Connectors" minOccurs="0"/>
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Wattage" type="PositiveInteger" minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>					
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -236,8 +230,8 @@
 				<xsd:element ref="ModelNumber" minOccurs="0"/>
 				<xsd:element name="MonitorTunerTechnology" type="StringNotNull" minOccurs="0"/>
 				<xsd:element ref="MonitorBrightness" minOccurs="0"/>
-                                <xsd:element ref="MonitorConnectors" minOccurs="0" maxOccurs="5"/>
-                                <xsd:element name="ResponseTime" type="TimeDimension" minOccurs="0"/>
+				<xsd:element ref="MonitorConnectors" minOccurs="0" maxOccurs="5"/>
+				<xsd:element ref="ResponseTime" minOccurs="0"/>
 				<xsd:element ref="ScreenResolution" minOccurs="0"/>
 				<xsd:element ref="ScreenSize" minOccurs="0"/>
 				<xsd:element ref="TunerTechnology" minOccurs="0"/>
@@ -327,9 +321,7 @@
 				<xsd:element name="SpecificUsesForProduct" type="String" minOccurs="0" />
 				<xsd:element name="SupportedSoftware" type="String" minOccurs="0" />
 				<xsd:element name="NumberOfDVIPorts" type="PositiveInteger" minOccurs="0" />
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MfrWarrantyDescriptionLabor" type="SuperLongStringNotNull"
-					minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -413,9 +405,7 @@
 				<xsd:element name="SpecificUsesForProduct" type="String" minOccurs="0" />
 				<xsd:element name="SupportedSoftware" type="String" minOccurs="0" />
 				<xsd:element name="NumberOfDVIPorts" type="PositiveInteger" minOccurs="0" />
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="MfrWarrantyDescriptionLabor" type="SuperLongStringNotNull"
-					minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>					
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -508,8 +498,7 @@
 				<xsd:element ref="Zoom" minOccurs="0"/>
 				<xsd:element ref="ZoomRatio" minOccurs="0"/>
 				<xsd:element name="NumberOfDVIPorts" type="PositiveInteger" minOccurs="0" />
-				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>
-				<xsd:element name="Voltage" type="PositiveInteger" minOccurs="0"/>
+				<xsd:element name="Efficiency" type="StringNotNull" minOccurs="0"/>				
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -549,7 +538,6 @@
 				<xsd:element ref="PrivacyScreenSize" minOccurs="0"/>
 				<xsd:element ref="Voltage" minOccurs="0"/>
 				<xsd:element ref="Wattage" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -569,7 +557,6 @@
 				<xsd:element ref="HeatsinkMaterial" minOccurs="0"/>
 				<xsd:element ref="LargestFanSize" minOccurs="0"/>
 				<xsd:element ref="ModelNumber" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -592,7 +579,6 @@
 				<xsd:element ref="PresentationRemoteOperatingDistance" minOccurs="0"/>
 				<xsd:element ref="PrimaryHeadphoneUse" minOccurs="0"/>
 				<xsd:element ref="TrackingMethod" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -609,10 +595,6 @@
 				<xsd:element ref="ProcessorSeries" minOccurs="0"/>
 				<xsd:element ref="ProcessorSocket" minOccurs="0"/>
 				<xsd:element ref="ProcessorSpeed" minOccurs="0"/>
-				<xsd:element name="Wattage" type="PositiveInteger" minOccurs="0"/>
-				<xsd:element name="RAID" type="String" minOccurs="0"/>
-				<xsd:element ref="ComputerMemoryType" minOccurs="0" maxOccurs="10"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -641,7 +623,6 @@
 				<xsd:element ref="SpeakerSurroundSoundChannelConfiguration" minOccurs="0"/>
 				<xsd:element ref="Voltage" minOccurs="0"/>
 				<xsd:element ref="Wattage" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -664,7 +645,6 @@
 				<xsd:element ref="TVTunerVideoStandard" minOccurs="0"/>
 				<xsd:element ref="Voltage" minOccurs="0"/>
 				<xsd:element ref="Wattage" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -684,7 +664,6 @@
 				<xsd:element ref="Voltage" minOccurs="0"/>
 				<xsd:element ref="Wattage" minOccurs="0"/>
 				<xsd:element ref="WirelessStandard" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -722,7 +701,6 @@
 				<xsd:element ref="Wattage" minOccurs="0"/>
 				<xsd:element ref="WirelessStandard" minOccurs="0"/>
 				<xsd:element ref="WriteSpeed" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -786,7 +764,6 @@
 				<xsd:element ref="WirelessDataTransferRate" minOccurs="0"/>
 				<xsd:element ref="WirelessRouterTransmissionBand" minOccurs="0"/>
 				<xsd:element ref="WirelessTechnology" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -827,7 +804,6 @@
 				<xsd:element ref="SpeakerOut" minOccurs="0"/>
 				<xsd:element ref="Voltage" minOccurs="0"/>
 				<xsd:element ref="Wattage" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -862,7 +838,6 @@
 				<xsd:element ref="TotalNumberOfInternalBays" minOccurs="0"/>
 				<xsd:element ref="Voltage" minOccurs="0"/>
 				<xsd:element ref="Wattage" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -883,7 +858,6 @@
 				<xsd:element ref="SLICertification" minOccurs="0"/>
 				<xsd:element ref="Voltage" minOccurs="0"/>
 				<xsd:element ref="Wattage" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1011,7 +985,6 @@
 				<xsd:element ref="Wattage" minOccurs="0"/>
 				<xsd:element ref="WebcamVideoCaptureResolution" minOccurs="0"/>
 				<xsd:element ref="WirelessStandard" minOccurs="0"/>
-				<xsd:element name="PowerPlugType" type="PowerPlugType" minOccurs="0"/>
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
@@ -1604,7 +1577,6 @@
 			<xsd:enumeration value="72_pin_edo_simm"/>
 			<xsd:enumeration value="ddr2_sdram"/>
 			<xsd:enumeration value="ddr3_sdram"/>
-			<xsd:enumeration value="ddr4_sdram"/>
 			<xsd:enumeration value="ddr_dram"/>
 			<xsd:enumeration value="ddr_sdram"/>
 			<xsd:enumeration value="dimm"/>
@@ -2148,28 +2120,6 @@
 			<xsd:enumeration value="bluetooth"/>
 			<xsd:enumeration value="infrared"/>
 			<xsd:enumeration value="radio_frequency"/>
-			<xsd:enumeration value="5_ghz_radio_frequency"/>			
-			<xsd:enumeration value="802_11_AGN"/>
-            <xsd:enumeration value="802_11_BG"/>
-            <xsd:enumeration value="801_11_AC"/>
-            <xsd:enumeration value="802_11_AD"/>
-            <xsd:enumeration value="802_11_AGNAC"/>
-            <xsd:enumeration value="802_11_GN"/>
-            <xsd:enumeration value="802_11_BNAC"/>
-            <xsd:enumeration value="2.4_ghz_radio_frequency"/>
-            <xsd:enumeration value="5.8_ghz_radio_frequency"/>
-            <xsd:enumeration value="54g"/>
-            <xsd:enumeration value="802_11_AB"/>
-            <xsd:enumeration value="802_11_ABGNAC"/>
-            <xsd:enumeration value="802_11_BGN"/>
-            <xsd:enumeration value="802_11_G_108Mbps"/>
-            <xsd:enumeration value="802_11_G_54Mbps"/>
-            <xsd:enumeration value="802_11_N"/>
-            <xsd:enumeration value="900_mhz_radio_frequency"/>
-            <xsd:enumeration value="dect"/>
-            <xsd:enumeration value="dect_6.0"/>
-            <xsd:enumeration value="irda"/>
-            <xsd:enumeration value="802_11_AC"/>	
 		</xsd:restriction>
 	</xsd:simpleType>
 

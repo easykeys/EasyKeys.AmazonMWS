@@ -17,19 +17,15 @@
     <xsd:element name="OrderFulfillment">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:choice>
-                    <xsd:element ref="AmazonOrderID"/>
-                    <xsd:element ref="MerchantOrderID"/>
-                </xsd:choice>
+                <xsd:element ref="AmazonOrderID"/>
+                <xsd:element ref="MerchantOrderID"/> 
                 <xsd:element name="MerchantFulfillmentID" type="IDNumber" minOccurs="0"/>
                 <xsd:element name="FulfillmentDate" type="xsd:dateTime"/>
                 <xsd:element name="FulfillmentData" minOccurs="0">
                     <xsd:complexType>
-                        <xsd:sequence>
-                            <xsd:choice>
-                                <xsd:element ref="CarrierCode"/>
-                                <xsd:element name="CarrierName" type="String"/>
-                            </xsd:choice>
+                        <xsd:sequence> 
+                            <xsd:element ref="CarrierCode"/>
+                            <xsd:element name="CarrierName" type="String"/> 
                             <xsd:element name="ShippingMethod" type="String" minOccurs="0"/>
                             <xsd:element name="ShipperTrackingNumber" type="String" minOccurs="0"/>
                         </xsd:sequence>
@@ -47,14 +43,13 @@
                 <xsd:element name="Item" minOccurs="0" maxOccurs="unbounded">
                     <xsd:complexType>
                         <xsd:sequence>
-                            <xsd:choice>
+                             
                                 <xsd:element ref="AmazonOrderItemCode"/>
                                 <xsd:element ref="MerchantOrderItemID"/>
-                            </xsd:choice>
+                             
                             <xsd:element name="MerchantFulfillmentItemID" type="IDNumber"
                                 minOccurs="0"/>
                             <xsd:element name="Quantity" type="xsd:positiveInteger" minOccurs="0"/>
-                             <xsd:element name="TransparencyCode" type="xsd:string" minOccurs="0" maxOccurs="10"/>
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>
